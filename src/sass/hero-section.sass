@@ -1,16 +1,37 @@
-.section
-  background: url('/img/bg.png'), linear-gradient(90deg, #2E2E6E 0%, #61367B 100%) no-repeat
-  background-size: cover
-  background-position: right bottom
-  height: 100vh
+.home
+  padding: 1.7rem 0 24rem
+  background: url('/img/bg.png') right bottom / cover no-repeat, linear-gradient(90deg, #2E2E6E 0%, #61367B 100%)
 
-.logo
-  margin-bottom: 11.3rem
+
+.header-block
+  
+  @media #{$media-sm-plus-up}
+    max-width: 53rem
+
+  @media #{$media-lg-up}
+    max-width: 74rem
 
 .header
   color: $color_white
   font-size: 3.6rem
   line-height: 1.1em
+  font-family: 'Montserrat-Bold'
+
+  @media #{$media-sm-plus-up}
+    font-size: 5rem
+    line-height: 1em
+
+  @media #{$media-lg-up}
+    font-size: 7rem
+    line-height: 1em
+
+  .accent
+    font-family: 'Montserrat-Light'
+    font-weight: 300
+    color: $color_red
 
 .content
-  padding: 4.7rem
+  padding: 5rem
+    
+  @media #{$media-sm-plus-up}
+    padding: 10.2rem 10.4rem

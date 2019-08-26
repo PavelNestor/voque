@@ -2,4 +2,46 @@
 // Default navbar
 //----------------------------------
 .navbar
-  padding: 1rem 2.1rem
+  padding: 0 2rem
+  position: fixed
+  margin: -.9rem 0
+
+  @media #{$media-sm-plus-up}
+    display: block
+    height: 100vh
+    width: fit-content
+    // position: absolute
+
+.menu
+  display: none
+
+  @media #{$media-sm-plus-up}
+    display: block
+    height: 100%
+    padding: 23.3rem 0
+
+  @media #{$media-lg-up}
+    padding: 25rem 0
+
+  &__item
+    cursor: pointer
+    width: 40%
+    height: 1rem
+    border-bottom: 1px solid $color_white
+    margin-bottom: 4rem
+
+  &__item-active
+    width: 73%
+    border-bottom: 1px solid $color_red
+
+.logo-wrapper
+  position: fixed
+  padding: 0 0 0 8rem
+
+
+.logo
+  position: sticky
+  top: 0
+
+  @media #{$media-sm-plus-up}
+    margin-bottom: 20rem

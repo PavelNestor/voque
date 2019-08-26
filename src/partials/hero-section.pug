@@ -1,7 +1,13 @@
-extends section-layout
+block vars
+  - var navigation = 'home'
 
 block content
-  .section
+  section.home
+    block navigation
+        include navigation
     .content
-      img.logo(src='img/logo.svg')
-      h1.header outsourcing & advertising services
+      .header-block
+        h1.header 
+          | outsourcing 
+          span.accent & 
+          | advertising services
