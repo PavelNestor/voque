@@ -4,7 +4,9 @@ block vars
 	- var title = "Vogus"
 
 block content
+	include partials/navigation
+	img.logo(src='img/logo.svg', id='logo')
 	include partials/hero-section
 	include partials/about-section
-	//- include partials/development-section
+	include partials/development-section
 

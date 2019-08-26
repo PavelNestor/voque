@@ -2,9 +2,9 @@ block vars
   - var navigation = 'home'
 
 block content
-  section.home
-    block navigation
-        include navigation
+  section.home(data-logo='img/logo.svg', data-menu='img/menu.svg')
+    //- block navigation
+        //- include navigation
     .content
       .header-block
         h1.header 

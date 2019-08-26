@@ -124,10 +124,10 @@ gulp.task('watch', function() {
 	if (isBuild) {
 		return;
 	}
-	gulp.watch(path.watch.html, gulp.parallel('pug'));
-	gulp.watch(path.watch.style, gulp.parallel('sass'));
-	gulp.watch(path.watch.js, gulp.parallel('scripts'));
-	gulp.watch(path.watch.img, gulp.parallel('images'));
+	gulp.watch(path.watch.html, gulp.series('pug'));
+	gulp.watch(path.watch.style, gulp.series('sass'));
+	gulp.watch(path.watch.js, gulp.series('scripts'));
+	gulp.watch(path.watch.img, gulp.series('images'));
 });
 
 // DEFAULT

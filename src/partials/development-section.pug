@@ -1,33 +1,22 @@
 block vars
-  - var navigation = 'about'
+  - var navigation = 'development'
 
 block content
-  section.about
-    .navbar
-      img(src='/img/menu.svg', alt="Menu")
-      .menu
-        .menu__item.menu__item-about.menu__item-active
-        .menu__item.menu__item-about
-        .menu__item.menu__item-about
-        .menu__item.menu__item-about
-        .menu__item.menu__item-about
-    img.about__logo(src='img/logo-black.svg')
-    .about__content
-      .side-text about voqus
-      .about__text-wrapper
-        div
-          .about__header-wrapper
-            span.about__slash /
-            h2.about__header 
-              | about vo
-              span.about__q q
-              | us
-          p.about__text Voqus.net is an innovative software development and advertising company build on mutual trust and exceptional experience of our team members. 
-
-        .about__second-text
-          p.about__text.about__text-small The entrepreneurial skills and technology-driven atmosphere of our company makes it possible to bring the most challenging and crazy ideas to life. 
-          p.about__text.about__text-small All this unites into powerful knowledge engine capable of producing unique solutions when it comes to web design, development or digital advertising.
-
+  section.development(data-logo='img/logo.svg', data-menu='img/menu.svg')
+    .side-text development
+    .development__row
+      .development__col
+        .development__wrapper
+          .development__header-wrapper
+            span.development__slash /
+            h2.development__header development
+          p.development__text Our ad tech experts have been engaged in development of customized platform solutions for different clients across the globe. 
+          p We obtained enormous expertise in creating DSP/SSP, Open RTB and TDS platforms as well as Ad fraud/Scoring software. Our tech team is open to any challenges and can handle even the most complicated task set by a client. 
+      .development__col
+        .development__second-text
+          p.development__text.development__text-small The entrepreneurial skills and technology-driven atmosphere of our company makes it possible to bring the most challenging and crazy ideas to life. 
+          p.development__text.development__text-small All this unites into powerful knowledge engine capable of producing unique solutions when it comes to web design, development or digital advertising.
+    .development__row.development__btn
       a.button-outline(href='/') read more
     
 

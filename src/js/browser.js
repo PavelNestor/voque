@@ -1,6 +1,8 @@
 export function browser() {
 	"use strict";
 
+	console.log('browser');
+	
 	function uaMatch( ua ) {
 		// If an UA is not provided, default to the current browser UA.
 		if ( ua === undefined ) {

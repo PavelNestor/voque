@@ -1,8 +1,29 @@
 .about
-  padding: 1.7rem 0
+  display: flex
+  flex-direction: column
+  padding: 25.4rem 0
+  overflow: hidden
 
   // @media #{$media-sm-plus-up}
   //   padding: 5.7rem 0
+
+  &__btn
+    margin-top: -6.4rem
+
+  &__row
+    display: flex
+    padding: 0 9.6rem 0 11.3rem
+
+  &__col
+    // flex-basis: 50%
+    justify-content: center
+
+    &:nth-child(1)
+      padding: 0 7rem 0 0
+
+    &:nth-child(2)
+      padding: 0 0 0 10rem
+      margin: -12px -0.6rem
 
   .menu__item-about
       border-bottom: 1px solid $color
@@ -23,7 +44,7 @@
     margin-bottom: 3.4rem
 
     @media #{$media-sm-plus-up}
-      margin-bottom: 3rem
+      margin-bottom: 2.5rem
 
     @media #{$media-lg-up}
       margin-bottom: 1.8rem
@@ -66,19 +87,6 @@
       font-size: 5.2rem
       margin-left: -1rem
 
-  &__logo
-    margin: 0 auto
-    display: block
-    padding: 0
-
-    @media #{$media-sm-plus-up}
-      padding: 0 10.3rem
-      margin: 0
-
-    @media #{$media-lg-up}
-      padding: 0 13.9rem
-
-
   &__text
     font-size: 2rem
     line-height: 2.5rem
@@ -88,26 +96,22 @@
       // width: 72%
 
   &__wrapper
-    flex-basis: 50%
+    // flex-basis: 50%
 
     @media #{$media-lg-up}
       padding: 0 13rem 0 0
 
 
-  &__second-text
-    flex-basis: 50%
-    font-size: 2rem
-    line-height: 2.5rem
+  // &__second-text
+  //   flex-basis: 50%
+  //   font-size: 2rem
+  //   line-height: 2.5rem
 
-    @media #{$media-sm-plus-up}
-      padding: .8rem 0
-      display: flex
-      flex-direction: column
-      margin: -2.5rem
-      align-items: center
+  //   @media #{$media-sm-plus-up}
+  //     margin: -2.5rem
 
-    @media #{$media-lg-up}
-      padding: 3.1rem 0 0 8rem
+  //   @media #{$media-lg-up}
+  //     padding: 3.1rem 0 0 8rem
 
   &__text-small
     font-size: 1.8rem
