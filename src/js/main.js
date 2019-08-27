@@ -3,6 +3,27 @@
 
 // browser();
 
+const handlerToogleMenu = (function (user) {
+  'use strict';
+
+  var menu = document.getElementById("menu");
+  var menuClose = document.getElementById("menu-close");
+  var menuContent = document.getElementById("menu-content");
+
+  const onToogleMenu = () => {
+
+    console.log('menu', menu);
+    console.log('menuContent', menuContent);
+    menuContent.classList.toggle("menu-show");
+  }
+
+  menu.addEventListener("click", onToogleMenu);
+  menuClose.addEventListener("click", onToogleMenu);
+  // menu.removeEventListener("click", onToogleMenu)
+});
+
+handlerToogleMenu();
+
 window.addEventListener('scroll', function () {
   var logo = document.getElementById("logo");
   var menu = document.getElementById("menu");

@@ -276,3 +276,65 @@ input[type='number']
 	@media #{$media-lg-up}
 		font-size: 15rem
 		top: 61vh
+
+.dual__row
+	align-items: center
+	display: flex
+	flex-direction: column
+	justify-content: center
+	height: 100%
+
+	@media #{$media-sm-plus-up}
+		flex-direction: row
+
+.dual__cel
+	flex-basis: 50%
+	height: 100%
+	padding: 0 3rem
+
+	&:nth-child(1)
+		display: flex
+		flex-direction: column
+		align-items: center
+		justify-content: flex-end
+
+		@media #{$media-sm-plus-up}
+			align-items: flex-end
+			justify-content: center
+
+	&:nth-child(2)
+		display: flex
+		flex-direction: column
+		align-items: center
+		justify-content: flex-start
+
+		@media #{$media-sm-plus-up}
+			align-items: flex-start
+			justify-content: center
+
+.header-wrapper
+	// white-space: nowrap
+	text-transform: uppercase
+	margin-bottom: 3rem
+	text-align: center
+
+	@media #{$media-sm-plus-up}
+		margin-bottom: 7rem
+		text-align: right
+
+	&__slash
+		color: $color_accent
+		font-family: 'Montserrat'
+		font-size: 4rem
+
+		@media #{$media-sm-plus-up}
+			margin-bottom: 6rem
+
+	&__header
+		color: $color
+		display: inline
+		font-family: 'Montserrat-Bold'
+		font-size: 3rem
+
+		@media #{$media-sm-plus-up}
+			margin-bottom: 5rem

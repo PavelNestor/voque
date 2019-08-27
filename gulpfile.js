@@ -61,7 +61,7 @@ gulp.task('sass', function () {
 		sourcemaps.init = gutil.noop;
 		sourcemaps.write = gutil.noop;
 	}
-	gulp.src(path.src.style)
+	return gulp.src(path.src.style)
 		.pipe(sourcemaps.init())
 		.pipe(sass({
 			soursemap: !isBuild,
@@ -75,7 +75,7 @@ gulp.task('sass', function () {
 
 // PUG
 gulp.task('pug', function(){
-	gulp.src(path.src.html)
+	return gulp.src(path.src.html)
 		.pipe(pug({
 			pretty: !isBuild
 		}))
@@ -88,9 +88,9 @@ gulp.task('scripts', function(){
 	if (!isBuild) {
 		uglify = gutil.noop;
 	}
-	gulp.src(path.src.js)
+	return gulp.src(path.src.js)
 		.pipe(babel({
-			presets: ['es2015']
+			presets: ['env']
 		}))
 		.pipe(uglify())
 		.pipe(gulp.dest(path.dest.js))
@@ -99,13 +99,13 @@ gulp.task('scripts', function(){
 
 // IMAGES
 gulp.task('images', function(){
-	gulp.src(path.src.img)
+	return gulp.src(path.src.img)
 		.pipe(gulp.dest(path.dest.img));
 });
 
 // FONTS
 gulp.task('fonts', function(){
-	gulp.src(path.src.fonts)
+	return gulp.src(path.src.fonts)
 		.pipe(gulp.dest(path.dest.fonts));
 });
 
@@ -128,6 +128,7 @@ gulp.task('watch', function() {
 	gulp.watch(path.watch.style, gulp.series('sass'));
 	gulp.watch(path.watch.js, gulp.series('scripts'));
 	gulp.watch(path.watch.img, gulp.series('images'));
+	return
 });
 
 // DEFAULT
