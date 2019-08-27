@@ -1,44 +1,70 @@
-.development
-  background: linear-gradient(90deg, rgba(46, 46, 110, 0.3) 0%, rgba(97, 54, 123, 0.3) 100%),  top / contain no-repeat url("/img/development_img.png"), linear-gradient(90deg, #21204D 0%, #3A2453 100%)
+.contact
+  background: linear-gradient(90deg, #61367B 0%, #2E2E6E 100%)
   display: flex
   flex-direction: column
-  padding: 37rem 0 0
+  padding: 10rem 0
   overflow: hidden
   color: $color_white
 
   @media #{$media-sm-plus-up}
-    background: linear-gradient(90deg, rgba(46, 46, 110, .3) 0%, rgba(97, 54, 123, .3) 100%), calc(50% + 42.5rem) no-repeat url('/img/development_img.png'), linear-gradient(90deg, #21204D 0%, #3A2453 100%)
-    padding: 25.4rem 0
+    padding: 15rem 0
 
   &__btn
     margin-top: -6.4rem
 
-  &__img
-    height: 100%
-    width: auto
+  &__mail
+    color: #56CCF2
+    display: block
+    font-size: 1.6rem
+    line-height: 1.6em
+    text-decoration: none
+
+  &__tel
+    color: $color_white
+    display: block
+    font-size: 1.6rem
+    line-height: 1.7em
+    text-decoration: none
+
+  &__adress
+    font-size: 1.6rem
+    line-height: 1.7em
+    margin: 0 0 1.2rem
+
+  &__image
+    margin: 1rem
+
+  &__image-wrapper
+    margin-bottom: 4.8rem
 
   &__row
-    background: linear-gradient(90deg, #21204D 0%, #3A2453 100%)
     display: flex
     flex-direction: column
-    padding: 8rem 5.3rem 10.6rem
+    padding: 0 5rem
 
     @media #{$media-sm-plus-up}
-      background: transparent
       flex-direction: row
       padding: 0 0 0 11.3rem
 
+    @media #{$media-sm-plus-up}
+      padding: 0
+
   &__col
-    flex-basis: 50%
     justify-content: center
 
-    &:nth-child(1)
+    @media #{$media-sm-plus-up}
+      flex-basis: 50%
+      
+    &:nth-child(2)
       padding: 0
 
       @media #{$media-sm-plus-up}
-        padding: 0 7rem 0 0
+        padding: 0 22rem 0 0
 
-    &:nth-child(2)
+      @media #{$media-lg-up}
+        padding: 11px 27rem 0 11px
+
+    &:nth-child(1)
       padding: 0
       text-align: right
 
@@ -58,7 +84,7 @@
       margin-bottom: 2.5rem
 
     @media #{$media-lg-up}
-      margin-bottom: 1.8rem
+      margin-bottom: 2.2rem
 
   &__text-wrapper
     display: flex
@@ -96,30 +122,22 @@
 
 
     @media #{$media-lg-up}
-      font-size: 5.2rem
+      font-size: 5rem
       margin-left: -1rem
 
   &__subheader
     font-family: 'Montserrat-Bold'
-    font-size: 1.6rem
+    font-size: 2.6rem
+    margin-bottom: 4.8rem
 
     @media #{$media-sm-plus-up}
     @media #{$media-lg-up}
 
-  &__text
-    font-size: 1.6rem
-    line-height: 2.5rem
-    margin: 0 0 2rem
-
   &__list
-    .development__list-item
+    .contact__list-item
       background: url(/img/list-img.svg) no-repeat left center
       font-size: 1.6rem
       padding-left: 3rem
-
-  &__wrapper
-    @media #{$media-lg-up}
-      padding: 0 13rem 0 0
 
   &__text-small
     font-size: 1.8rem
@@ -134,19 +152,64 @@
       margin: 0 0 2.7rem
       width: 85%
 
+  &__form
+    max-width: 46rem
+
+.form-group
+  width: 100%
+  margin-bottom: 1rem
+  position: relative
+
+  &:last-of-type
+    margin-bottom: 3rem
+
+  &__textarea, &__input
+    background: transparent
+    border: none
+    border-radius: 0
+    border-bottom: 1px solid #56CCF2
+    color: $color_white
+    display: block
+    font-size: 1.6rem
+    resize: none
+    transition: height 300ms
+    width: 100%
+    outline: none
+    padding: 0.3rem
+    margin-bottom: 3rem
+
+    &::placeholder
+      font-size: 1.6rem
+      color: $color_white
+      margin: .5rem
+
+  &__textarea
+    height: 3rem
+
+    &:valid
+      height: 6rem
+
+  &__label
+    color: rgba(white, .5)
+    cursor: text
+    font-size: 1.6rem
+    position: absolute
+    top: 2.2rem
+    transition: .25s ease
+
 .side-text-wrapper
   position: relative
 
-.side-text-development
+.side-text-contact
   color: transparent
-  bottom: 0
   font-family: 'Montserrat-Bold'
   font-size: 9rem
   font-weight: 900
+  left: -1rem
   position: absolute
   opacity: .5
-  right: -1rem
   text-transform: uppercase
+  bottom: 0
   transform: scale(-1, -1)
   white-space: nowrap
   writing-mode: vertical-rl
@@ -155,4 +218,5 @@
 
   @media #{$media-sm-plus-up}
     font-size: 15rem
-    left: calc(50% + 40rem)
+    bottom: -6rem
+    left: 28rem

@@ -213,6 +213,8 @@ input[type='number']
 
 
 //helpers
+.transparent
+	background: transparent
 
 .button-outline
 	border: 1px solid $color_accent
@@ -222,6 +224,32 @@ input[type='number']
 	padding: 1.2rem 2.4rem
 	text-transform: uppercase
 	text-decoration: none
+
+.side-text
+	font-family: 'Montserrat-Bold'
+	font-size: 9.2rem
+	font-weight: 900
+	position: absolute
+	-webkit-text-stroke: 1px $color
+	color: $color_white
+	-ms-writing-mode: tb-rl
+	writing-mode: vertical-rl
+	transform: scale(-1, -1)
+	text-transform: uppercase
+	right: -0.8rem
+	top: 112vh
+	white-space: nowrap
+	opacity: .5
+	z-index: -1
+
+	@media #{$media-sm-plus-up}
+		font-size: 13rem
+		right: 47%
+		top: 62vh
+
+	@media #{$media-lg-up}
+		font-size: 15rem
+		top: 61vh
 
 .side-text
 	font-family: 'Montserrat-Bold'

@@ -16,9 +16,7 @@ window.addEventListener('scroll', function () {
       var bgColor = section.getAttribute("data-bg");
       logo.src = logoUrl;
       menu.src = menuUrl;
-      console.log('section', section);
-      
-      section.style.background = bgColor;
+      // section.style.background = bgColor;
     }
   }
 });

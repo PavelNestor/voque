@@ -1,0 +1,39 @@
+block vars
+  - var navigation = 'contact'
+
+block content
+  section.contact(data-logo='img/logo.svg', data-menu='img/menu.svg', data-bg='linear-gradient(90deg, #21204D 0%, #3A2453 100%)')
+    .contact__row
+      .contact__col
+
+      .contact__col
+        .contact__wrapper
+          .contact__header-wrapper
+            span.contact__slash /
+            h2.contact__header contact us
+          a.contact__mail(href='mailto:info@voqus.net') info@voqus.net
+          a.contact__tel(href='tel:+38 098 765 4321') +38 098 765 4321 
+          p.contact__adress Lobanovskyi Ave, 6A, 03037, Kyiv, Ukraine
+
+        .contact__image-wrapper
+          img.contact__image(src="img/facebook.svg", alt="facebook")
+          img.contact__image(src="img/twitter.svg", alt="twitter")
+          img.contact__image(src="img/telegram.svg", alt="telegram")
+          img.contact__image(src="img/viber.svg", alt="viber")
+
+        h3.contact__subheader If you have any questions, please contact us
+
+        form.contact__form(action="")
+
+          .form-group
+            input.form-group__input(type="email" id="email" placeholder="E-mail" autocomplete="off" required)
+
+          .form-group
+            input.form-group__input(type="text" id="name" placeholder="Name" autocomplete="off" required)
+
+          .form-group
+            textarea.form-group__textarea(id="message", placeholder="Message" autocomplete="off" required)
+
+          button.button-outline.transparent(type='submit') Send feedback
+    .side-text-wrapper
+      .side-text-contact contact us
