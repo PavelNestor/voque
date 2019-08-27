@@ -13,8 +13,12 @@ window.addEventListener('scroll', function () {
     if (pageYOffset > section.offsetTop - 34) {
       var logoUrl = section.getAttribute("data-logo");
       var menuUrl = section.getAttribute("data-menu");
+      var bgColor = section.getAttribute("data-bg");
       logo.src = logoUrl;
       menu.src = menuUrl;
+      console.log('section', section);
+      
+      section.style.background = bgColor;
     }
   }
 });

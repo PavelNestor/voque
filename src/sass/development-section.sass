@@ -1,0 +1,107 @@
+.development
+  background: white
+  display: flex
+  flex-direction: column
+  padding: 25.4rem 0
+  overflow: hidden
+
+  &__btn
+    margin-top: -6.4rem
+
+  &__row
+    display: flex
+    padding: 0 9.6rem 0 11.3rem
+
+  &__col
+    justify-content: center
+
+    &:nth-child(1)
+      padding: 0 7rem 0 0
+
+    &:nth-child(2)
+      padding: 0 0 0 10rem
+      margin: -12px -0.6rem
+
+  .menu__item-about
+      border-bottom: 1px solid $color
+
+  .menu__item-active
+    border-bottom: 1px solid $color_accent
+
+  &__content
+    padding: 5.7rem 7.7rem 4.8rem 4.8rem
+
+    @media #{$media-sm-plus-up}
+      padding: 20.9rem 7.7rem 4.8rem 10.6rem
+
+    @media #{$media-lg-up}
+      padding: 30rem 7.7rem 4.8rem 14rem
+
+  &__header-wrapper
+    margin-bottom: 3.4rem
+
+    @media #{$media-sm-plus-up}
+      margin-bottom: 2.5rem
+
+    @media #{$media-lg-up}
+      margin-bottom: 1.8rem
+
+  &__text-wrapper
+    display: flex
+    flex-direction: column
+
+    @media #{$media-sm-plus-up}
+      flex-direction: row
+
+
+  &__slash
+    color: $color_accent
+    display: inline
+    font-size: 3.1rem
+    font-weight: 300
+
+    @media #{$media-sm-plus-up}
+      font-size: 5rem
+
+    @media #{$media-lg-up}
+      font-size: 6rem
+
+  &__q
+    color: $color_accent
+    display: inline
+
+  &__header
+    display: inline
+    font-size: 3.1rem
+    margin-left: -0.7rem
+
+    @media #{$media-sm-plus-up}
+      font-size: 4.1rem
+      margin-left: -1.3rem
+
+
+    @media #{$media-lg-up}
+      font-size: 5.2rem
+      margin-left: -1rem
+
+  &__text
+    font-size: 2rem
+    line-height: 2.5rem
+    margin: 0 0 2rem
+
+  &__wrapper
+    @media #{$media-lg-up}
+      padding: 0 13rem 0 0
+
+  &__text-small
+    font-size: 1.8rem
+    line-height: 2.2rem
+    margin-bottom: 2rem
+
+    @media #{$media-sm-plus-up}
+      margin: 0 0 2.4rem
+      line-height: 2.5rem
+
+    @media #{$media-lg-up}
+      margin: 0 0 2.7rem
+      width: 85%
