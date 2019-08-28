@@ -8,10 +8,16 @@
 
   @media #{$media-sm-plus-up}
     background: linear-gradient(90deg, rgba(46, 46, 110, .3) 0%, rgba(97, 54, 123, .3) 100%), calc(50% - 42.5rem) no-repeat url('/img/outsource-img.png'), bottom / cover no-repeat url('/img/outsource-bg.png'), linear-gradient(90deg, #61367B 0%, #2E2E6E 100%)
-    padding: 25.4rem 0
+    padding: 8.9rem 0 12.7rem
 
   &__btn
     margin-top: -6.4rem
+
+  &_mb-18
+    margin-bottom: 1.8rem
+
+  &_lh-145
+    line-height: 1.45em
 
   &__img
     height: 100%
@@ -21,12 +27,15 @@
     background: linear-gradient(90deg, #61367B 0%, #2E2E6E 100%)
     display: flex
     flex-direction: column
-    padding: 8rem 5.3rem 10.6rem
+    padding: 8.4rem 4.7rem 9.5rem 7.6rem
 
     @media #{$media-sm-plus-up}
       background: transparent
       flex-direction: row
-      padding: 0 11.3rem 0 0
+      padding: 0
+
+  &__list-wrapper
+    margin-bottom: 4.9rem
 
   &__col
     flex-basis: 50%
@@ -36,11 +45,7 @@
       padding: 0
 
       @media #{$media-sm-plus-up}
-        padding: 0 0 0 7rem
-
-    &:nth-child(1)
-      padding: 0
-      text-align: left
+        padding: 0 11.1rem 0 1.4rem
 
   &__content
     padding: 5.7rem 7.7rem 4.8rem 4.8rem
@@ -60,88 +65,13 @@
     @media #{$media-lg-up}
       margin-bottom: 1.8rem
 
-  &__text-wrapper
-    display: flex
-    flex-direction: column
-
-    @media #{$media-sm-plus-up}
-      flex-direction: row
-
-
-  &__slash
-    color: $color_accent
-    display: inline
-    font-size: 3.1rem
-    font-weight: 300
-
-    @media #{$media-sm-plus-up}
-      font-size: 5rem
-
-    @media #{$media-lg-up}
-      font-size: 6rem
-
-  &__q
-    color: $color_accent
-    display: inline
-
-  &__header
-    display: inline
-    font-family: 'Montserrat-Bold'
-    font-size: 3.1rem
-    margin-left: -0.7rem
-
-    @media #{$media-sm-plus-up}
-      font-size: 4.1rem
-      margin-left: -1.3rem
-
-
-    @media #{$media-lg-up}
-      font-size: 5.2rem
-      margin-left: -1rem
-
-  &__subheader
-    font-family: 'Montserrat-Bold'
-    font-size: 1.4rem
-
-    @media #{$media-sm-plus-up}
-      font-size: 1.6rem
-
-    @media #{$media-lg-up}
-
   &__text
-    font-size: 1.4rem
-    line-height: 2.5rem
-    margin: 0 0 2rem
-
-    @media #{$media-sm-plus-up}
-      font-size: 1.6rem
-
-  &__list
-    .outsource__list-item
-      background: url(/img/list-img.svg) no-repeat left center
-      font-size: 1.4rem
-      padding-left: 3rem
-
-      @media #{$media-sm-plus-up}
-        font-size: 1.6rem
+    font-size: 1.48rem
+    line-height: 1.4em
 
   &__wrapper
     @media #{$media-lg-up}
       padding: 0 13rem 0 0
-
-  &__text-small
-    font-size: 1.8rem
-    line-height: 2.2rem
-    margin-bottom: 2rem
-
-    @media #{$media-sm-plus-up}
-      margin: 0 0 2.4rem
-      line-height: 2.5rem
-
-    @media #{$media-lg-up}
-      margin: 0 0 2.7rem
-      width: 85%
-
 
 .side-text-wrapper
   position: relative

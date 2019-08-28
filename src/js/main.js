@@ -11,9 +11,6 @@ const handlerToogleMenu = (function (user) {
   var menuContent = document.getElementById("menu-content");
 
   const onToogleMenu = () => {
-
-    console.log('menu', menu);
-    console.log('menuContent', menuContent);
     menuContent.classList.toggle("menu-show");
   }
 

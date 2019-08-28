@@ -7,13 +7,15 @@ block content
       .contact__col
 
       .contact__col
-        .contact__wrapper
-          .contact__header-wrapper
-            span.contact__slash /
-            h2.contact__header contact us
-          a.contact__mail(href='mailto:info@voqus.net') info@voqus.net
-          a.contact__tel(href='tel:+38 098 765 4321') +38 098 765 4321 
-          p.contact__adress Lobanovskyi Ave, 6A, 03037, Kyiv, Ukraine
+        .contact__title-wrapper
+          .title-wrapper
+              h2.title
+                span.title__slash /
+                | contact us
+
+        a.contact__mail(href='mailto:info@voqus.net') info@voqus.net
+        a.contact__tel(href='tel:+38 098 765 4321') +38 098 765 4321 
+        p.contact__adress Lobanovskyi Ave, 6A, 03037, Kyiv, Ukraine
 
         .contact__image-wrapper
           img.contact__image(src="img/facebook.svg", alt="facebook")
@@ -21,7 +23,7 @@ block content
           img.contact__image(src="img/telegram.svg", alt="telegram")
           img.contact__image(src="img/viber.svg", alt="viber")
 
-        h3.contact__subheader If you have any questions, please contact us
+        p.subtitle.contact__subtitle If you have any questions, please contact us
 
         form.contact__form(action="")
 

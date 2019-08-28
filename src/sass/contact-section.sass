@@ -2,49 +2,67 @@
   background: linear-gradient(90deg, #61367B 0%, #2E2E6E 100%)
   display: flex
   flex-direction: column
-  padding: 10rem 0
   overflow: hidden
   color: $color_white
 
   @media #{$media-sm-plus-up}
-    padding: 15rem 0
+    padding: 8.9rem 0 12.7rem
+
+  &__title-wrapper
+    margin-bottom: 3rem
 
   &__btn
     margin-top: -6.4rem
 
   &__mail
     color: #56CCF2
-    display: block
-    font-size: 1.6rem
-    line-height: 1.6em
+    font-size: 2rem
+    line-height: 2em
     text-decoration: none
+
+    @media #{$media-sm-plus-up}
+      font-size: 1.4rem
 
   &__tel
     color: $color_white
     display: block
-    font-size: 1.6rem
-    line-height: 1.7em
+    font-size: 2rem
+    line-height: 2em
     text-decoration: none
 
+    @media #{$media-sm-plus-up}
+      font-size: 1.4rem
+
   &__adress
-    font-size: 1.6rem
-    line-height: 1.7em
+    font-size: 2rem
+    line-height: 2em
     margin: 0 0 1.2rem
 
+    @media #{$media-sm-plus-up}
+      font-size: 1.4rem
+
   &__image
-    margin: 1rem
+    margin: 0.7rem 1.1rem
 
   &__image-wrapper
-    margin-bottom: 4.8rem
+    margin-bottom: 5.6rem
+
+    @media #{$media-sm-plus-up}
+      margin-bottom: 4.3rem
+
+  &__subtitle
+    font-size: 2rem
+    line-height: 1.2em
+    margin-bottom: 2.5rem
 
   &__row
     display: flex
     flex-direction: column
-    padding: 0 5rem
+    padding: 8.6rem 4.7rem 8.2rem 7.6rem
 
     @media #{$media-sm-plus-up}
       flex-direction: row
-      padding: 0 0 0 11.3rem
+      padding: 0
 
     @media #{$media-sm-plus-up}
       padding: 0
@@ -59,7 +77,7 @@
       padding: 0
 
       @media #{$media-sm-plus-up}
-        padding: 0 22rem 0 0
+        padding: 0 11.1rem 0 1.4rem
 
       @media #{$media-lg-up}
         padding: 11px 27rem 0 11px
@@ -77,80 +95,12 @@
     @media #{$media-lg-up}
       padding: 30rem 7.7rem 4.8rem 14rem
 
-  &__header-wrapper
-    margin-bottom: 3.4rem
-
-    @media #{$media-sm-plus-up}
-      margin-bottom: 2.5rem
-
-    @media #{$media-lg-up}
-      margin-bottom: 2.2rem
-
   &__text-wrapper
     display: flex
     flex-direction: column
 
     @media #{$media-sm-plus-up}
       flex-direction: row
-
-
-  &__slash
-    color: $color_accent
-    display: inline
-    font-size: 3.1rem
-    font-weight: 300
-
-    @media #{$media-sm-plus-up}
-      font-size: 5rem
-
-    @media #{$media-lg-up}
-      font-size: 6rem
-
-  &__q
-    color: $color_accent
-    display: inline
-
-  &__header
-    display: inline
-    font-family: 'Montserrat-Bold'
-    font-size: 3.1rem
-    margin-left: -0.7rem
-
-    @media #{$media-sm-plus-up}
-      font-size: 4.1rem
-      margin-left: -1.3rem
-
-
-    @media #{$media-lg-up}
-      font-size: 5rem
-      margin-left: -1rem
-
-  &__subheader
-    font-family: 'Montserrat-Bold'
-    font-size: 2.6rem
-    margin-bottom: 4.8rem
-
-    @media #{$media-sm-plus-up}
-    @media #{$media-lg-up}
-
-  &__list
-    .contact__list-item
-      background: url(/img/list-img.svg) no-repeat left center
-      font-size: 1.6rem
-      padding-left: 3rem
-
-  &__text-small
-    font-size: 1.8rem
-    line-height: 2.2rem
-    margin-bottom: 2rem
-
-    @media #{$media-sm-plus-up}
-      margin: 0 0 2.4rem
-      line-height: 2.5rem
-
-    @media #{$media-lg-up}
-      margin: 0 0 2.7rem
-      width: 85%
 
   &__form
     max-width: 46rem
@@ -175,8 +125,9 @@
     transition: height 300ms
     width: 100%
     outline: none
-    padding: 0.3rem
-    margin-bottom: 3rem
+    // padding: 0.3rem
+    margin-bottom: 1.5rem
+    line-height: 2.6em
 
     &::placeholder
       font-size: 1.6rem
@@ -184,10 +135,11 @@
       margin: .5rem
 
   &__textarea
-    height: 3rem
+    height: 4.5rem
+    line-height: 1
 
     &:valid
-      height: 6rem
+      height: 8rem
 
   &__label
     color: rgba(white, .5)

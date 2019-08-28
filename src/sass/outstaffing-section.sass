@@ -8,10 +8,19 @@
 
   @media #{$media-sm-plus-up}
     background: linear-gradient(90deg, rgba(46, 46, 110, .3) 0%, rgba(97, 54, 123, .3) 100%), calc(50% + 42.5rem) no-repeat url(/img/outstaffing-img.png), linear-gradient(90deg, #21204D 0%, #3A2453 100%)
-    padding: 25.4rem 0
+    padding: 9.1rem 0 4rem
 
   &__btn
     margin-top: -6.4rem
+
+  &_mb-18
+    margin-bottom: 1.8rem
+
+  &_mb-23
+    margin-bottom: 2.3rem
+
+  &_lh-145
+    line-height: 1.45em
 
   &__img
     height: 100%
@@ -21,28 +30,28 @@
     background: linear-gradient(90deg, #21204D 0%, #3A2453 100%)
     display: flex
     flex-direction: column
-    padding: 8rem 5.3rem 10.6rem
+    padding: 8.4rem 7.9rem 8.6rem 4.7rem
 
     @media #{$media-sm-plus-up}
       background: transparent
       flex-direction: row
-      padding: 0 0 0 11.3rem
+      padding: 0
 
   &__col
     justify-content: center
-
-    @media #{$media-sm-plus-up}
-      flex-basis: 50%
-
     &:nth-child(1)
       padding: 0
 
       @media #{$media-sm-plus-up}
-        padding: 0 7rem 0 0
+        flex-basis: 52%
+        padding: 0 7px 0 13.8rem
 
     &:nth-child(2)
       padding: 0
       text-align: right
+
+      @media #{$media-sm-plus-up}
+        flex-basis: 48%
 
   &__content
     padding: 5.7rem 7.7rem 4.8rem 4.8rem
@@ -53,79 +62,12 @@
     @media #{$media-lg-up}
       padding: 30rem 7.7rem 4.8rem 14rem
 
-  &__header-wrapper
-    margin-bottom: 3.4rem
-
-    @media #{$media-sm-plus-up}
-      margin-bottom: 2.5rem
-
-    @media #{$media-lg-up}
-      margin-bottom: 1.8rem
-
   &__text-wrapper
     display: flex
     flex-direction: column
 
     @media #{$media-sm-plus-up}
       flex-direction: row
-
-
-  &__slash
-    color: $color_accent
-    display: inline
-    font-size: 3.1rem
-    font-weight: 300
-
-    @media #{$media-sm-plus-up}
-      font-size: 5rem
-
-    @media #{$media-lg-up}
-      font-size: 6rem
-
-  &__q
-    color: $color_accent
-    display: inline
-
-  &__header
-    display: inline
-    font-family: 'Montserrat-Bold'
-    font-size: 3.1rem
-    margin-left: -0.7rem
-
-    @media #{$media-sm-plus-up}
-      font-size: 4.1rem
-      margin-left: -1.3rem
-
-
-    @media #{$media-lg-up}
-      font-size: 5.2rem
-      margin-left: -1rem
-
-  &__subheader
-    font-family: 'Montserrat-Bold'
-    font-size: 1.4rem
-
-    @media #{$media-sm-plus-up}
-      font-size: 1.6rem
-
-    @media #{$media-lg-up}
-
-  &__text
-    font-size: 1.4rem
-    line-height: 2.5rem
-    margin: 0 0 2rem
-
-    @media #{$media-sm-plus-up}
-      font-size: 1.6rem
-
-  &__list
-    .outstaffing__list-item
-      background: url(/img/list-img.svg) no-repeat left center
-      font-size: 1.4rem
-      padding-left: 3rem
-
-      @media #{$media-sm-plus-up}
-        font-size: 1.6rem
 
   &__wrapper
     @media #{$media-lg-up}

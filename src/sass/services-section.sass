@@ -1,0 +1,151 @@
+.services
+  background: linear-gradient(90deg, rgba(46, 46, 110, .3) 0%, rgba(97, 54, 123, .3) 100%), top / contain no-repeat url('/img/services_bg.png'), bottom / cover no-repeat url('/img/services-bg.png'), linear-gradient(90deg, #443B75 0%, #583E7A 100%)
+  display: flex
+  flex-direction: column
+  padding: 37rem 0 0
+  overflow: hidden
+  color: $color_white
+
+  @media #{$media-sm-plus-up}
+    background: linear-gradient(90deg, rgba(46, 46, 110, .3) 0%, rgba(97, 54, 123, .3) 100%), calc(50% - 42.5rem) no-repeat url('/img/services-img.png'), bottom / cover no-repeat url('/img/services-bg.png'), linear-gradient(90deg, #443B75 0%, #583E7A 100%)
+    padding: 8.9rem 0
+
+  @media #{$media-lg-up}
+    padding: 14.2rem 0 10rem
+
+  &__btn
+    margin-top: -6.4rem
+
+  &__img
+    height: 100%
+    width: auto
+
+  &_mb-23
+    margin-bottom: 2.3rem
+
+  &_mb-20
+    margin-bottom: 2rem
+
+  &__text-small
+    @media #{$media-sm-plus-up}
+      font-size: 1.4rem
+      line-height: 1.45em
+
+    @media #{$media-lg-up}
+      font-size: 1.6rem
+      line-height: 1.65em
+
+  &__text-smaller
+    @media #{$media-sm-plus-up}
+      font-size: 1.4rem
+      line-height: 1.2em
+
+    @media #{$media-sm-plus-up}
+      font-size: 1.6rem
+      line-height: 1.4em
+
+  &__row
+    background: linear-gradient(90deg, #61367B 0%, #2E2E6E 100%)
+    display: flex
+    flex-direction: column
+    padding: 8.4rem 5rem 8.7rem 7.5rem
+
+    @media #{$media-sm-plus-up}
+      background: transparent
+      flex-direction: row
+      padding: 0
+
+  &__col
+    flex-basis: 50%
+    justify-content: center
+
+    &:nth-child(2)
+      padding: 0
+
+      @media #{$media-sm-plus-up}
+        padding: 0 10rem 0 1.1rem
+
+    &:nth-child(1)
+      padding: 0
+      text-align: left
+
+  &__content
+    padding: 5.7rem 7.7rem 4.8rem 4.8rem
+
+    @media #{$media-sm-plus-up}
+      padding: 20.9rem 7.7rem 4.8rem 10.6rem
+
+    @media #{$media-lg-up}
+      padding: 30rem 7.7rem 4.8rem 14rem
+
+  &__header-wrapper
+    margin-bottom: 3.4rem
+
+    @media #{$media-sm-plus-up}
+      margin-bottom: 2.5rem
+
+    @media #{$media-lg-up}
+      margin-bottom: 1.8rem
+
+  &__text-wrapper
+    display: flex
+    flex-direction: column
+
+    @media #{$media-sm-plus-up}
+      flex-direction: row
+
+  &__subtitle-wrapper
+    margin-bottom: 2rem
+
+    @media #{$media-sm-plus-up}
+      padding-right: 4rem
+
+  &__header
+    display: inline
+    font-family: 'Montserrat-Bold'
+    font-size: 3.1rem
+    margin-left: -0.7rem
+
+    @media #{$media-sm-plus-up}
+      font-size: 4.1rem
+      margin-left: -1.3rem
+
+
+    @media #{$media-lg-up}
+      font-size: 5.2rem
+      margin-left: -1rem
+
+  // &__text
+  //   font-size: 1.4rem
+  //   line-height: 2.5rem
+  //   margin: 0 0 2rem
+
+  //   @media #{$media-sm-plus-up}
+  //     font-size: 1.6rem
+
+  &__wrapper
+    @media #{$media-lg-up}
+      padding: 0 4rem 0 0
+
+.side-text-wrapper
+  position: relative
+
+.side-text-services
+  color: transparent
+  bottom: 0
+  font-family: 'Montserrat-Bold'
+  font-size: 9rem
+  font-weight: 900
+  left: -1rem
+  position: absolute
+  opacity: .5
+  text-transform: uppercase
+  transform: scale(-1, -1)
+  white-space: nowrap
+  writing-mode: vertical-rl
+  -webkit-text-stroke: 1px #E5E5E5
+  z-index: 0
+
+  @media #{$media-sm-plus-up}
+    font-size: 15rem
+    left: calc(50% - 33rem)
