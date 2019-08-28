@@ -1,0 +1,21 @@
+doctype html
+html(lang='en')
+	block vars
+	head
+		title #{title}
+		block head
+			include head
+	body(class= bodyClass)
+		block noscript
+			include noscript
+
+		block page-content
+
+		block footer
+			include contact-section
+
+		block modals
+			include modals
+
+	block scripts
+		include scripts
