@@ -14,6 +14,8 @@
 
   &__menu-image
     cursor: pointer
+    position: fixed
+    top: 1.9rem
 
 .menu
   display: none
@@ -43,11 +45,11 @@
 
 
 .logo
+  display: none
   height: 2.7rem
-  position: sticky
+  position: fixed
   top: 1.6rem
-  left: 4.7rem
-  margin: 10rem 0 0
+  left: calc(50% - 60px)
 
   @media #{$media-sm-plus-up}
     left: 10.4rem
@@ -55,3 +57,6 @@
   @media #{$media-sm-plus-up}
     height: 3.4rem
     left: 13.7rem
+
+.logo-visible
+  display: block

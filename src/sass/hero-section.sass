@@ -1,20 +1,25 @@
 .home
   background: url('/img/bg.png') right bottom / cover no-repeat
   margin-top: -14rem
-  padding: 28.8rem 4.7rem 27.5rem
+  padding: 41.6rem 4.7rem 27.5rem
 
   @media #{$media-sm-plus-up}
-    padding: 33.9rem 10.4rem
+    padding: 47.8rem 10.4rem 32.8rem
 
   @media #{$media-lg-up}
-    padding: 38.2rem 14rem
+    padding: 52rem 14rem 38rem
 
-  .__logo
+  &__logo
     height: 3.3rem
-    position: sticky
-    top: 1.6rem
-    left: 4.7rem
-    margin: 10rem 0 0
+    position: absolute
+    top: 10rem
+    left: 5rem
+
+    @media #{$media-sm-plus-up}
+      left: 10.7rem
+
+    @media #{$media-lg-up}
+      left: 14rem
 
 .header-block
   max-width: 40rem

@@ -1,9 +1,11 @@
 .menu-content
   background-color: $color_white
-  display: none
-  height: 100%
+  // display: none
+  height: 0
+  top: -100%
   padding: 1.2rem 1.5rem
   position: fixed
+  transition: .5s
   width: 100%
   z-index: 10
 
@@ -16,5 +18,5 @@
     z-index: 20
 
 .menu-show
-  display: block
-
+  height: 100%
+  top: 0

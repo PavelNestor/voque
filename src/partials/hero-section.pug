@@ -2,8 +2,9 @@ block vars
   - var navigation = 'home'
 
 block content
-  section.home(data-logo='img/logo.svg', data-menu='img/menu.svg', data-bg='linear-gradient(90deg, #2E2E6E 0%, #61367B 100%)')
+  section.home(data-menu='img/menu.svg', data-bg='linear-gradient(90deg, #2E2E6E 0%, #61367B 100%)')
     .content
+      img.home__logo(src='img/logo.svg', id='logo')
       .header-block
         h1.header 
           | outsourcing 

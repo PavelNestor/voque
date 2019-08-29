@@ -30,10 +30,19 @@ window.addEventListener('scroll', function () {
     var section = sections[index];
     if (pageYOffset > section.offsetTop - 34) {
       var logoUrl = section.getAttribute("data-logo");
+      var isVisible = section.getAttribute("data-logo-visibility");
       var menuUrl = section.getAttribute("data-menu");
       var bgColor = section.getAttribute("data-bg");
-      logo.src = logoUrl;
+
       menu.src = menuUrl;
+      
+      if(isVisible){
+        logo.src = logoUrl;
+        logo.classList.add("logo-visible");
+      } else {
+        logo.classList.remove("logo-visible");
+      }
+
       // section.style.background = bgColor;
     }
   }
