@@ -8,8 +8,14 @@
   @media #{$media-sm-plus-up}
     padding: 8.9rem 0 12.7rem
 
+  @media #{$media-sm-plus-up}
+    padding: 14rem 0 12.7rem
+
   &__title-wrapper
     margin-bottom: 3rem
+
+    @media #{$media-sm-plus-up}
+      margin-bottom: 0
 
   &__btn
     margin-top: -6.4rem
@@ -23,6 +29,10 @@
     @media #{$media-sm-plus-up}
       font-size: 1.4rem
 
+    @media #{$media-lg-up}
+      font-size: 1.6rem
+      line-height: 1.5em
+
   &__tel
     color: $color_white
     display: block
@@ -32,6 +42,10 @@
 
     @media #{$media-sm-plus-up}
       font-size: 1.4rem
+    
+    @media #{$media-lg-up}
+      font-size: 1.6rem
+      line-height: 1.5em
 
   &__adress
     font-size: 2rem
@@ -40,6 +54,10 @@
 
     @media #{$media-sm-plus-up}
       font-size: 1.4rem
+
+    @media #{$media-lg-up}
+      font-size: 1.6rem
+      line-height: 1.5em
 
   &__image
     margin: 0.7rem 1.1rem
@@ -125,18 +143,18 @@
     transition: height 300ms
     width: 100%
     outline: none
-    // padding: 0.3rem
     margin-bottom: 1.5rem
     line-height: 2.6em
 
     &::placeholder
-      font-size: 1.6rem
+      font-size: 1.4rem
       color: $color_white
       margin: .5rem
 
   &__textarea
     height: 4.5rem
     line-height: 1
+    padding-top: 1rem
 
     &:valid
       height: 8rem

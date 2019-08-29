@@ -10,6 +10,9 @@
     background: linear-gradient(90deg, rgba(46, 46, 110, .3) 0%, rgba(97, 54, 123, .3) 100%), calc(50% - 42.5rem) no-repeat url('/img/outsource-img.png'), bottom / cover no-repeat url('/img/outsource-bg.png'), linear-gradient(90deg, #61367B 0%, #2E2E6E 100%)
     padding: 8.9rem 0 12.7rem
 
+  @media #{$media-sm-plus-up}
+    padding: 14.7rem 0 20rem
+
   &__btn
     margin-top: -6.4rem
 
@@ -19,6 +22,15 @@
   &_mb-lg-23
     @media #{$media-sm-plus-up}
       margin-bottom: 2.3rem
+
+  &_mb-sm20-lg23
+    margin-bottom: 2rem
+    @media #{$media-sm-plus-up}
+      margin-bottom: 2.3rem
+
+  &_lh-lg-15
+    @media #{$media-lg-up}
+      line-height: 1.5em
 
   &_lh-145
     line-height: 1.45em
@@ -39,11 +51,14 @@
       padding: 0
 
   &__list-wrapper
-    margin-bottom: 4.9rem
+    margin-bottom: 2.9rem
 
     @media #{$media-sm-plus-up}
       margin-bottom: 2.3rem
       padding-right: .6rem
+
+    @media #{$media-lg-up}
+      margin-bottom: 2.8rem
 
   &__col
     flex-basis: 50%
@@ -54,6 +69,9 @@
 
       @media #{$media-sm-plus-up}
         padding: 0 10.5rem 0 1.8rem
+
+      @media #{$media-lg-up}
+        padding: 0 10.5rem 0 1.5rem
 
   &__content
     padding: 5.7rem 7.7rem 4.8rem 4.8rem
@@ -80,6 +98,7 @@
   &__wrapper
     @media #{$media-lg-up}
       padding: 0 13rem 0 0
+      margin-bottom: 2.7rem
 
 .side-text-wrapper
   position: relative
