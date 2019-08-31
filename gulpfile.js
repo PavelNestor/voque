@@ -83,6 +83,16 @@ gulp.task('pug', function(){
 		.pipe(reload({stream:true}));
 });
 
+
+function pugToHtml(){
+	return gulp.src('src/*.pug')
+ .pipe(pug({
+		pretty: true
+ }))
+ .pipe(gulp.dest('dest'));
+}
+exports.pugToHtml = pugToHtml;
+
 // SCRIPTS
 gulp.task('scripts', function(){
 	if (!isBuild) {
