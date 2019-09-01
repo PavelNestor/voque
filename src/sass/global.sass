@@ -450,7 +450,7 @@ input[type='number']
 
 .page-block
 	width: 100%
-	padding: 1rem 1rem 1rem 5rem
+	padding: 0 0 0 5rem
 
 	@media #{$media-lg-up}
 		padding: 1rem 0
@@ -463,17 +463,21 @@ input[type='number']
 
 .page-title
 	font-size: 3rem
-	line-height: 1em
+	line-height: 1.1em
 	
 	@media #{$media-lg-up}
 		font-size: 5rem
 
 .page-subtitle
-	font-size: 3.2rem
-	line-height: 1em
+	font-size: 1.4rem
+	line-height: 1.45em
+
+	@media #{$media-lg-up}
+		font-size: 3.2rem
 
 .page-text
 	font-size: 1.4rem
+	line-height: 1.45em
 
 	@media #{$media-lg-up}
 		font-size: 1.8rem
@@ -496,9 +500,12 @@ input[type='number']
 
 .page-big-title
 	font-family: 'Montserrat-Bold'
-	font-size: 9rem
-	line-height: 1em
+	font-size: 3rem
+	line-height: 1.1em
 	margin: 0
+
+	@media #{$media-lg-up}
+		font-size: 9rem
 
 .p-relative
 	position: relative
@@ -506,8 +513,17 @@ input[type='number']
 .pt-0
 	padding-top: 0 !important
 
+.pt-40
+	padding-top: 4rem !important
+
 .pt-50
 	padding-top: 5rem !important
+
+.pr-50
+	padding-right: 5rem !important
+
+.pr-30
+	padding-right: 3rem !important
 
 .pb-50
 	padding-bottom: 5rem !important
@@ -521,11 +537,21 @@ input[type='number']
 .left-0
 	left: 0
 
+.mb-30
+	margin-bottom: 3rem
+
 .mb-50
 	margin-bottom: 5rem
 
 .mb-90
 	margin-bottom: 9rem
+
+.mb-100
+	margin-bottom: 9rem
+
+.mb-lg-90
+	@media #{$media-lg-up}
+		margin-bottom: 9rem
 
 .mb-280
 	margin-bottom: 28rem
@@ -539,6 +565,9 @@ input[type='number']
 .mt-22
 	margin-top: 2.2rem !important
 
+.mt-34
+	margin-top: 3.4rem !important
+
 .mt-40
 	margin-top: 4rem !important
 
@@ -548,11 +577,16 @@ input[type='number']
 .mt-52
 	margin-top: 5.2rem !important
 
-.mt-54
-	margin-top: 5.4rem
+.mt-lg-54
+	@media #{$media-lg-up}
+		margin-top: 5.4rem !important
 
 .mt-100
-	margin-top: 10rem
+	margin-top: 10rem !important
+
+.mt-lg-100
+	@media #{$media-lg-up}
+		margin-top: 10rem !important
 
 .mr-40
 	margin-right: 4rem

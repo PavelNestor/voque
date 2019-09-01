@@ -1,8 +1,11 @@
 .advertising-page
   color: #fff
   &__top
-    background: linear-gradient(90deg, rgba(46, 46, 110, 0.4) 0%, rgba(97, 54, 123, 0.4) 100%), top left / cover no-repeat url('/img/advertising-page_header.png')
-    height: 45rem
+    background: linear-gradient(90deg, rgba(46, 46, 110, 0.4) 0%, rgba(97, 54, 123, 0.4) 100%), center no-repeat url('/img/advertising-page_header.png')
+    height: 39rem
+
+    @media #{$media-lg-up}
+    background: linear-gradient(90deg, rgba(46, 46, 110, 0.4) 0%, rgba(97, 54, 123, 0.4) 100%), center / cover no-repeat url('/img/advertising-page_header.png')
 
   &__content
     background: linear-gradient(90deg, #443B75 0%, #583E7A 100%)
@@ -41,15 +44,21 @@
   &__title-marketing-position
     position: relative
     padding-right: 1rem
-    top: -28rem
+    top: -23rem
+
+    @media #{$media-lg-up}
+      top: -28rem
 
   &__title-social-position
     position: relative
-    top: 16rem
+    top: 25rem
+
+    @media #{$media-lg-up}
+      top: 16rem
 
   &__title-display-position
     position: relative
-    top: -20rem
+    top: -19rem
 
   &__title-mobile-position
     position: relative
@@ -62,8 +71,11 @@
 
   &__gradient-one
     background: linear-gradient(90deg, #583E7A 0%, #443B75 100%)
-    padding-bottom: 21rem
+    padding-bottom: 18rem
     margin-top: -20rem
+
+    @media #{$media-lg-up}
+      padding-bottom: 21rem
 
   &__gradient-two
     background: linear-gradient(90deg, #3A2453 0%, #21204D 100%)
