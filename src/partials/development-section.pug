@@ -5,26 +5,41 @@ block content
   section.development(data-logo-visibility= 'true', data-logo='img/logo.svg', data-menu='img/menu.svg', data-bg='linear-gradient(90deg, #21204D 0%, #3A2453 100%)')
     .development__row
       .development__col
-        .development__title-wrapper
-          .title-wrapper
-            h2.title
-              span.title__slash /
-              | development
+        .section_row
+          .section_col-left
+            .development__title-wrapper
+              .title-wrapper
+                h2.title
+                  span.title__slash /
+                  | development
 
-        p.text_small.development_mb-10-14 Our ad tech experts have been engaged in development of customized platform solutions for different clients across the globe. 
-        p.text_14-16.development_mb-18 We obtained enormous expertise in creating DSP/SSP, Open RTB and TDS platforms as well as Ad fraud/Scoring software. Our tech team is open to any challenges and can handle even the most complicated task set by a client. 
-      
-        p.text.text_small.text_bold.development_mb-20 Our core development services include:
-        ul.list.development_mb-20
-          li.list__item website and web application development;
-          li.list__item ad fraud detection software tools;
-          li.list__item ad operation tools;
-          li.list__item SSP/DSP development;
-          li.list__item Open RTB development;
+            p.text_small.development_mb-10-14 Our ad tech experts have been engaged in development of customized platform solutions for different clients across the globe. 
+            p.text_14-16.development_mb-18 We obtained enormous expertise in creating DSP/SSP, Open RTB and TDS platforms as well as Ad fraud/Scoring software. Our tech team is open to any challenges and can handle even the most complicated task set by a client. 
+          
+            p.text.text_small.text_bold.development_mb-20 Our core development services include:
+            ul.list.development_mb-20
+              li.list__item website and web application development;
+              li.list__item ad fraud detection software tools;
+              li.list__item ad operation tools;
+              li.list__item SSP/DSP development;
+              li.list__item Open RTB development;
 
-        p.text.text_small.text_bold.development_lh-145.development_mb-20 We always set incredibly high goals for our clients and our primary purpose is to meet our client’s lofty expectations.
-        a.button-outline(href='/') read more
+            p.text.text_small.text_bold.development_lh-145.development_mb-20 We always set incredibly high goals for our clients and our primary purpose is to meet our client’s lofty expectations.
+            a.button-outline(href='/') read more
+          
+          .section_col-left
+            .section-block-mobile.section-block-mobile-left
+              span.section-block-mobile__text-left.section-block-mobile__text-left-transparent development
+              .section-block-mobile__text-wrapper
+                .section-block-mobile__bg-left
+                span.section-block-mobile__text-left.section-block-mobile__text-left-white development
+
       .development__col
+        .section-block
+          span.section-block__text.section-block__text-transparent development
+          .section-block__text-wrapper
+            img.section-block__image(src="/img/development_img.png", alt="development")
+            span.section-block__text.section-block__text-white development
 
-    .side-text-wrapper
-      .side-text-development development
+    //- .side-text-wrapper
+    //-   .side-text-development development

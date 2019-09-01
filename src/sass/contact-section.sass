@@ -76,7 +76,7 @@
   &__row
     display: flex
     flex-direction: column
-    padding: 8.6rem 4.7rem 8.2rem 7.6rem
+    padding: 8.6rem 4.7rem 8.2rem 1.4rem
 
     @media #{$media-sm-plus-up}
       flex-direction: row
@@ -101,8 +101,12 @@
         padding: 11px 27rem 0 11px
 
     &:nth-child(1)
+      display: none
       padding: 0
       text-align: right
+
+      @media #{$media-sm-plus-up}
+        display: block
 
   &__content
     padding: 5.7rem 7.7rem 4.8rem 4.8rem

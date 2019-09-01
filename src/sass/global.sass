@@ -335,6 +335,7 @@ input[type='number']
 		display: inline
 		font-family: 'Montserrat-Bold'
 		font-size: 3rem
+		line-height: 1em
 
 		@media #{$media-sm-plus-up}
 			margin-bottom: 5rem
@@ -449,7 +450,10 @@ input[type='number']
 
 .page-block
 	width: 100%
-	padding: 1rem 0
+	padding: 1rem 1rem 1rem 5rem
+
+	@media #{$media-lg-up}
+		padding: 1rem 0
 
 .page-block_dark
 	background: linear-gradient(90deg, rgba(33, 32, 77, .3) 0%, rgba(58, 36, 83, .3) 100%)
@@ -458,16 +462,22 @@ input[type='number']
 	background: linear-gradient(90deg, rgba(68, 59, 117, .3) 0%, rgba(88, 62, 122, .3) 100%)
 
 .page-title
-	font-size: 5rem
+	font-size: 3rem
 	line-height: 1em
+	
+	@media #{$media-lg-up}
+		font-size: 5rem
 
 .page-subtitle
 	font-size: 3.2rem
 	line-height: 1em
 
 .page-text
-	font-size: 1.8rem
-	line-height: 1.6em
+	font-size: 1.4rem
+
+	@media #{$media-lg-up}
+		font-size: 1.8rem
+		line-height: 1.6em
 
 .page-text_bold
 	font-family: 'Montserrat-Bold'
@@ -508,6 +518,9 @@ input[type='number']
 .m-0
 	margin: 0
 
+.left-0
+	left: 0
+
 .mb-50
 	margin-bottom: 5rem
 
@@ -544,6 +557,9 @@ input[type='number']
 .mr-40
 	margin-right: 4rem
 
+.bottom--35
+	bottom: -3.5rem
+
 
 .page-dual__row
 	display: flex
@@ -567,3 +583,159 @@ input[type='number']
 		padding: 0 0 0 4rem
 
 		@media #{$media-sm-plus-up}
+
+.section-block
+	position: relative
+
+	&-contact__bg
+		height: 50rem
+		background: transparent
+		width: 6rem
+
+	&__image
+		mask-image: linear-gradient(90deg, rgba(46, 46, 110, .3) 0%, rgba(97, 54, 123, .3) 100%)
+		width: -webkit-fill-available
+
+		@media #{$media-sm-plus-up}
+			width: 100%
+
+	&__text-wrapper
+		overflow: hidden
+		position: relative
+		max-height: 37rem
+
+		@media #{$media-sm-plus-up}
+				max-height: fit-content
+
+	&__text
+		bottom: -5rem
+		color: transparent
+		display: none
+		font-family: 'Montserrat-Bold'
+		font-size: 13rem
+		font-weight: 900
+		left: 26rem
+		position: absolute
+		opacity: .5
+		text-transform: uppercase
+		transform: scale(-1, -1)
+		white-space: nowrap
+		-ms-writing-mode: tb-rl
+		writing-mode: vertical-rl
+		-webkit-text-stroke: 1px #E5E5E5
+
+		@media #{$media-sm-plus-up}
+			display: block
+
+		&-white
+			color: #fff
+			opacity: 1
+
+.section-block-mobile
+	position: absolute
+	padding-top: 12rem
+
+	&-left
+		right: 0
+
+	&__text-wrapper
+		overflow: hidden
+		position: relative
+
+	&__bg
+		width: 6rem
+		height: 50rem
+		background: linear-gradient(90deg, #21204D 0%, #3A2453 100%)
+		opacity: .5
+
+	&__bg-left
+		width: 6rem
+		height: 50rem
+		background: linear-gradient(90deg, #443B75 0%, #583E7A 100%)
+		opacity: .5
+
+	&__text
+		color: transparent
+		display: block
+		font-family: 'Montserrat-Bold'
+		font-size: 9rem
+		font-weight: 900
+		left: -1rem
+		position: absolute
+		opacity: .5
+		text-transform: uppercase
+		transform: scale(-1, -1)
+		white-space: nowrap
+		-ms-writing-mode: tb-rl
+		writing-mode: vertical-rl
+		-webkit-text-stroke: 1px #E5E5E5
+		bottom: -7.5rem
+
+		&-white
+			color: #fff
+			opacity: 1
+
+	&__text-left
+		color: transparent
+		display: block
+		font-family: 'Montserrat-Bold'
+		font-size: 9rem
+		font-weight: 900
+		right: -2rem
+		position: absolute
+		opacity: .5
+		text-transform: uppercase
+		transform: scale(-1, -1)
+		white-space: nowrap
+		-ms-writing-mode: tb-rl
+		writing-mode: vertical-rl
+		-webkit-text-stroke: 1px #E5E5E5
+		bottom: -7.5rem
+
+		&-white
+			color: #fff
+			opacity: 1
+
+.section_row
+	display: flex
+
+.section_col
+	&:nth-child(1)
+		display: flex
+		align-items: center
+
+		@media #{$media-sm-plus-up}
+			display: none
+
+	&:nth-child(2)
+		padding: 6.4rem 6rem 8.7rem 7.5rem
+
+		@media #{$media-xs-up}
+			padding: 16rem 6rem 16rem 7.5rem
+
+		@media #{$media-sm-plus-up}
+			padding: 1rem
+
+.section_col-left
+	&:nth-child(2)
+		display: flex
+    align-items: center
+		flex-basis: 28rem
+		position: relative
+
+		@media #{$media-sm-plus-up}
+			display: none
+
+	&:nth-child(1)
+		padding: 6.4rem 7.5rem 8.7rem 6rem
+
+		@media #{$media-xs-up}
+			padding: 16rem 6rem 16rem 7.5rem
+
+		@media #{$media-sm-plus-up}
+			padding: 1rem
+
+.section_col_outsource
+	&:nth-child(2)
+		@media #{$media-xs-down}
+			padding: 13rem 6rem 13rem 7.5rem

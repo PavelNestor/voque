@@ -1,13 +1,13 @@
 .services
-  background: linear-gradient(90deg, rgba(46, 46, 110, .3) 0%, rgba(97, 54, 123, .3) 100%), top / contain no-repeat url('/img/services_bg.png'), linear-gradient(90deg, #443B75 0%, #583E7A 100%)
+  background: linear-gradient(90deg, rgba(46, 46, 110, .3) 0%, rgba(97, 54, 123, .3) 100%), linear-gradient(90deg, #443B75 0%, #583E7A 100%)
   display: flex
   flex-direction: column
-  padding: 37rem 0 0
+  padding: 0
   overflow: hidden
   color: $color_white
 
   @media #{$media-sm-plus-up}
-    background: linear-gradient(90deg, rgba(46, 46, 110, .3) 0%, rgba(97, 54, 123, .3) 100%), calc(50% - 42.5rem) no-repeat url('/img/services_bg.png'), linear-gradient(90deg, #443B75 0%, #583E7A 100%)
+    // background: linear-gradient(90deg, #443B75 0%, #583E7A 100%)
     padding: 8.9rem 0
 
   @media #{$media-lg-up}
@@ -52,7 +52,6 @@
     background: linear-gradient(90deg, #61367B 0%, #2E2E6E 100%)
     display: flex
     flex-direction: column
-    padding: 8.4rem 5rem 8.7rem 7.5rem
 
     @media #{$media-sm-plus-up}
       background: transparent
@@ -71,7 +70,11 @@
 
     &:nth-child(1)
       padding: 0
-      text-align: left
+      display: block
+
+      @media #{$media-sm-plus-up}
+        display: flex
+        align-items: center 
 
   &__content
     padding: 5.7rem 7.7rem 4.8rem 4.8rem

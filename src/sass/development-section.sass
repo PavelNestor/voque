@@ -1,13 +1,13 @@
 .development
-  background: linear-gradient(90deg, rgba(46, 46, 110, 0.3) 0%, rgba(97, 54, 123, 0.3) 100%),  top / contain no-repeat url("/img/development_img.png"), linear-gradient(90deg, #21204D 0%, #3A2453 100%)
+  background: linear-gradient(90deg, rgba(46, 46, 110, 0.3) 0%, rgba(97, 54, 123, 0.3) 100%), linear-gradient(90deg, #21204D 0%, #3A2453 100%)
   display: flex
   flex-direction: column
-  padding: 37rem 0 0
+  padding: 0
   overflow: hidden
   color: $color_white
 
   @media #{$media-sm-plus-up}
-    background: linear-gradient(90deg, rgba(46, 46, 110, .3) 0%, rgba(97, 54, 123, .3) 100%), calc(50% + 42.5rem) no-repeat url('/img/development_img.png'), linear-gradient(90deg, #21204D 0%, #3A2453 100%)
+    background: linear-gradient(90deg, rgba(46, 46, 110, .3) 0%, rgba(97, 54, 123, .3) 100%), linear-gradient(90deg, #21204D 0%, #3A2453 100%)
     padding: 9.1rem 0 13rem
 
   @media #{$media-lg-up}
@@ -45,20 +45,19 @@
   &__row
     background: linear-gradient(90deg, #21204D 0%, #3A2453 100%)
     display: flex
-    flex-direction: column
-    padding: 8.4rem 7.9rem 8.6rem 4.7rem
+    flex-direction: column-reverse
+    padding: 0
 
     @media #{$media-sm-plus-up}
       background: transparent
       flex-direction: row
-      padding: 0 
 
   &__col
     flex-basis: 50%
     justify-content: center
 
     &:nth-child(1)
-      padding: 0
+      padding: 0 
 
       @media #{$media-sm-plus-up}
         padding: 0 2rem 0 10.3rem
@@ -69,6 +68,8 @@
     &:nth-child(2)
       padding: 0
       text-align: right
+      display: flex
+      align-items: center
 
   &__content
     padding: 5.7rem 7.7rem 4.8rem 4.8rem
