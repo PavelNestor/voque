@@ -1,10 +1,5 @@
-// import { browser } from './browser';
-// import { dialog } from './dialog';
-
-// browser();
-
-const handlerToogleMenu = (function (user) {
-  'use strict';
+const handlerToogleMenu = function(user) {
+  "use strict";
 
   var menu = document.getElementById("menu");
   var menuClose = document.getElementById("menu-close");
@@ -12,19 +7,51 @@ const handlerToogleMenu = (function (user) {
 
   const onToogleMenu = () => {
     menuContent.classList.toggle("menu-show");
-  }
+  };
 
   menu.addEventListener("click", onToogleMenu);
+  menu.addEventListener("touch", onToogleMenu);
   menuClose.addEventListener("click", onToogleMenu);
   // menu.removeEventListener("click", onToogleMenu)
-});
+};
 
 handlerToogleMenu();
 
-window.addEventListener('scroll', function () {
+window.addEventListener("scroll", function() {
   var logo = document.getElementById("logo");
+  var logoWrapper = document.getElementById("logo-wrapper");
   var menu = document.getElementById("menu");
-  var sections = document.getElementsByTagName('section');
+  var sections = document.getElementsByTagName("section");
+
+  //parallax
+  var textParallax = document.getElementsByClassName("text-parallax");
+  for (let index = 0; index < textParallax.length; index++) {
+    const text = textParallax[index];
+
+    if(index == 2 || index == 3 || index == 6 || index == 7) {
+      text.style.transform =
+        "scale(-1, -1) translate3d(0, " + calculateTranslateBottom(pageYOffset, index) + "px, 0)";
+    } else {
+      text.style.transform =
+        "scale(-1, -1) translate3d(0, " + calculateTranslateTop(pageYOffset, index) + "px, 0)";
+    }
+  }
+
+  //parallax mobile
+  var textParallaxMobile = document.getElementsByClassName(
+    "text-parallax-mobile"
+  );
+  for (let index = 0; index < textParallaxMobile.length; index++) {
+    const text = textParallaxMobile[index];
+
+    if(index == 2 || index == 3 || index == 6 || index == 7) {
+      text.style.transform =
+        "scale(-1, -1) translate3d(0, " + calculateTranslateTop(pageYOffset, index) + "px, 0)";
+    } else {
+      text.style.transform =
+        "scale(-1, -1) translate3d(0, " + calculateTranslateBottom(pageYOffset, index) + "px, 0)";
+    }
+  }
 
   for (var index = 0; index < sections.length; index++) {
     var section = sections[index];
@@ -32,18 +59,27 @@ window.addEventListener('scroll', function () {
       var logoUrl = section.getAttribute("data-logo");
       var isVisible = section.getAttribute("data-logo-visibility");
       var menuUrl = section.getAttribute("data-menu");
-      var bgColor = section.getAttribute("data-bg");
 
       menu.src = menuUrl;
-      
-      if(isVisible){
-        logo.src = logoUrl;
-        logo.classList.add("logo-visible");
-      } else {
-        logo.classList.remove("logo-visible");
-      }
 
-      // section.style.background = bgColor;
+      if (isVisible) {
+        logo.src = logoUrl;
+        logoWrapper.classList.add("logo-visible");
+      } else {
+        logoWrapper.classList.remove("logo-visible");
+      }
     }
   }
 });
+
+function calculateTranslateTop(pageYOffset, index) {
+  return (
+    pageYOffset * -0.1 + ((index + 1) % 2 !== 0 ? (index + 1) * 40 : index * 40)
+  );
+}
+
+function calculateTranslateBottom(pageYOffset, index) {
+  return (
+    pageYOffset * 0.1 - ((index + 1) % 2 !== 0 ? (index + 1) * 100 : index * 100)
+  );
+}

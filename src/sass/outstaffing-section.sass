@@ -1,10 +1,11 @@
 .outstaffing
+  align-items: center
   background: linear-gradient(90deg, rgba(46, 46, 110, .3) 0%, rgba(97, 54, 123, .3) 100%), linear-gradient(90deg, #21204D 0%, #3A2453 100%)
+  color: $color_white
   display: flex
   flex-direction: column
-  padding: 0
   overflow: hidden
-  color: $color_white
+  padding: 0
 
   @media #{$media-sm-plus-up}
     background: linear-gradient(90deg, rgba(46, 46, 110, .3) 0%, rgba(97, 54, 123, .3) 100%), linear-gradient(90deg, #21204D 0%, #3A2453 100%)
@@ -49,13 +50,13 @@
       flex-direction: row
 
   &__col
+    flex-basis: 50%
     justify-content: center
 
     &:nth-child(1)
       padding: 0
 
       @media #{$media-sm-plus-up}
-        flex-basis: 52%
         padding: 0 7px 0 13.8rem
 
     &:nth-child(2)
@@ -65,7 +66,9 @@
       align-items: center
 
       @media #{$media-sm-plus-up}
-        flex-basis: 48%
+        align-items: center
+        display: flex
+        justify-content: flex-end
 
   &__content
     padding: 5.7rem 7.7rem 4.8rem 4.8rem

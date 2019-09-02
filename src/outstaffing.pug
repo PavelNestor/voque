@@ -4,9 +4,18 @@ block vars
   - var title = 'Outstaffing'
 
 block page-content
-  section.outstaffing-page
+  span#logo-wrapper.logo-wrapper.logo-visible
+    a(href="index.html")
+      img(src='img/logo.svg', id='logo')
 
+  .outstaffing-page
     .outstaffing-page__top
+      .page-block
+        span.page-block__text.page-block__text-transparent.text-parallax Outstaffing
+        .page-block__text-wrapper
+          .page-block__bg
+          span.page-block__text.page-block__text-white.text-parallax Outstaffing
+
 
     .outstaffing-page__content
       .outstaffing-page__title-wrapper

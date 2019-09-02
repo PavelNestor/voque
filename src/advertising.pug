@@ -4,9 +4,18 @@ block vars
   - var title = 'Advertising'
 
 block page-content
-  section.advertising-page
+  span#logo-wrapper.logo-wrapper.logo-visible
+    a(href="index.html")
+      img(src='img/logo.svg', id='logo')
 
+  .advertising-page
     .advertising-page__top
+      .page-block
+        span.page-block__text.page-block__text-transparent.text-parallax Advertising
+        .page-block__text-wrapper
+          .page-block__bg
+          span.page-block__text.page-block__text-white.text-parallax Advertising
+
 
     .development-page__content.advertising-page__gradient-one.mt-0
       .development-page__title-wrapper

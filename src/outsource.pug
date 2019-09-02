@@ -4,9 +4,17 @@ block vars
   - var title = 'Outsourcing'
 
 block page-content
-  section.outsource-page
+  span#logo-wrapper.logo-wrapper.logo-visible
+    a(href="index.html")
+      img(src='img/logo.svg', id='logo')
 
+  .outsource-page
     .outsource-page__top
+      .page-block
+        span.page-block__text.page-block__text-transparent.text-parallax Outsourcing
+        .page-block__text-wrapper
+          .page-block__bg
+          span.page-block__text.page-block__text-white.text-parallax Outsourcing
 
     .outsource-page__content
       .outsource-page__title-wrapper
@@ -14,7 +22,7 @@ block page-content
           span.title__slash /
           | outsourcing
 
-      .page-block.pt-50.pb-50
+      .page-block.pt-lg-50.pb-50
         .page-wrapper
           p.page-text Outsourcing and outstaffing, what’s the main difference? Both terms are pretty much interrelated and they all mean hiring a company for a remote work or an individual who’s working distantly. However, there’s a slight difference between these two terms. 
           p.page-text IT Outsourcing or Business Process Outsourcing (BPO) refers to a practice of hiring a 3rd party company or an employee outside the house to handle some tasks or a set of activities for your company. 

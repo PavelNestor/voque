@@ -3,55 +3,53 @@ block vars
 
 block content
   section.contact(data-logo='img/logo.svg', data-menu='img/menu.svg', data-bg='linear-gradient(90deg, #21204D 0%, #3A2453 100%)', id='contact')
-    .contact__row
-      .contact__col
-        .section-block
-          span.section-block__text.section-block__text-transparent contact us
-          .section-block__text-wrapper
-            //- img.section-block__image(src="/img/outsource-img.png", alt="outsource")
-            .section-block-contact__bg
-            span.section-block__text.section-block__text-white contact us
+    .content    
+      .contact__row
+        .contact__col
+          .section-block
+            span.section-block__text.section-block__text-transparent.text-parallax contact us
+            .section-block__text-wrapper
+              .section-block-contact__bg
+              span.section-block__text.section-block__text-white.text-parallax contact us
 
-      .contact__col
-        .section_row
-            .section_col
+        .contact__col
+          .section_row
+              .section_col
 
-              .section-block-mobile.left-0
-                span.section-block-mobile__text.section-block-mobile__text-transparent.bottom--35 contact us
-                .section-block-mobile__text-wrapper
-                  .section-block-contact__bg
-                  span.section-block-mobile__text.section-block-mobile__text-white.bottom--35 contact us
+                .section-block-mobile.left-0
+                  span.section-block-mobile__text.section-block-mobile__text-transparent.bottom--35.text-parallax-mobile contact us
+                  .section-block-mobile__text-wrapper
+                    .section-block-contact__bg
+                    span.section-block-mobile__text.section-block-mobile__text-white.bottom--35.text-parallax-mobile contact us
 
-            .section_col
-              .contact__title-wrapper
-                .title-wrapper
-                    h2.title
-                      span.title__slash /
-                      | contact us
+              .section_col
+                .contact__title-wrapper
+                  .title-wrapper
+                      h2.title
+                        span.title__slash /
+                        | contact us
 
-              a.contact__mail(href='mailto:info@voqus.net') info@voqus.net
-              a.contact__tel(href='tel:+38 098 765 4321') +38 098 765 4321 
-              p.contact__adress Lobanovskyi Ave, 6A, 03037, Kyiv, Ukraine
+                a.contact__mail(href='mailto:info@voqus.net') info@voqus.net
+                a.contact__tel(href='tel:+38 098 765 4321') +38 098 765 4321 
+                p.contact__adress Lobanovskyi Ave, 6A, 03037, Kyiv, Ukraine
 
-              .contact__image-wrapper
-                img.contact__image(src="img/facebook.svg", alt="facebook")
-                img.contact__image(src="img/twitter.svg", alt="twitter")
-                img.contact__image(src="img/telegram.svg", alt="telegram")
-                img.contact__image(src="img/viber.svg", alt="viber")
+                .contact__image-wrapper
+                  img.contact__image(src="img/facebook.svg", alt="facebook")
+                  img.contact__image(src="img/twitter.svg", alt="twitter")
+                  img.contact__image(src="img/telegram.svg", alt="telegram")
+                  img.contact__image(src="img/viber.svg", alt="viber")
 
-              p.subtitle.contact__subtitle If you have any questions, please contact us
+                p.subtitle.contact__subtitle If you have any questions, please contact us
 
-              form.contact__form(action="")
+                form.contact__form(action="")
 
-                .form-group
-                  input.form-group__input(type="email" id="email" placeholder="E-mail" autocomplete="off" required)
+                  .form-group
+                    input.form-group__input(type="email" id="email" placeholder="E-mail" autocomplete="off" required)
 
-                .form-group
-                  input.form-group__input(type="text" id="name" placeholder="Name" autocomplete="off" required)
+                  .form-group
+                    input.form-group__input(type="text" id="name" placeholder="Name" autocomplete="off" required)
 
-                .form-group
-                  textarea.form-group__textarea(id="message", placeholder="Message" autocomplete="off" required)
+                  .form-group
+                    textarea.form-group__textarea(id="message", placeholder="Message" autocomplete="off" required)
 
-                button.button-outline.transparent(type='submit') Send feedback
-        //- .side-text-wrapper
-        //-   .side-text-contact contact us
+                  button.button-outline.transparent(type='submit') Send feedback

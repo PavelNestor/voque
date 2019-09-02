@@ -4,9 +4,17 @@ block vars
   - var title = 'Contact Us'
 
 block page-content
-  section.about-page(data-menu='img/menu.svg')
+  span#logo-wrapper.logo-wrapper.logo-visible
+    a(href="index.html")
+      img(src='img/logo.svg', id='logo')
 
+  .about-page
     .about-page__top
+      .page-block
+        span.page-block__text.page-block__text-transparent.text-parallax about voqus
+        .page-block__text-wrapper
+          .page-block__bg
+          span.page-block__text.page-block__text-white.text-parallax about voqus
 
     .about-page__content
       .about-page__title-wrapper

@@ -1,9 +1,10 @@
 .contact
+  align-items: center
   background: linear-gradient(90deg, #61367B 0%, #2E2E6E 100%)
+  color: $color_white
   display: flex
   flex-direction: column
   overflow: hidden
-  color: $color_white
 
   @media #{$media-sm-plus-up}
     padding: 8.9rem 0 12.7rem
@@ -86,10 +87,10 @@
       padding: 0
 
   &__col
+    flex-basis: 50%
     justify-content: center
 
     @media #{$media-sm-plus-up}
-      flex-basis: 50%
       
     &:nth-child(2)
       padding: 0
@@ -106,7 +107,9 @@
       text-align: right
 
       @media #{$media-sm-plus-up}
-        display: block
+        display: flex
+        align-items: baseline
+        justify-content: flex-start
 
   &__content
     padding: 5.7rem 7.7rem 4.8rem 4.8rem
