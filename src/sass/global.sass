@@ -230,6 +230,14 @@ input[type='number']
 	text-transform: uppercase
 	text-decoration: none
 
+	&:hover,
+	&:focus
+		// background: $color_accent
+		border: 1px solid $color_accent
+		box-shadow: inset 0 0 0 2em $color_accent
+		color: #2a2658
+		transition: .5s
+
 .side-text
 	font-family: 'Montserrat-Bold'
 	font-size: 9.2rem
@@ -389,6 +397,7 @@ input[type='number']
 	font-size: 1.6rem
 	line-height: 1.4em
 	margin: 0
+	opacity: 0.9
 
 	@media #{$media-sm-plus-up}
 		font-size: 1.8rem
@@ -468,6 +477,7 @@ input[type='number']
 .page-title
 	font-size: 3rem
 	line-height: 1.1em
+	opacity: .9
 	
 	@media #{$media-sm-plus-up}
 		font-size: 5rem
@@ -475,6 +485,7 @@ input[type='number']
 .page-subtitle
 	font-size: 1.4rem
 	line-height: 1.45em
+	opacity: .9
 
 	@media #{$media-sm-plus-up}
 		font-size: 3.2rem
@@ -482,6 +493,7 @@ input[type='number']
 .page-text
 	font-size: 1.4rem
 	line-height: 1.45em
+	opacity: .9
 
 	@media #{$media-sm-plus-up}
 		font-size: 1.8rem
@@ -661,16 +673,17 @@ input[type='number']
 				max-height: fit-content
 
 	&__text
-		bottom: -5rem
+		bottom: -12rem
 		color: transparent
 		display: none
 		font-family: 'Montserrat-Bold'
 		font-size: 13rem
 		font-weight: 900
-		left: 28rem
+		left: 50%
 		position: absolute
 		opacity: .5
 		text-transform: uppercase
+		transform: scale(-1, -1)
 		transition: transform 400ms
 		white-space: nowrap
 		-ms-writing-mode: tb-rl
@@ -708,6 +721,7 @@ input[type='number']
 		opacity: .5
 
 	&__text
+		bottom: -12rem
 		color: transparent
 		display: block
 		font-family: 'Montserrat-Bold'
@@ -722,13 +736,13 @@ input[type='number']
 		-ms-writing-mode: tb-rl
 		writing-mode: vertical-rl
 		-webkit-text-stroke: 1px #E5E5E5
-		bottom: -7.5rem
 
 		&-white
 			color: #fff
 			opacity: 1
 
 	&__text-left
+		bottom: -12rem
 		color: transparent
 		display: block
 		font-family: 'Montserrat-Bold'
@@ -743,7 +757,6 @@ input[type='number']
 		-ms-writing-mode: tb-rl
 		writing-mode: vertical-rl
 		-webkit-text-stroke: 1px #E5E5E5
-		bottom: -7.5rem
 
 		&-white
 			color: #fff
@@ -916,16 +929,19 @@ input[type='number']
 	display: none
 	justify-content: center
 	height: 6rem
-	left: 8rem
+	left: 0
 	opacity: .8
 	position: fixed
 	top: 0
 	width: 100%
-	z-index: 1
 
 	@media #{$media-sm-plus-up}
 		background: transparent
 		justify-content: flex-start
 
+	a
+		z-index: 10
+
 .logo-visible
-  display: flex
+	display: flex
+	opacity: 1
