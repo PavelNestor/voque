@@ -2,15 +2,15 @@ block vars
   - var navigation = 'contact'
 
 block content
-  section.contact(data-logo='img/logo.svg', data-menu='img/menu.svg', data-bg='linear-gradient(90deg, #21204D 0%, #3A2453 100%)', id='contact')
-    .content    
+  section#contact.contact(data-logo='img/logo.svg', data-menu='img/menu.svg', data-id='contact')
+    .content
       .contact__row
         .contact__col
           .section-block
-            span.section-block__text.section-block__text-left.section-block__text-transparent.text-parallax contact us
+            span.section-block__text.section-block__text-contact.section-block__text-transparent.text-parallax contact us
             .section-block__text-wrapper
               .section-block-contact__bg.box-parallax
-              span.section-block__text.section-block__text-left.section-block__text-white.text-parallax contact us
+              span.section-block__text.section-block__text-contact.section-block__text-white.text-parallax contact us
 
         .contact__col
           .section_row
@@ -44,12 +44,14 @@ block content
                 form.contact__form(action="")
 
                   .form-group
-                    input.form-group__input(type="email" id="email" placeholder="E-mail" autocomplete="off" required)
+                    input.form-group__input(type="text" id="email" placeholder="E-mail" autocomplete="off" )
+                    span.form-email-error
 
                   .form-group
-                    input.form-group__input(type="text" id="name" placeholder="Name" autocomplete="off" required)
+                    input.form-group__input(type="text" id="name" placeholder="Name" autocomplete="off")
+                    span.form-name-error
 
                   .form-group
                     textarea.form-group__textarea(id="message", placeholder="Message" autocomplete="off" required)
-
+                    span.form-error
                   button.button-outline.transparent(type='submit') Send feedback

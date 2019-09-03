@@ -4,11 +4,12 @@ block vars
 	- var title = "Vogus"
 
 block content
-	span#logo-wrapper.logo-wrapper
-		a(href="index.html")
+	#logo-wrapper.logo-wrapper
+		a.logo-wrapper__link(href="index.html")
 			img.logo(src='img/logo-black.svg', id='logo')
 	include partials/menu
 	include partials/navigation
+
 	include partials/hero-section
 	include partials/about-section
 	include partials/services-section
@@ -17,3 +18,9 @@ block content
 	include partials/outstaffing-section
 	include partials/contact-section
 
+	.hover-logo.hover-logo__left
+	.hover-logo.hover-logo__bottom
+	.hover-logo.hover-logo__right
+	.hover-logo.hover-logo__top
+		a.logo-wrapper__link(href="index.html")
+			img.logo(src='img/logo-black.svg', id='logo')

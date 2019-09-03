@@ -2,10 +2,11 @@ block vars
   - var navigation = 'about'
 
 block content
-  section.about(data-logo-visibility= 'true', data-logo='img/logo-black.svg', data-menu='img/menu-black.svg', data-bg='white')
+  section#about.about(data-logo-visibility= 'true', data-logo='img/logo-black.svg', data-menu='img/menu-black.svg', data-bg='white', data-id='about')
     .content
-      .side-text-wrapper
-        .side-text-about about voqus
+      .side-text-wrapper.box-parallax
+        .side-text-about.text-parallax about voqus
+        .side-text-about.text-parallax about voqus
       .about__row
         .about__col
           .title-wrapper

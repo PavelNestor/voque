@@ -105,7 +105,7 @@ textarea
 
 	&::placeholder
 		font: $font
-		font-size: 1rem
+		font-size: 1.6rem
 
 textarea
 
@@ -397,7 +397,7 @@ input[type='number']
 	font-size: 1.6rem
 	line-height: 1.4em
 	margin: 0
-	opacity: 0.9
+	opacity: 0.8
 
 	@media #{$media-sm-plus-up}
 		font-size: 1.8rem
@@ -408,6 +408,7 @@ input[type='number']
 		font-size: 2rem
 		line-height: 1.25em
 		margin: 0
+		opacity: 0.8
 
 		@media #{$media-sm-plus-up}
 			margin: 0
@@ -416,6 +417,7 @@ input[type='number']
 		font-size: 1.4rem
 		line-height: 1.45em
 		margin: 0
+		opacity: 0.8
 
 		@media #{$media-sm-plus-up}
 			font-size: 1.8rem
@@ -425,6 +427,7 @@ input[type='number']
 		font-size: 1.4rem
 		line-height: 1.45em
 		margin: 0
+		opacity: 0.8
 
 		@media #{$media-sm-plus-up}
 			font-size: 1.6rem
@@ -434,6 +437,7 @@ input[type='number']
 		font-size: 1.4rem
 		line-height: 1.45em
 		margin: 0
+		opacity: 0.8
 
 		@media #{$media-lg-up}
 			font-size: 1.6rem
@@ -655,7 +659,10 @@ input[type='number']
 	&-contact__bg
 		height: 50rem
 		background: transparent
-		width: 60rem
+		width: 6rem
+
+		@media #{$media-sm-plus-up}
+			width: 60rem
 
 	&__image
 		mask-image: linear-gradient(90deg, rgba(46, 46, 110, .7) 0%, rgba(97, 54, 123, .7) 100%)
@@ -689,9 +696,15 @@ input[type='number']
 		-ms-writing-mode: tb-rl
 		writing-mode: vertical-rl
 		-webkit-text-stroke: 1px #E5E5E5
-	
+
 		&-left
 			bottom: 11rem
+
+		&-contact
+			bottom: 27rem
+
+		&-outstaffing
+			top: 20rem
 
 		@media #{$media-sm-plus-up}
 			display: block
@@ -928,6 +941,21 @@ input[type='number']
 			color: #fff
 			opacity: 1
 
+
+.logo
+	height: 2.7rem
+	position: fixed
+	top: 1.6rem
+	left: calc(50% - 60px)
+	z-index: 100
+
+	@media #{$media-sm-plus-up}
+		left: 10.4rem
+
+	@media #{$media-sm-plus-up}
+		height: 3.4rem
+		left: 13.7rem
+
 .logo-wrapper
 	align-items: center
 	background: grey
@@ -944,9 +972,67 @@ input[type='number']
 		background: transparent
 		justify-content: flex-start
 
-	a
+	&__link
 		z-index: 10
+
+	&:hover 
+		background: #fff
+		opacity: 1
+		~ .hover-logo
+				display: block
+
+		& ~ .logo
+			filter: invert(.2)
 
 .logo-visible
 	display: flex
-	opacity: 1
+
+.hover-logo
+	display: none
+	position: fixed
+	background: #fff
+	transition: display 4s 10s
+	z-index: 50
+	
+	&__left
+		height: 100vh
+		left: 0
+		top: 0
+		width: 6rem
+		z-index: 1
+
+	&__bottom
+		bottom: 0
+		height: 6rem
+		width: 100%
+
+	&__right
+		height: 100%
+		right: 0
+		top: 0
+		width: 6rem
+
+	&__top
+		height: 6rem
+		left: 0
+		top: 0
+		width: 100%
+
+// form validation
+.form-email-error,
+.form-name-error
+	background-color: transparent
+	color: $color_red
+	display: none
+	font-size: 1.6rem
+	opacity: 0.8
+	position: absolute
+	padding: 0
+	right: 2rem
+	top: 0
+	z-index: 1
+
+.form-email-error.form-error_active,
+.form-name-error.form-error_active,
+	padding: 0.3em
+	display: block

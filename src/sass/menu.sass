@@ -1,6 +1,5 @@
 .menu-content
   background-color: $color_white
-  // display: none
   height: 0
   top: -100%
   padding: 1.2rem 1.5rem
@@ -20,3 +19,20 @@
 .menu-show
   height: 100%
   top: 0
+
+.menu-bottom-text-wrapper
+  position: absolute
+  bottom: -3rem
+
+.menu-bottom-text
+  font-size: 9rem
+  line-height: .8em
+  color: transparent
+  font-family: 'Montserrat-Bold'
+  font-weight: 900
+  text-transform: uppercase
+  -webkit-text-stroke: 1px #cfcfcf
+  white-space: nowrap
+
+  @media #{$media-sm-plus-up}
+    font-size: 12rem
