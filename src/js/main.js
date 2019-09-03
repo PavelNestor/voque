@@ -37,10 +37,10 @@ window.addEventListener("scroll", function() {
         
         if(index == 2 || index == 3 || index == 6 || index == 7) {
           text.style.transform =
-            "scale(-1, -1) translate3d(0, " + (top * 0.1) + "px, 0)";
+            "scale(-1, -1) translate3d(0, " + (pageYOffset * 0.1) + "px, 0)";
         } else {
           text.style.transform =
-            "scale(-1, -1) translate3d(0, " + (- top * 0.1) + "px, 0)";
+            "scale(-1, -1) translate3d(0, " + (pageYOffset * - 0.1) + "px, 0)";
         }
       }
       

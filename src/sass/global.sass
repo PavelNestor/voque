@@ -673,7 +673,6 @@ input[type='number']
 				max-height: fit-content
 
 	&__text
-		bottom: -12rem
 		color: transparent
 		display: none
 		font-family: 'Montserrat-Bold'
@@ -683,12 +682,16 @@ input[type='number']
 		position: absolute
 		opacity: .5
 		text-transform: uppercase
+		top: 1rem
 		transform: scale(-1, -1)
 		transition: transform 400ms
 		white-space: nowrap
 		-ms-writing-mode: tb-rl
 		writing-mode: vertical-rl
 		-webkit-text-stroke: 1px #E5E5E5
+	
+		&-left
+			bottom: 11rem
 
 		@media #{$media-sm-plus-up}
 			display: block
@@ -696,6 +699,7 @@ input[type='number']
 		&-white
 			color: #fff
 			opacity: 1
+
 
 .section-block-mobile
 	position: absolute
@@ -909,6 +913,7 @@ input[type='number']
 		right: -1rem
 		text-transform: uppercase
 		top: 19rem
+		transform: scale(-1, -1)
 		transition: transform 400ms
 		white-space: nowrap
 		-ms-writing-mode: tb-rl
