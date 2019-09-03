@@ -17,35 +17,48 @@ const handlerToogleMenu = function(user) {
 
 handlerToogleMenu();
 
+var logo = document.getElementById("logo");
+var logoWrapper = document.getElementById("logo-wrapper");
+var menuImg = document.getElementById("menu-image");
+var sections = document.getElementsByTagName("section");
+var linesMenuItems = document.getElementsByClassName("lines-menu__item");
+
+
 window.addEventListener("scroll", function() {
-  var logo = document.getElementById("logo");
-  var logoWrapper = document.getElementById("logo-wrapper");
-  var menuImg = document.getElementById("menu-image");
-  var sections = document.getElementsByTagName("section");
-  var linesMenuItems = document.getElementsByClassName("lines-menu__item");
 
   //lines-menu-active
   for (let index = 0; index < sections.length; index++) {
     const section = sections[index];
-    const sectionId = section.getAttribute("data-id");
+    const sectionTop = section.getBoundingClientRect().top;
 
-    console.log('sectionId', sectionId);
+    if (sectionTop < 0 && sectionTop > -150) {
+      const sectionId = section.getAttribute("data-id");
+      const logoUrl = section.getAttribute("data-logo");
+      const isVisible = section.getAttribute("data-logo-visibility");
+      const isInvert = section.hasAttribute("data-invert");
 
-    if (pageYOffset > section.offsetTop - 100) {
+      console.log('isInvert', isInvert);
 
-    
-    for (let InnerIndex = 0; InnerIndex < linesMenuItems.length; InnerIndex++) {
-      const linesMenuItem = linesMenuItems[InnerIndex];
-      const linkId = linesMenuItem.getAttribute("data-link");
+      invert(linesMenuItems, isInvert);
+      invert(menuImg, isInvert);
 
-      console.log('linkId', linkId);
+      for (let InnerIndex = 0; InnerIndex < linesMenuItems.length; InnerIndex++) {
+        const linesMenuItem = linesMenuItems[InnerIndex];
+        const linkId = linesMenuItem.getAttribute("data-link");
 
-      if(linkId === sectionId) {
-        linesMenuItem.classList.add("lines-menu__item-active");
-      } else {
-        linesMenuItem.classList.remove("lines-menu__item-active");
+        if(linkId === sectionId) {
+          linesMenuItem.classList.add("lines-menu__item-active");
+        } else {
+          linesMenuItem.classList.remove("lines-menu__item-active");
+        }
       }
-    }
+
+      if (isVisible) {
+        logo.src = logoUrl;
+        logoWrapper.classList.add("logo-visible");
+      } else {
+        logoWrapper.classList.remove("logo-visible");
+      }
 
     };
   }
@@ -89,24 +102,36 @@ window.addEventListener("scroll", function() {
   }
 
   // logo change
-  for (var index = 0; index < sections.length; index++) {
-    var section = sections[index];
-    if (pageYOffset > section.offsetTop - 34) {
-      var logoUrl = section.getAttribute("data-logo");
-      var isVisible = section.getAttribute("data-logo-visibility");
-      var menuUrl = section.getAttribute("data-menu");
+  // for (var index = 0; index < sections.length; index++) {
+  //   var section = sections[index];
+  //   if (pageYOffset > section.offsetTop - 34) {
+      
+  //   }
+  // }
+});
 
-      menuImg.src = menuUrl;
-
-      if (isVisible) {
-        logo.src = logoUrl;
-        logoWrapper.classList.add("logo-visible");
-      } else {
-        logoWrapper.classList.remove("logo-visible");
+function invert(items, isInvert) {
+  if (isInvert) {
+    if (items.length) {
+      for (let index = 0; index < items.length; index++) {
+        const item = items[index];
+        item.classList.add('invert');
       }
+    } else {
+      items.classList.add('invert');
+    }
+  }else{
+    if (items.length) {
+      for (let index = 0; index < items.length; index++) {
+        const item = items[index];
+        item.classList.remove('invert');
+      }
+    } else {
+      items.classList.remove('invert');
     }
   }
-});
+  return;
+}
 
 function calculateTranslateTop(pageYOffset, index) {
   return (
