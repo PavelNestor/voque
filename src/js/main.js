@@ -150,11 +150,11 @@ window.addEventListener("scroll", function() {
       sectionOpt => sectionOpt.id === currentSectionForMenu
     );
 
-    // document.getElementById(current.contentId).classList.remove('hiddenContent');
+    document.getElementById(current.contentId).classList.remove('hiddenContent');
     
-    // if (lastSectionForEffects !== '') {
-    //   document.getElementById(lastSectionForEffects).classList.add('hiddenContent');
-    // }
+    if (lastSectionForEffects !== '') {
+      document.getElementById(lastSectionForEffects).classList.add('hiddenContent');
+    }
 
     invert(linesMenuItems, current.isInvert);
     lastSectionForEffects = current.contentId;
