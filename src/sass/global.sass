@@ -217,6 +217,7 @@ input[type='number']
 
 .content
 	max-width: 144rem
+	transition: opacity .3s
 
 .transparent
 	background: transparent
@@ -363,8 +364,9 @@ input[type='number']
 		margin-bottom: 1.8rem
 
 .title
-	font-family: Montserrat-Bold
+	font-family: 'Montserrat'
 	font-size: 3rem
+	font-weight: bold
 	line-height: 1.15em
 	margin: 0
 
@@ -384,8 +386,9 @@ input[type='number']
 
 
 .subtitle
-	font-family: 'Montserrat-Bold'
+	font-family: 'Montserrat'
 	font-size: 1.6rem
+	font-weight: bold
 	line-height: 1.6em
 	margin: 0
 
@@ -444,7 +447,7 @@ input[type='number']
 			line-height: 1.4em
 
 	&_bold
-		font-family: 'Montserrat-Bold'
+		font-family: 'Montserrat'
 		font-weight: 900
 		line-height: 1.6em
 
@@ -504,7 +507,8 @@ input[type='number']
 		line-height: 1.45em
 
 .page-text_bold
-	font-family: 'Montserrat-Bold'
+	font-family: 'Montserrat'
+	font-weight: 900
 
 .page-text-light
 	font-family: 'Montserrat-Light'
@@ -519,8 +523,9 @@ input[type='number']
 	margin-right: 0
 
 .page-big-title
-	font-family: 'Montserrat-Bold'
+	font-family: 'Montserrat'
 	font-size: 3rem
+	font-weight: 900
 	line-height: 1.1em
 	margin: 0
 
@@ -687,6 +692,7 @@ input[type='number']
 
 	&__text
 		color: transparent
+		bottom: -14rem
 		display: none
 		font-family: 'Montserrat-Bold'
 		font-size: 13rem
@@ -695,22 +701,12 @@ input[type='number']
 		position: absolute
 		opacity: .5
 		text-transform: uppercase
-		top: 1rem
 		transform: scale(-1, -1)
-		transition: transform 400ms
+		transition: transform 40ms
 		white-space: nowrap
 		-ms-writing-mode: tb-rl
 		writing-mode: vertical-rl
 		-webkit-text-stroke: 1px #E5E5E5
-
-		&-left
-			bottom: 11rem
-
-		&-contact
-			bottom: 27rem
-
-		&-outstaffing
-			top: 20rem
 
 		@media #{$media-sm-plus-up}
 			display: block
@@ -744,10 +740,10 @@ input[type='number']
 		opacity: .5
 
 	&__text
-		bottom: -12rem
+		bottom: -14rem
 		color: transparent
 		display: block
-		font-family: 'Montserrat-Bold'
+		font-family: 'Montserrat'
 		font-size: 9rem
 		font-weight: 900
 		left: -1rem
@@ -765,10 +761,10 @@ input[type='number']
 			opacity: 1
 
 	&__text-left
-		bottom: -12rem
+		bottom: -14rem
 		color: transparent
 		display: block
-		font-family: 'Montserrat-Bold'
+		font-family: 'Montserrat'
 		font-size: 9rem
 		font-weight: 900
 		right: -2rem
@@ -888,7 +884,7 @@ input[type='number']
 			transform: scale(1.1)
 
 	&__header
-		font-family: 'Montserrat-Bold'
+		font-family: 'Montserrat'
 		font-size: 1.8rem
 		font-weight: 900
 		line-height: 1.1em
@@ -950,7 +946,6 @@ input[type='number']
 
 .logo
 	height: 2.7rem
-	position: fixed
 	top: 1.6rem
 	left: calc(50% - 60px)
 	z-index: 100
@@ -970,6 +965,7 @@ input[type='number']
 	height: 6rem
 	left: 0
 	opacity: .8
+	padding: 1rem 0 0 10rem
 	position: fixed
 	top: 0
 	width: 100%
@@ -981,14 +977,14 @@ input[type='number']
 	&__link
 		z-index: 10
 
-	&:hover 
-		background: #fff
-		opacity: 1
-		~ .hover-logo
-				display: block
+	// &:hover 
+	// 	background: #fff
+	// 	opacity: 1
+		// ~ .hover-logo
+		// 		display: block
 
-		& ~ .logo
-			filter: invert(.2)
+		// & ~ .logo
+		// 	filter: invert(.2)
 
 .logo-visible
 	display: flex
@@ -1045,3 +1041,46 @@ input[type='number']
 
 .invert
 	filter: invert(1)
+
+.sections-wrapper
+	transform: scale(.75)
+	position: fixed
+	top: 5rem
+	bottom: 5rem
+	left: -5rem
+	right: -5rem
+
+.hiddenContent
+	opacity: 0
+
+
+//grid sistem
+
+%flex-center
+	display: flex
+	flex-direction: column
+	justify-content: center
+
+.section-content
+	@extend %flex-center
+	min-height: 100vh
+	padding: 2rem 4rem
+
+	@media #{$media-sm-plus-up}
+		padding: 2rem 11rem
+
+.section-row
+	display: flex
+	justify-content: center
+
+.section-col
+	flex-basis: 45%
+	display: flex
+	justify-content: center
+
+	&:nth-child(1)
+		align-items: flex-end
+
+	&:nth-child(2)
+		align-items: flex-start
+
