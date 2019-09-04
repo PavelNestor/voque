@@ -241,7 +241,6 @@ input[type='number']
 .side-text
 	font-family: 'Montserrat-Bold'
 	font-size: 9.2rem
-	font-weight: 900
 	position: absolute
 	-webkit-text-stroke: 1px $color
 	color: $color_white
@@ -267,7 +266,6 @@ input[type='number']
 .side-text
 	font-family: 'Montserrat-Bold'
 	font-size: 9.2rem
-	font-weight: 900
 	position: absolute
 	-webkit-text-stroke: 1px $color
 	color: $color_white
@@ -365,7 +363,6 @@ input[type='number']
 .title
 	font-family: 'Montserrat-Bold'
 	font-size: 3rem
-	font-weight: bold
 	line-height: 1.15em
 	margin: 0
 
@@ -377,7 +374,7 @@ input[type='number']
 
 	&__slash
 		color: $color_accent
-		font-family: Montserrat
+		font-family: 'Montserrat-Light'
 		font-weight: 300
 
 	&__accent
@@ -447,7 +444,7 @@ input[type='number']
 
 	&_bold
 		font-family: 'Montserrat'
-		font-weight: 900
+		font-weight: bold
 		line-height: 1.6em
 
 .list
@@ -507,7 +504,7 @@ input[type='number']
 
 .page-text_bold
 	font-family: 'Montserrat'
-	font-weight: 900
+	font-weight: bold
 
 .page-text-light
 	font-family: 'Montserrat-Light'
@@ -704,7 +701,6 @@ input[type='number']
 		display: none
 		font-family: 'Montserrat-Bold'
 		font-size: 13rem
-		font-weight: 900
 		left: 50%
 		position: absolute
 		opacity: .5
@@ -753,7 +749,6 @@ input[type='number']
 		display: block
 		font-family: 'Montserrat-Bold'
 		font-size: 9rem
-		font-weight: 900
 		left: -1rem
 		position: absolute
 		opacity: .5
@@ -774,7 +769,6 @@ input[type='number']
 		display: block
 		font-family: 'Montserrat-Bold'
 		font-size: 9rem
-		font-weight: 900
 		right: -2rem
 		position: absolute
 		opacity: .5
@@ -894,7 +888,7 @@ input[type='number']
 	&__header
 		font-family: 'Montserrat'
 		font-size: 1.8rem
-		font-weight: 900
+		font-weight: bold
 		line-height: 1.1em
 		margin-bottom: 2rem
 		padding: 1rem 1rem 0
@@ -928,9 +922,9 @@ input[type='number']
 
 	&__text
 		color: transparent
-		font-family: 'Montserrat-Bold'
+		font-family: 'Montserrat'
 		font-size: 9rem
-		font-weight: 900
+		font-weight: bold
 		opacity: .5
 		position: absolute
 		right: -1rem
@@ -977,6 +971,7 @@ input[type='number']
 	position: fixed
 	top: 0
 	width: 100%
+	z-index: 1
 
 	@media #{$media-sm-plus-up}
 		background: transparent
@@ -1069,6 +1064,9 @@ input[type='number']
 	flex-direction: column
 	justify-content: center
 
+.jc-center
+	justify-content: center
+
 .section-content
 	display: flex
 	flex-direction: column
@@ -1110,13 +1108,13 @@ input[type='number']
 		padding: 0
 
 		@media #{$media-sm-plus-up}
-			padding: 0 11rem 0 0
+			padding: 0 10% 0 0
 
 	&:nth-child(2)
 		padding: 0 3rem 0 0
 
 		@media #{$media-sm-plus-up}
-			padding: 0 11rem 0 0
+			padding: 0 10% 0 0
 
 
 .section-col-reverse
@@ -1132,11 +1130,11 @@ input[type='number']
 		padding: 0
 
 		@media #{$media-sm-plus-up}
-			padding: 0 0 0 11rem
+			padding: 0 0 0 10%
 
 	&:nth-child(1)
 		padding: 0 0 0 3rem
 
 		@media #{$media-sm-plus-up}
-			padding: 0 0 0 11rem
+			padding: 0 0 0 10%
 

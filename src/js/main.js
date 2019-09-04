@@ -34,6 +34,7 @@ let lastScrollPosition = 0;
 
 const sectionOptions = [
   {
+    contentId: "hero-content",
     id: "hero",
     logoUrl: "img/logo.svg",
     navbarClass: "hero",
@@ -133,6 +134,7 @@ window.addEventListener("scroll", function() {
     );
 
     setActiveLink(current);
+    invert(menuImg, current.isInvert);
 
     if (current.isLogoVisible) {
       logo.src = current.logoUrl;
@@ -143,21 +145,18 @@ window.addEventListener("scroll", function() {
 
   }
 
-  console.log('lastSectionForMenu', lastSectionForMenu);
-
   if (lastSectionForMenu !== currentSectionForMenu) {
     let current = sectionOptions.find(
       sectionOpt => sectionOpt.id === currentSectionForMenu
     );
 
-    document.getElementById(current.contentId).classList.remove('hiddenContent');
+    // document.getElementById(current.contentId).classList.remove('hiddenContent');
     
-    if (lastSectionForEffects !== '') {
-      document.getElementById(lastSectionForEffects).classList.add('hiddenContent');
-    }
+    // if (lastSectionForEffects !== '') {
+    //   document.getElementById(lastSectionForEffects).classList.add('hiddenContent');
+    // }
 
     invert(linesMenuItems, current.isInvert);
-    invert(menuImg, current.isInvert);
     lastSectionForEffects = current.contentId;
   }
 
