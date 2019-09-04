@@ -24,7 +24,10 @@ var sections = Array.from(document.getElementsByTagName("section"));
 var linesMenuItems = document.getElementsByClassName("lines-menu__item");
 
 let currentSection = "";
+let currentSectionForMenu = "";
 let lastSection = "";
+let lastSectionForMenu = "";
+let lastSectionForEffects = "";
 let windowHeight = 0;
 let breakpoints = [];
 let lastScrollPosition = 0;
@@ -39,15 +42,16 @@ const sectionOptions = [
     isLogoVisible: false,
   },
   {
+    contentId: "about-content",
     id: "about",
     logoUrl: "img/logo-black.svg",
     navbarClass: "about",
-    contentId: "about-content",
     scrollClass: "about",
     isLogoVisible: true,
     isInvert: true
   },
   {
+    contentId: "services-content",
     id: "services",
     logoUrl: "img/logo.svg",
     navbarClass: "about",
@@ -56,6 +60,7 @@ const sectionOptions = [
     isInvert: false
   },
   {
+    contentId: "development-content",
     id: "development",
     logoUrl: "img/logo.svg",
     navbarClass: "about",
@@ -64,6 +69,7 @@ const sectionOptions = [
     isInvert: false
   },
   {
+    contentId: "outsource-content",
     id: "outsource",
     logoUrl: "img/logo.svg",
     navbarClass: "about",
@@ -72,6 +78,7 @@ const sectionOptions = [
     isInvert: false
   },
   {
+    contentId: "outstaffing-content",
     id: "outstaffing",
     logoUrl: "img/logo.svg",
     navbarClass: "about",
@@ -80,6 +87,7 @@ const sectionOptions = [
     isInvert: false
   },
   {
+    contentId: "contact-content",
     id: "contact",
     logoUrl: "img/logo.svg",
     navbarClass: "about",
@@ -97,8 +105,8 @@ function onResize() {
   sections.forEach(section => {
     breakpoints.push({
       id: section.id,
-      breakpointTop: section.offsetTop - offset,
-      breakpointBottom: section.offsetTop + section.offsetHeight
+      breakpointTop: section.offsetTop,
+      offset
     });
   });
 }
@@ -110,62 +118,51 @@ window.addEventListener("resize", onResize);
 window.addEventListener("scroll", function() {
   if (document.body.getBoundingClientRect().top > lastScrollPosition) {
     // UP SCROLL
-
     logoWrapper.style.top = "0";
-
-    currentSection = findCurrentSection(pageYOffset, breakpoints);
-
-    if (lastSection !== currentSection) {
-      let current = sectionOptions.find(
-        sectionOpt => sectionOpt.id === currentSection
-      );
-
-      // document.getElementById(current.contentId).classList.remove('hiddenContent');
-
-      invert(linesMenuItems, current.isInvert);
-      invert(menuImg, current.isInvert);
-
-      setActiveLink(current);
-
-      if (current.isLogoVisible) {
-        logo.src = current.logoUrl;
-        logoWrapper.classList.add("logo-visible");
-      } else {
-        logoWrapper.classList.remove("logo-visible");
-      }
-
-    }
-
-    lastSection = currentSection;
   } else {
     // DOWN SCROLL
-
     logoWrapper.style.top = "-6rem";
-
-    currentSection = findCurrentSection(pageYOffset, breakpoints);
-
-    if (lastSection !== currentSection) {
-      let current = sectionOptions.find(
-        sectionOpt => sectionOpt.id === currentSection
-      );
-
-      invert(linesMenuItems, current.isInvert);
-      invert(menuImg, current.isInvert);
-
-      setActiveLink(current);
-
-      if (current.isLogoVisible) {
-        logo.src = current.logoUrl;
-        logoWrapper.classList.add("logo-visible");
-      } else {
-        logoWrapper.classList.remove("logo-visible");
-      }
-
-    }
-
-    lastSection = currentSection;
   }
 
+  currentSection = findCurrentSection(pageYOffset, breakpoints);
+  currentSectionForMenu = findCurrentSectionForMenu(pageYOffset, breakpoints);
+
+  if (lastSection !== currentSection) {
+    let current = sectionOptions.find(
+      sectionOpt => sectionOpt.id === currentSection
+    );
+
+    setActiveLink(current);
+
+    if (current.isLogoVisible) {
+      logo.src = current.logoUrl;
+      logoWrapper.classList.add("logo-visible");
+    } else {
+      logoWrapper.classList.remove("logo-visible");
+    }
+
+  }
+
+  console.log('lastSectionForMenu', lastSectionForMenu);
+
+  if (lastSectionForMenu !== currentSectionForMenu) {
+    let current = sectionOptions.find(
+      sectionOpt => sectionOpt.id === currentSectionForMenu
+    );
+
+    document.getElementById(current.contentId).classList.remove('hiddenContent');
+    
+    if (lastSectionForEffects !== '') {
+      document.getElementById(lastSectionForEffects).classList.add('hiddenContent');
+    }
+
+    invert(linesMenuItems, current.isInvert);
+    invert(menuImg, current.isInvert);
+    lastSectionForEffects = current.contentId;
+  }
+
+  lastSection = currentSection;
+  lastSectionForMenu = currentSectionForMenu;
   lastScrollPosition = document.body.getBoundingClientRect().top;
 
   // //parallax
@@ -232,6 +229,18 @@ function findCurrentSection(pageYOffset, breakpoints) {
     if (
       pageYOffset > breakpoint.breakpointTop &&
       breakpoints[index + 1] ? pageYOffset < breakpoints[index + 1].breakpointTop : true
+    ) {
+      return breakpoint.id;
+    }
+  }
+}
+
+function findCurrentSectionForMenu(pageYOffset, breakpoints) {
+  for (let index = 0; index < breakpoints.length; index++) {
+    const breakpoint = breakpoints[index];
+    if (
+      pageYOffset > breakpoint.breakpointTop - breakpoint.offset &&
+      breakpoints[index + 1] ? pageYOffset < breakpoints[index + 1].breakpointTop - breakpoints[index + 1].offset : true
     ) {
       return breakpoint.id;
     }

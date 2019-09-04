@@ -2,9 +2,9 @@ block vars
   - var navigation = 'development'
 
 block content
-  section#development.development.section-content(data-logo-visibility= 'true', data-logo='img/logo.svg', data-menu='img/menu.svg', data-id='development')
-      .development__row.section-row
-        .section-col
+  section#development.development.section-content(data-id='development')
+      #development-content.section-row-reverse.hiddenContent
+        .section-col-reverse
           .section_row
             .section_col-left
               .development__title-wrapper
@@ -34,7 +34,7 @@ block content
                   .section-block-mobile__bg-left
                   span.section-block-mobile__text-left.section-block-mobile__text-left-white.text-parallax-mobile development
 
-        .section-col
+        .section-col-reverse
           .section-block
             span.section-block__text.section-block__text-transparent.text-parallax development
             .section-block__text-wrapper

@@ -194,7 +194,7 @@ input[type='number']
 
 .align-left,
 .text-left
-	text-align: left
+	text-align: left !important
 
 .pull-left
 	float: left
@@ -216,7 +216,6 @@ input[type='number']
 //helpers
 
 .content
-	max-width: 144rem
 	transition: opacity .3s
 
 .transparent
@@ -337,7 +336,7 @@ input[type='number']
 
 	&__slash
 		color: $color_accent
-		font-family: 'Montserrat'
+		font-family: 'Montserrat-Light'
 		font-size: 4rem
 
 		@media #{$media-sm-plus-up}
@@ -364,7 +363,7 @@ input[type='number']
 		margin-bottom: 1.8rem
 
 .title
-	font-family: 'Montserrat'
+	font-family: 'Montserrat-Bold'
 	font-size: 3rem
 	font-weight: bold
 	line-height: 1.15em
@@ -518,9 +517,7 @@ input[type='number']
 	min-height: 30rem
 
 .page-wrapper
-	max-width: 104rem
-	margin-left: auto
-	margin-right: 0
+	padding-left: 15rem
 
 .page-big-title
 	font-family: 'Montserrat'
@@ -534,6 +531,9 @@ input[type='number']
 
 .p-relative
 	position: relative
+
+.pl-5
+	padding-left: 5rem
 
 .pt-0
 	padding-top: 0 !important
@@ -574,6 +574,9 @@ input[type='number']
 
 .mb-30
 	margin-bottom: 3rem
+
+.mb-40
+	margin-bottom: 4rem
 
 .mb-50
 	margin-bottom: 5rem
@@ -666,6 +669,7 @@ input[type='number']
 
 .section-block
 	position: relative
+	width: 100%
 
 	&-contact__bg
 		height: 50rem
@@ -677,7 +681,11 @@ input[type='number']
 
 	&__image
 		mask-image: linear-gradient(90deg, rgba(46, 46, 110, .7) 0%, rgba(97, 54, 123, .7) 100%)
+		transition: all 6s
 		width: -webkit-fill-available
+		
+		&:hover
+			transform: scale(1.2)
 
 		@media #{$media-sm-plus-up}
 			width: 100%
@@ -688,11 +696,11 @@ input[type='number']
 		max-height: 37rem
 
 		@media #{$media-sm-plus-up}
-				max-height: fit-content
+				// max-height: fit-content
 
 	&__text
 		color: transparent
-		bottom: -14rem
+		bottom: -22rem
 		display: none
 		font-family: 'Montserrat-Bold'
 		font-size: 13rem
@@ -743,7 +751,7 @@ input[type='number']
 		bottom: -14rem
 		color: transparent
 		display: block
-		font-family: 'Montserrat'
+		font-family: 'Montserrat-Bold'
 		font-size: 9rem
 		font-weight: 900
 		left: -1rem
@@ -764,7 +772,7 @@ input[type='number']
 		bottom: -14rem
 		color: transparent
 		display: block
-		font-family: 'Montserrat'
+		font-family: 'Montserrat-Bold'
 		font-size: 9rem
 		font-weight: 900
 		right: -2rem
@@ -1062,25 +1070,73 @@ input[type='number']
 	justify-content: center
 
 .section-content
-	@extend %flex-center
+	display: flex
+	flex-direction: column
+	justify-content: end
 	min-height: 100vh
-	padding: 2rem 4rem
+	padding: 0
 
 	@media #{$media-sm-plus-up}
-		padding: 2rem 11rem
+		justify-content: center
 
 .section-row
 	display: flex
+	flex-direction: column
 	justify-content: center
 
-.section-col
-	flex-basis: 45%
+	@media #{$media-sm-plus-up}
+		flex-direction: row
+
+
+.section-row-reverse
 	display: flex
 	justify-content: center
+	flex-direction: column-reverse
+
+	@media #{$media-sm-plus-up}
+		flex-direction: row
+
+
+.section-col
+	align-items: flex-start
+	flex-basis: 50%
+	display: flex
+	justify-content: flex-start
+
+	@media #{$media-sm-plus-up}
+		align-items: center
 
 	&:nth-child(1)
-		align-items: flex-end
+		padding: 0
+
+		@media #{$media-sm-plus-up}
+			padding: 0 11rem 0 0
 
 	&:nth-child(2)
-		align-items: flex-start
+		padding: 0 3rem 0 0
+
+		@media #{$media-sm-plus-up}
+			padding: 0 11rem 0 0
+
+
+.section-col-reverse
+	align-items: flex-end
+	flex-basis: 50%
+	display: flex
+	justify-content: flex-end
+
+	@media #{$media-sm-plus-up}
+		align-items: center
+
+	&:nth-child(2)
+		padding: 0
+
+		@media #{$media-sm-plus-up}
+			padding: 0 0 0 11rem
+
+	&:nth-child(1)
+		padding: 0 0 0 3rem
+
+		@media #{$media-sm-plus-up}
+			padding: 0 0 0 11rem
 
