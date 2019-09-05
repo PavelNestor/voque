@@ -5,10 +5,16 @@ block content
   section#services.services.section-content(data-id='services')
       #services-content.section-row.hiddenContent
         .section-col
-          .section-wrapper-text
+          .section-wrapper-text.hide-mobile
             span.section-block__text.section-block__text-left advertising
             .section-block.section-col_services
               span.section-block__text.section-block__text-left.section-block__text-white advertising
+
+          .section-block.hide-desktop
+            span.section-block__text.section-block__text-left.section-block__text-transparent.text-parallax outsource
+            .section-block__text-wrapper
+              img.section-block__image.box-parallax(src="/img/outsource-img.png", alt="outsource")
+              span.section-block__text.section-block__text-left.section-block__text-white.text-parallax outsource
 
         .section-col
           .section_row
