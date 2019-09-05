@@ -21,3 +21,26 @@ mixin accentLeftWord(word, src)
     .section-block__text-wrapper
       img.section-block__image.box-parallax(src= src, alt= word)
       span.section-block__text.section-block__text-left.section-block__text-white.text-parallax= word
+    
+
+mixin accentMobileWord(word)
+  .section-block-mobile.section-block-mobile-left.hide-desktop
+    span.section-block-mobile__text-left.text-parallax-mobile= word
+    .section-block-mobile__text-wrapper
+      .section-block-mobile__bg-left
+      span.section-block-mobile__text-left.section-block-mobile__text-left-white.text-parallax-mobile= word
+
+mixin accentMobileLeftWord(word)
+  .section-block-mobile.section-block-mobile-right.hide-desktop
+    span.section-block-mobile__text-left.section-block-mobile-text-right.text-parallax-mobile= word
+    .section-block-mobile__text-wrapper
+      .section-block-mobile__bg-right
+      span.section-block-mobile__text-left.section-block-mobile__text-left-white.text-parallax-mobile= word
+
+
+
+//- pages
+
+mixin pageSubheader(subheader)
+  .page-image-block(class!=attributes.class)
+    h2.page-big-title.page-image-block__title= subheader

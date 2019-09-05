@@ -6,6 +6,7 @@ block vars
 block content
   section#outstaffing.outstaffing.section-content(data-logo-visibility= 'true', data-logo='img/logo.svg', data-menu='img/menu.svg', data-id='outstaffing')
       #outstaffing-content.section-row-reverse.hiddenContent
+        +accentMobileLeftWord('outstaffing')
         .section-col-reverse
           .section_row
             .section_col-left
@@ -28,15 +29,10 @@ block content
                   li.list__item Direct control of your employees via online conferences, etc.
                   li.list__item No additional fees comparing to outsourcing.
 
-              p.text.text_small.text_bold.outstaffing_lh-145.outstaffing_mb-18 We always set incredibly high goals for our clients and our primary purpose is to meet our client’s lofty expectations.
+              p.text.text_small.text_bold.outstaffing_mb-18 We always set incredibly high goals for our clients and our primary purpose is to meet our client’s lofty expectations.
               a.button-outline(href='outstaffing.html') read more
 
             .section_col-left
-              .section-block-mobile.section-block-mobile-left
-                span.section-block-mobile__text-left.section-block-mobile__text-left-transparent.text-parallax-mobile outstaffing
-                .section-block-mobile__text-wrapper
-                  .section-block-mobile__bg-left
-                  span.section-block-mobile__text-left.section-block-mobile__text-left-white.text-parallax-mobile outstaffing
 
         .section-col-reverse
           +accentLeftWord('outstaffing', '/img/outstaffing-img.png')(class='section-col_outstaffing')

@@ -467,10 +467,7 @@ input[type='number']
 
 .page-block
 	width: 100%
-	padding: 0 0 0 5rem
-
-	@media #{$media-lg-up}
-		padding: 0
+	padding: 0 0 0 10%
 
 .page-block_dark
 	background: linear-gradient(90deg, rgba(33, 32, 77, .3) 0%, rgba(58, 36, 83, .3) 100%)
@@ -503,19 +500,33 @@ input[type='number']
 		font-size: 1.8rem
 		line-height: 1.45em
 
-.page-text_bold
-	font-family: 'Montserrat'
-	font-weight: bold
+	&_bold
+		font-family: 'Montserrat-Bold'
 
 .page-text-light
 	font-family: 'Montserrat-Light'
 
 .page-image-block
-	width: 100%
+	align-items: flex-end
+	display: flex
 	min-height: 30rem
+	padding: 2rem 10% 0
+	width: 100%
+	margin-bottom: 5rem
+
+	&__top
+		margin-top: -20rem
+
+
+	&__title
+		position: relative
+		top: 2rem
+
+		@media #{$media-sm-plus-up}
+			top: 4rem
 
 .page-wrapper
-	padding: 5rem 5rem 5rem 15rem
+	padding: 5rem 5rem 5rem 10%
 
 .page-big-title
 	font-family: 'Montserrat-Bold'
@@ -735,7 +746,15 @@ input[type='number']
 	padding-top: 12rem
 
 	&-left
+		position: absolute
+		right: -3rem
+		top: -45rem
+
+	&-right
+		position: absolute
 		right: 0
+		top: -14rem
+		z-index: 1
 
 	&__text-wrapper
 		overflow: hidden
@@ -744,13 +763,19 @@ input[type='number']
 	&__bg
 		width: 6rem
 		height: 50rem
-		background: linear-gradient(90deg, #21204D 0%, #3A2453 100%)
+		background: transparent
 		opacity: .5
 
 	&__bg-left
 		width: 6rem
-		height: 50rem
-		background: linear-gradient(90deg, #443B75 0%, #583E7A 100%)
+		height: 33rem
+		background: transparent
+		opacity: .5
+
+	&__bg-right
+		width: 6rem
+		height: 39rem
+		background: transparent
 		opacity: .5
 
 	&__text
@@ -774,12 +799,12 @@ input[type='number']
 			opacity: 1
 
 	&__text-left
-		bottom: -14rem
+		bottom: -34rem
 		color: transparent
 		display: block
 		font-family: 'Montserrat-Bold'
 		font-size: 9rem
-		right: -2rem
+		right: -1rem
 		position: absolute
 		opacity: .5
 		text-transform: uppercase
@@ -788,6 +813,9 @@ input[type='number']
 		-ms-writing-mode: tb-rl
 		writing-mode: vertical-rl
 		-webkit-text-stroke: 1px #fff
+
+		&-right
+			bottom: -39rem
 
 		&-white
 			color: #fff
@@ -800,12 +828,14 @@ input[type='number']
 	&:nth-child(1)
 		display: flex
 		align-items: center
+		position: relative
 
 		@media #{$media-sm-plus-up}
 			display: none
 
 	&:nth-child(2)
-		padding: 6.4rem 4rem 8.7rem 7.5rem
+		position: relative
+		padding: 6.4rem 4rem 8.7rem 5rem
 
 		@media #{$media-xs-up}
 			padding: 16rem 6rem 16rem 7.5rem
@@ -824,7 +854,8 @@ input[type='number']
 			display: none
 
 	&:nth-child(1)
-		padding: 6.4rem 7.5rem 8.7rem 6rem
+		position: relative
+		padding: 6.4rem 3.2rem 8.7rem 5rem
 
 		@media #{$media-xs-up}
 			padding: 16rem 6rem 16rem 7.5rem
@@ -977,7 +1008,7 @@ input[type='number']
 	height: 6rem
 	left: 0
 	opacity: .8
-	padding: 1rem 0 0 10rem
+	padding: 0
 	position: fixed
 	top: 0
 	width: 100%
@@ -986,6 +1017,7 @@ input[type='number']
 	@media #{$media-sm-plus-up}
 		background: transparent
 		justify-content: flex-start
+		padding: 1rem 0 0 10rem
 
 	&__link
 		z-index: 10
@@ -1102,6 +1134,7 @@ input[type='number']
 	display: flex
 	justify-content: center
 	flex-direction: column-reverse
+	position: relative
 
 	@media #{$media-sm-plus-up}
 		flex-direction: row
@@ -1135,6 +1168,7 @@ input[type='number']
 	flex-basis: 50%
 	display: flex
 	justify-content: flex-end
+	padding: 0 0 0 10%
 
 	@media #{$media-sm-plus-up}
 		align-items: center
@@ -1146,7 +1180,7 @@ input[type='number']
 			padding: 0 0 0 10%
 
 	&:nth-child(1)
-		padding: 0 0 0 3rem
+		padding: 0
 
 		@media #{$media-sm-plus-up}
 			padding: 0 0 0 10%

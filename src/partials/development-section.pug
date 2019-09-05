@@ -6,9 +6,11 @@ block vars
 block content
   section#development.development.section-content(data-id='development')
       #development-content.section-row-reverse.hiddenContent
+        +accentMobileLeftWord('development')
         .section-col-reverse
           .section_row
             .section_col-left
+              
               .development__title-wrapper
                 .title-wrapper
                   h2.title
@@ -26,15 +28,13 @@ block content
                 li.list__item SSP/DSP development;
                 li.list__item Open RTB development;
 
-              p.text.text_small.text_bold.development_lh-145.development_mb-20 We always set incredibly high goals for our clients and our primary purpose is to meet our client’s lofty expectations.
+              p.text.text_small.text_bold.development_mb-20 We always set incredibly high goals for our clients and our primary purpose is to meet our client’s lofty expectations.
               a.button-outline(href='development.html') read more
             
             .section_col-left
-              .section-block-mobile.section-block-mobile-left
-                span.section-block-mobile__text-left.section-block-mobile__text-left-transparent.text-parallax-mobile development
-                .section-block-mobile__text-wrapper
-                  .section-block-mobile__bg-left
-                  span.section-block-mobile__text-left.section-block-mobile__text-left-white.text-parallax-mobile development
+              
 
         .section-col-reverse
+          
+
           +accentLeftWord('development', '/img/development_img.png')(class='section-col_development')
