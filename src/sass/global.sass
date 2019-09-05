@@ -263,31 +263,6 @@ input[type='number']
 		font-size: 15rem
 		top: 61vh
 
-.side-text
-	font-family: 'Montserrat-Bold'
-	font-size: 9.2rem
-	position: absolute
-	-webkit-text-stroke: 1px $color
-	color: $color_white
-	-ms-writing-mode: tb-rl
-	writing-mode: vertical-rl
-	transform: scale(-1, -1)
-	text-transform: uppercase
-	right: -0.8rem
-	top: 112vh
-	white-space: nowrap
-	opacity: .5
-	z-index: -1
-
-	@media #{$media-sm-plus-up}
-		font-size: 13rem
-		right: 47%
-		top: 62vh
-
-	@media #{$media-lg-up}
-		font-size: 15rem
-		top: 61vh
-
 .dual__row
 	align-items: center
 	display: flex
@@ -382,7 +357,7 @@ input[type='number']
 
 
 .subtitle
-	font-family: 'Montserrat'
+	font-family: 'Montserrat-Bold'
 	font-size: 1.6rem
 	font-weight: bold
 	line-height: 1.6em
@@ -467,7 +442,7 @@ input[type='number']
 
 .page-block
 	width: 100%
-	padding: 0 0 0 10%
+	padding: 5rem 5rem 5rem 10%
 
 .page-block_dark
 	background: linear-gradient(90deg, rgba(33, 32, 77, .3) 0%, rgba(58, 36, 83, .3) 100%)
@@ -482,6 +457,9 @@ input[type='number']
 	
 	@media #{$media-sm-plus-up}
 		font-size: 5rem
+
+.page-title-wrapper
+	padding: 5rem 1rem 1rem 0
 
 .page-subtitle
 	font-size: 1.4rem
@@ -512,7 +490,6 @@ input[type='number']
 	min-height: 30rem
 	padding: 2rem 10% 0
 	width: 100%
-	margin-bottom: 5rem
 
 	&__top
 		margin-top: -20rem
@@ -526,7 +503,7 @@ input[type='number']
 			top: 4rem
 
 .page-wrapper
-	padding: 5rem 5rem 5rem 10%
+	padding: 0 5rem 0 10%
 
 .page-big-title
 	font-family: 'Montserrat-Bold'
@@ -694,7 +671,7 @@ input[type='number']
 		background: transparent
 		width: 6rem
 
-		@media #{$media-sm-plus-up}
+		@media #{$media-lg-up}
 			width: 60rem
 
 	&__image
@@ -835,7 +812,7 @@ input[type='number']
 
 	&:nth-child(2)
 		position: relative
-		padding: 6.4rem 4rem 8.7rem 5rem
+		padding: 8.4rem 4rem 8rem 5rem
 
 		@media #{$media-xs-up}
 			padding: 16rem 6rem 16rem 7.5rem
@@ -855,7 +832,7 @@ input[type='number']
 
 	&:nth-child(1)
 		position: relative
-		padding: 6.4rem 3.2rem 8.7rem 5rem
+		padding: 8.4rem 3.2rem 8.7rem 5rem
 
 		@media #{$media-xs-up}
 			padding: 16rem 6rem 16rem 7.5rem
@@ -950,7 +927,7 @@ input[type='number']
 			padding: 4rem
 
 
-.page-block
+.page-accent
 	position: relative
 
 	&__bg
@@ -1168,10 +1145,11 @@ input[type='number']
 	flex-basis: 50%
 	display: flex
 	justify-content: flex-end
-	padding: 0 0 0 10%
+	padding: 0
 
 	@media #{$media-sm-plus-up}
 		align-items: center
+		padding: 0 0 0 10%
 
 	&:nth-child(2)
 		padding: 0

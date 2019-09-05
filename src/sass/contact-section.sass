@@ -61,9 +61,12 @@
       margin-bottom: 4.3rem
 
   &__subtitle
-    font-size: 2.4rem
+    font-size: 2rem
     line-height: 1.2em
     margin-bottom: 2.5rem
+
+    @media #{$media-sm-plus-up}
+      font-size: 2.4rem
 
   &__row
     display: flex
@@ -188,3 +191,16 @@
     font-size: 15rem
     bottom: -6rem
     left: 28rem
+
+.accent-text-contact
+  color: white
+  font-family: 'Montserrat-Bold'
+  font-size: 9rem
+  position: absolute
+  right: -3rem
+  text-transform: uppercase
+  transform: scale(-1, -1)
+  white-space: nowrap
+  writing-mode: vertical-rl
+  -webkit-text-stroke: 1px #E5E5E5
+  z-index: 0

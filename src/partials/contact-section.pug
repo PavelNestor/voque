@@ -1,3 +1,5 @@
+include mixins
+
 block vars
   - var navigation = 'contact'
 
@@ -15,9 +17,8 @@ block content
           .section_row
               .section_col
 
-                //- +accentMobileWord('contact us')
-
               .section_col
+                span.accent-text-contact.hide-desktop contact us
                 .contact__title-wrapper
                   .title-wrapper
                       h2.title
