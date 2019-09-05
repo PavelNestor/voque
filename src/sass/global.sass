@@ -573,11 +573,19 @@ input[type='number']
 .mb-50
 	margin-bottom: 5rem
 
+.mb-sm-50
+	@media #{$media-sm-plus-down}
+		margin-bottom: 5rem
+
 .mb-90
 	margin-bottom: 9rem
 
 .mb-100
-	margin-bottom: 9rem
+	margin-bottom: 10rem
+
+.mb-md-100
+	@media #{$media-sm-plus-up}
+		margin-bottom: 9rem
 
 .mb-lg-90
 	@media #{$media-lg-up}
