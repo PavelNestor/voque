@@ -5,16 +5,16 @@ block vars
 
 block page-content
   span#logo-wrapper.logo-wrapper.logo-visible
-    a(href="index.html")
-      img(src='img/logo.svg', id='logo')
+    a.logo-wrapper__link(href="index.html")
+      img.logo(src='img/logo.svg', id='logo')
 
   .about-page
     .about-page__top
-      .page-block
-        span.page-block__text.page-block__text-transparent.text-parallax about voqus
-        .page-block__text-wrapper
-          .page-block__bg
-          span.page-block__text.page-block__text-white.text-parallax about voqus
+      .page-accent
+        span.page-accent__text.page-accent__text-transparent.text-parallax about voqus
+        .page-accent__text-wrapper
+          .page-accent__bg.box-parallax
+          span.page-accent__text.page-accent__text-white.text-parallax about voqus
 
     .about-page__content
       .about-page__title-wrapper
@@ -24,25 +24,22 @@ block page-content
           span.title__accent q
           | us
 
-      .page-block
-        .page-wrapper
-          p.page-text Voqus.net is an innovative software development and advertising company build on mutual trust and exceptional experience of our team members.
-          p.page-text The entrepreneurial skills and technology-driven atmosphere of our company makes it possible to bring the most challenging and crazy ideas to life. 
-          p.page-text All this unites into powerful knowledge engine capable of producing unique solutions when it comes to web design, development or digital advertising. 
-          p.page-text What really matters is that no matter what new project our expert team has been involved in, we always stay inventive, unrealistic and risk-minded. 
-          p.page-text Our ad tech team is specialized in developing advertising platforms including DSP/SSP, Open RTB and TDS platforms as well as Ad fraud/Scoring systems and many more. With years of experience and deep understanding of a product, we can execute a customized project or build up a strategy for your future. 
-          p.page-text Our creative team is skilled in conducting programmatic display, mobile, social media, paid search, retargeting, branding and direct campaigns at the level appropriate even for the most demanding customer. 
+      .page-wrapper.mb-sm-50.mb-md-100
+        p.page-text Voqus.net is an innovative software development and advertising company build on mutual trust and exceptional experience of our team members.
+        p.page-text The entrepreneurial skills and technology-driven atmosphere of our company makes it possible to bring the most challenging and crazy ideas to life. 
+        p.page-text All this unites into powerful knowledge engine capable of producing unique solutions when it comes to web design, development or digital advertising. 
+        p.page-text What really matters is that no matter what new project our expert team has been involved in, we always stay inventive, unrealistic and risk-minded. 
+        p.page-text Our ad tech team is specialized in developing advertising platforms including DSP/SSP, Open RTB and TDS platforms as well as Ad fraud/Scoring systems and many more. With years of experience and deep understanding of a product, we can execute a customized project or build up a strategy for your future. 
+        p.page-text Our creative team is skilled in conducting programmatic display, mobile, social media, paid search, retargeting, branding and direct campaigns at the level appropriate even for the most demanding customer. 
       
       .page-block.page-block_dark
-        .page-wrapper
-          p.page-text-bold We have expert ad ops professionals on board who can traffic or execute ad campaigns for you or your clients. With years of experience, our team has been familiar with merely all ad server platforms in the industry. 
+        p.page-subtitle.page-text_bold We have expert ad ops professionals on board who can traffic or execute ad campaigns for you or your clients. With years of experience, our team has been familiar with merely all ad server platforms in the industry. 
       
       .page-block
-        .page-wrapper
-          p.page-text-bold We are proficient in planning and executing ad campaigns and can target the right audience to your landing page to build brand awareness to your specific product or generate more sales on your website.
+        p.page-subtitle.page-text_bold We are proficient in planning and executing ad campaigns and can target the right audience to your landing page to build brand awareness to your specific product or generate more sales on your website.
 
       .page-block.page-block_dark
-        .page-wrapper
-          p.page-text-bold We love to stay ahead of the game and this enables us to achieve amazing results for our clients, whether in digital advertising or in developing a customized platforms.
+        p.page-subtitle.page-text_bold We love to stay ahead of the game and this enables us to achieve amazing results for our clients, whether in digital advertising or in developing a customized platforms.
+
 
       .page-image-block.about-page__bg-bottom

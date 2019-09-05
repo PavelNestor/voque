@@ -4,16 +4,17 @@ block vars
 	- var title = "Vogus"
 
 block content
-	span#logo-wrapper.logo-wrapper
-		a(href="index.html")
-			img.logo(src='img/logo-black.svg', id='logo')
+	#logo-wrapper.logo-wrapper
+		a.logo-wrapper__link(href="index.html")
+			img.logo(src='img/logo.svg', id='logo')
 	include partials/menu
 	include partials/navigation
-	include partials/hero-section
-	include partials/about-section
-	include partials/services-section
-	include partials/development-section
-	include partials/outsource-section
-	include partials/outstaffing-section
-	include partials/contact-section
 
+	div
+		include partials/hero-section
+		include partials/about-section
+		include partials/services-section
+		include partials/development-section
+		include partials/outsource-section
+		include partials/outstaffing-section
+		include partials/contact-section

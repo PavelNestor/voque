@@ -1,18 +1,10 @@
 .services
-  align-items: center
   background: linear-gradient(90deg, rgba(46, 46, 110, 0.9) 0%, rgba(97, 54, 123, 0.9) 100%), bottom/cover no-repeat url("/img/adverticing_bg.png"), linear-gradient(90deg, #61367B 0%, #2E2E6E 100%)
   color: $color_white
-  display: flex
-  flex-direction: column
   overflow: hidden
-  padding: 0
 
   @media #{$media-sm-plus-up}
     background: linear-gradient(90deg, rgba(46, 46, 110, 0.9) 0%, rgba(97, 54, 123, 0.9) 100%), bottom/cover no-repeat url("/img/adverticing_bg.png"), linear-gradient(90deg, #61367B 0%, #2E2E6E 100%)
-    padding: 8.9rem 0
-
-  @media #{$media-lg-up}
-    padding: 14.2rem 0 10rem
 
   &__btn
     margin-top: -6.4rem
@@ -21,11 +13,8 @@
     height: 100%
     width: auto
 
-  &_mb-23
-    margin-bottom: 2.3rem
-
-  &_mb-20
-    margin-bottom: 2rem
+  &_mb-21
+    margin-bottom: 2.1rem
 
   &__text-small
     @media #{$media-sm-plus-up}
@@ -34,7 +23,7 @@
 
     @media #{$media-lg-up}
       font-size: 1.6rem
-      line-height: 1.65em
+      line-height: 1.6em
 
   &__text-smaller
     @media #{$media-sm-plus-up}
@@ -104,13 +93,11 @@
       flex-direction: row
 
   &__subtitle-wrapper
-    margin-bottom: 2rem
+    margin-bottom: 1.8rem
+    margin-left: 1px
 
     @media #{$media-sm-plus-up}
       padding-right: 0
-
-    @media #{$media-lg-up}
-      padding-right: 3.7rem
 
   &__header
     display: inline
@@ -131,25 +118,13 @@
     @media #{$media-lg-up}
       padding: 0 4rem 0 0
 
-.side-text-wrapper
+.section-col_services
+  background: linear-gradient(90deg, rgba(46, 46, 110, .3) 0%, rgba(97, 54, 123, .3) 100%), url('/img/services_bg.png') no-repeat center center / cover
+  overflow: hidden
+  height: 100%
+  width: 100%
+
+.section-wrapper-text
+  height: 100%
   position: relative
-
-.side-text-services
-  color: transparent
-  bottom: 0
-  font-family: 'Montserrat-Bold'
-  font-size: 9rem
-  font-weight: 900
-  left: -1rem
-  position: absolute
-  opacity: .5
-  text-transform: uppercase
-  transform: scale(-1, -1)
-  white-space: nowrap
-  writing-mode: vertical-rl
-  -webkit-text-stroke: 1px #E5E5E5
-  z-index: 0
-
-  @media #{$media-sm-plus-up}
-    font-size: 15rem
-    left: calc(50% - 33rem)
+  width: 100%

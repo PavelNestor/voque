@@ -75,7 +75,7 @@ $media-sm: #{$media-sm-down}
 $media-sm-up: '(min-width: #{$screen-sm})'
 $media-sm-only: '(min-width: $screen-sm) and (max-width: $screen-sm-max)'
 
-$media-sm-plus-down: '(max-width: $screen-sm-plus-max)'
+$media-sm-plus-down: '(max-width: #{$screen-sm-plus-max})'
 $media-sm-plus: #{$media-sm-plus-down}
 $media-sm-plus-up: '(min-width: #{$screen-sm-plus})'
 $media-sm-plus-only: '(min-width: $screen-sm-plus) and (max-width: $screen-sm-plus-max)'
@@ -132,6 +132,34 @@ $grid-gap: 2rem
 	& > *
 		width: 25%
 %col-5
+	@extend %col
+	& > *
+		width: 20%
+%col-6
+	@extend %col
+	& > *
+		width: 16%
+%col-7
+	@extend %col
+	& > *
+		width: 14%
+%col-8
+	@extend %col
+	& > *
+		width: 12.5%
+%col-9
+	@extend %col
+	& > *
+		width: 20%
+%col-10
+	@extend %col
+	& > *
+		width: 20%
+%col-11
+	@extend %col
+	& > *
+		width: 20%
+%col-12
 	@extend %col
 	& > *
 		width: 20%

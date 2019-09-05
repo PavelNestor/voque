@@ -105,7 +105,7 @@ textarea
 
 	&::placeholder
 		font: $font
-		font-size: 1rem
+		font-size: 1.6rem
 
 textarea
 
@@ -194,7 +194,7 @@ input[type='number']
 
 .align-left,
 .text-left
-	text-align: left
+	text-align: left !important
 
 .pull-left
 	float: left
@@ -216,7 +216,7 @@ input[type='number']
 //helpers
 
 .content
-	max-width: 144rem
+	transition: opacity .3s
 
 .transparent
 	background: transparent
@@ -230,36 +230,17 @@ input[type='number']
 	text-transform: uppercase
 	text-decoration: none
 
-.side-text
-	font-family: 'Montserrat-Bold'
-	font-size: 9.2rem
-	font-weight: 900
-	position: absolute
-	-webkit-text-stroke: 1px $color
-	color: $color_white
-	-ms-writing-mode: tb-rl
-	writing-mode: vertical-rl
-	transform: scale(-1, -1)
-	text-transform: uppercase
-	right: -0.8rem
-	top: 112vh
-	white-space: nowrap
-	opacity: .5
-	z-index: -1
-
-	@media #{$media-sm-plus-up}
-		font-size: 13rem
-		right: 47%
-		top: 62vh
-
-	@media #{$media-lg-up}
-		font-size: 15rem
-		top: 61vh
+	&:hover,
+	&:focus
+		// background: $color_accent
+		border: 1px solid $color_accent
+		box-shadow: inset 0 0 0 2em $color_accent
+		color: #2a2658
+		transition: .5s
 
 .side-text
 	font-family: 'Montserrat-Bold'
 	font-size: 9.2rem
-	font-weight: 900
 	position: absolute
 	-webkit-text-stroke: 1px $color
 	color: $color_white
@@ -328,7 +309,7 @@ input[type='number']
 
 	&__slash
 		color: $color_accent
-		font-family: 'Montserrat'
+		font-family: 'Montserrat-Light'
 		font-size: 4rem
 
 		@media #{$media-sm-plus-up}
@@ -346,18 +327,18 @@ input[type='number']
 
 
 .title-wrapper
-	margin-bottom: 2.1rem
+	margin-bottom: 2rem
 
 	@media #{$media-sm-plus-up}
 		margin-bottom: 2rem
 
 	@media #{$media-lg-up}
-		margin-bottom: 1.8rem
+		margin-bottom: 2.9rem
 
 .title
-	font-family: Montserrat-Bold
+	font-family: 'Montserrat-Bold'
 	font-size: 3rem
-	line-height: 1.15em
+	line-height: 1em
 	margin: 0
 
 	@media #{$media-sm-plus-up}
@@ -368,7 +349,7 @@ input[type='number']
 
 	&__slash
 		color: $color_accent
-		font-family: Montserrat
+		font-family: 'Montserrat-Light'
 		font-weight: 300
 
 	&__accent
@@ -378,6 +359,7 @@ input[type='number']
 .subtitle
 	font-family: 'Montserrat-Bold'
 	font-size: 1.6rem
+	font-weight: bold
 	line-height: 1.6em
 	margin: 0
 
@@ -389,6 +371,7 @@ input[type='number']
 	font-size: 1.6rem
 	line-height: 1.4em
 	margin: 0
+	opacity: 0.8
 
 	@media #{$media-sm-plus-up}
 		font-size: 1.8rem
@@ -399,6 +382,7 @@ input[type='number']
 		font-size: 2rem
 		line-height: 1.25em
 		margin: 0
+		opacity: 0.8
 
 		@media #{$media-sm-plus-up}
 			margin: 0
@@ -407,6 +391,7 @@ input[type='number']
 		font-size: 1.4rem
 		line-height: 1.45em
 		margin: 0
+		opacity: 0.8
 
 		@media #{$media-sm-plus-up}
 			font-size: 1.8rem
@@ -416,6 +401,7 @@ input[type='number']
 		font-size: 1.4rem
 		line-height: 1.45em
 		margin: 0
+		opacity: 0.8
 
 		@media #{$media-sm-plus-up}
 			font-size: 1.6rem
@@ -425,6 +411,7 @@ input[type='number']
 		font-size: 1.4rem
 		line-height: 1.45em
 		margin: 0
+		opacity: 0.8
 
 		@media #{$media-lg-up}
 			font-size: 1.6rem
@@ -432,7 +419,6 @@ input[type='number']
 
 	&_bold
 		font-family: 'Montserrat-Bold'
-		font-weight: 900
 		line-height: 1.6em
 
 .list
@@ -442,11 +428,13 @@ input[type='number']
 		margin: 0
 
 	&__item
-		background: url(/img/list-img.svg) no-repeat left top
+		background: url(/img/list-img.svg) no-repeat left 0.5rem
 		font-size: 1.4rem
 		line-height: 1.4em
 		margin-bottom: .6rem
-		padding-left: 4.1rem
+		margin-left: -0.1rem
+		padding-left: 4.2rem
+		opacity: .8
 
 		@media #{$media-lg-up}
 			font-size: 1.6rem
@@ -454,10 +442,7 @@ input[type='number']
 
 .page-block
 	width: 100%
-	padding: 0 0 0 5rem
-
-	@media #{$media-lg-up}
-		padding: 0
+	padding: 5rem 5rem 5rem 10%
 
 .page-block_dark
 	background: linear-gradient(90deg, rgba(33, 32, 77, .3) 0%, rgba(58, 36, 83, .3) 100%)
@@ -468,43 +453,65 @@ input[type='number']
 .page-title
 	font-size: 3rem
 	line-height: 1.1em
+	opacity: .9
 	
 	@media #{$media-sm-plus-up}
 		font-size: 5rem
 
+.page-title-wrapper
+	padding: 5rem 1rem 5rem 10%
+
+	@media #{$media-sm-plus-up}
+		padding: 10rem 0 10rem 10%
+
 .page-subtitle
 	font-size: 1.4rem
 	line-height: 1.45em
+	opacity: .9
 
 	@media #{$media-sm-plus-up}
-		font-size: 3.2rem
+		font-size: 3rem
 
 .page-text
 	font-size: 1.4rem
 	line-height: 1.45em
+	opacity: .9
 
 	@media #{$media-sm-plus-up}
 		font-size: 1.8rem
 		line-height: 1.45em
 
-.page-text_bold
-	font-family: 'Montserrat-Bold'
+	&_bold
+		font-family: 'Montserrat-Bold'
 
 .page-text-light
 	font-family: 'Montserrat-Light'
 
 .page-image-block
-	width: 100%
+	align-items: flex-end
+	display: flex
 	min-height: 30rem
+	padding: 2rem 10% 0
+	width: 100%
+
+	&__top
+		margin-top: -20rem
+
+
+	&__title
+		position: relative
+		top: 2rem
+
+		@media #{$media-sm-plus-up}
+			top: 4rem
 
 .page-wrapper
-	max-width: 104rem
-	margin-left: auto
-	margin-right: 0
+	padding: 0 0 0 10%
 
 .page-big-title
 	font-family: 'Montserrat-Bold'
 	font-size: 3rem
+	font-weight: 900
 	line-height: 1.1em
 	margin: 0
 
@@ -514,8 +521,14 @@ input[type='number']
 .p-relative
 	position: relative
 
+.pl-5
+	padding-left: 5rem
+
 .pt-0
 	padding-top: 0 !important
+
+.pt-1
+	padding-top: 1rem
 
 .pt-40
 	padding-top: 4rem !important
@@ -539,23 +552,47 @@ input[type='number']
 .pb-0
 	padding-bottom: 0 !important
 
+.pb-1
+	padding-bottom: 1rem
+
 .m-0
 	margin: 0
 
 .left-0
 	left: 0
 
+.mb-19
+	margin-bottom: 1.9rem
+
+.mb-20
+	margin-bottom: 2rem
+
 .mb-30
 	margin-bottom: 3rem
 
+.mb-40
+	margin-bottom: 4rem
+
 .mb-50
 	margin-bottom: 5rem
+
+.mb-sm-50
+	@media #{$media-sm-plus-down}
+		margin-bottom: 5rem
+
+.mb-md-50
+	@media #{$media-sm-plus-up}
+		margin-bottom: 5rem
 
 .mb-90
 	margin-bottom: 9rem
 
 .mb-100
-	margin-bottom: 9rem
+	margin-bottom: 10rem
+
+.mb-md-100
+	@media #{$media-sm-plus-up}
+		margin-bottom: 9rem
 
 .mb-lg-90
 	@media #{$media-lg-up}
@@ -573,6 +610,10 @@ input[type='number']
 .mt-22
 	margin-top: 2.2rem !important
 
+.mt-sm-20
+	@media #{$media-sm-plus-down}
+		margin-top: 2rem !important
+
 .mt-34
 	margin-top: 3.4rem !important
 
@@ -581,6 +622,10 @@ input[type='number']
 
 .mt-50
 	margin-top: 5rem !important
+
+.mt-md-50
+	@media #{$media-sm-plus-up}
+		margin-top: 5rem !important
 
 .mt-52
 	margin-top: 5.2rem !important
@@ -595,6 +640,9 @@ input[type='number']
 .mt-lg-100
 	@media #{$media-lg-up}
 		margin-top: 10rem !important
+
+.ml-1
+	margin-left: 1px !important
 
 .mr-40
 	margin-right: 4rem
@@ -639,15 +687,23 @@ input[type='number']
 
 .section-block
 	position: relative
+	width: 100%
 
 	&-contact__bg
 		height: 50rem
 		background: transparent
-		width: 60rem
+		width: 6rem
+
+		@media #{$media-lg-up}
+			width: 60rem
 
 	&__image
 		mask-image: linear-gradient(90deg, rgba(46, 46, 110, .7) 0%, rgba(97, 54, 123, .7) 100%)
+		transition: all 6s
 		width: -webkit-fill-available
+		
+		&:hover
+			transform: scale(1.2)
 
 		@media #{$media-sm-plus-up}
 			width: 100%
@@ -658,24 +714,24 @@ input[type='number']
 		max-height: 37rem
 
 		@media #{$media-sm-plus-up}
-				max-height: fit-content
+				// max-height: fit-content
 
 	&__text
-		bottom: -5rem
 		color: transparent
+		bottom: -10rem
 		display: none
 		font-family: 'Montserrat-Bold'
 		font-size: 13rem
-		font-weight: 900
-		left: 28rem
+		left: 50%
 		position: absolute
 		opacity: .5
 		text-transform: uppercase
-		transition: transform 400ms
+		transform: scale(-1, -1)
+		transition: transform 40ms
 		white-space: nowrap
 		-ms-writing-mode: tb-rl
 		writing-mode: vertical-rl
-		-webkit-text-stroke: 1px #E5E5E5
+		-webkit-text-stroke: 1px #fff
 
 		@media #{$media-sm-plus-up}
 			display: block
@@ -684,12 +740,21 @@ input[type='number']
 			color: #fff
 			opacity: 1
 
+
 .section-block-mobile
 	position: absolute
 	padding-top: 12rem
 
 	&-left
+		position: absolute
+		right: -3rem
+		top: -45rem
+
+	&-right
+		position: absolute
 		right: 0
+		top: -14rem
+		z-index: 1
 
 	&__text-wrapper
 		overflow: hidden
@@ -698,21 +763,27 @@ input[type='number']
 	&__bg
 		width: 6rem
 		height: 50rem
-		background: linear-gradient(90deg, #21204D 0%, #3A2453 100%)
+		background: transparent
 		opacity: .5
 
 	&__bg-left
 		width: 6rem
-		height: 50rem
-		background: linear-gradient(90deg, #443B75 0%, #583E7A 100%)
+		height: 33rem
+		background: transparent
+		opacity: .5
+
+	&__bg-right
+		width: 6rem
+		height: 39rem
+		background: transparent
 		opacity: .5
 
 	&__text
+		bottom: -14rem
 		color: transparent
 		display: block
 		font-family: 'Montserrat-Bold'
 		font-size: 9rem
-		font-weight: 900
 		left: -1rem
 		position: absolute
 		opacity: .5
@@ -721,20 +792,19 @@ input[type='number']
 		white-space: nowrap
 		-ms-writing-mode: tb-rl
 		writing-mode: vertical-rl
-		-webkit-text-stroke: 1px #E5E5E5
-		bottom: -7.5rem
+		-webkit-text-stroke: 1px #fff
 
 		&-white
 			color: #fff
 			opacity: 1
 
 	&__text-left
+		bottom: -34rem
 		color: transparent
 		display: block
 		font-family: 'Montserrat-Bold'
 		font-size: 9rem
-		font-weight: 900
-		right: -2rem
+		right: -1rem
 		position: absolute
 		opacity: .5
 		text-transform: uppercase
@@ -742,8 +812,10 @@ input[type='number']
 		white-space: nowrap
 		-ms-writing-mode: tb-rl
 		writing-mode: vertical-rl
-		-webkit-text-stroke: 1px #E5E5E5
-		bottom: -7.5rem
+		-webkit-text-stroke: 1px #fff
+
+		&-right
+			bottom: -39rem
 
 		&-white
 			color: #fff
@@ -756,12 +828,14 @@ input[type='number']
 	&:nth-child(1)
 		display: flex
 		align-items: center
+		position: relative
 
 		@media #{$media-sm-plus-up}
 			display: none
 
 	&:nth-child(2)
-		padding: 6.4rem 4rem 8.7rem 7.5rem
+		position: relative
+		padding: 8.4rem 4rem 8rem 5rem
 
 		@media #{$media-xs-up}
 			padding: 16rem 6rem 16rem 7.5rem
@@ -780,7 +854,8 @@ input[type='number']
 			display: none
 
 	&:nth-child(1)
-		padding: 6.4rem 7.5rem 8.7rem 6rem
+		position: relative
+		padding: 8.4rem 3.2rem 8.7rem 5rem
 
 		@media #{$media-xs-up}
 			padding: 16rem 6rem 16rem 7.5rem
@@ -810,8 +885,11 @@ input[type='number']
 	position: relative
 	width: 27rem
 	z-index: 1
-	
+
 	@media #{$media-sm-plus-up}
+		width: 37rem
+
+	@media #{$media-lg-up}
 		width: 40rem
 
 	&:nth-child(1)
@@ -836,7 +914,7 @@ input[type='number']
 				transform-origin: 0% 0%
 
 	&::before
-		background: linear-gradient(90deg, #443B75 0%, #583E7A 100%)
+		background: linear-gradient(90deg, rgba(68, 59, 117, .3) 0%, rgba(88, 62, 122, .3) 100%)
 		content: ""
 		width: 100%
 		height: 100%
@@ -852,9 +930,9 @@ input[type='number']
 			transform: scale(1.1)
 
 	&__header
-		font-family: 'Montserrat-Bold'
+		font-family: 'Montserrat'
 		font-size: 1.8rem
-		font-weight: 900
+		font-weight: bold
 		line-height: 1.1em
 		margin-bottom: 2rem
 		padding: 1rem 1rem 0
@@ -875,7 +953,7 @@ input[type='number']
 			padding: 4rem
 
 
-.page-block
+.page-accent
 	position: relative
 
 	&__bg
@@ -890,17 +968,18 @@ input[type='number']
 		color: transparent
 		font-family: 'Montserrat-Bold'
 		font-size: 9rem
-		font-weight: 900
+		font-weight: bold
 		opacity: .5
 		position: absolute
 		right: -1rem
 		text-transform: uppercase
 		top: 19rem
+		transform: scale(-1, -1)
 		transition: transform 400ms
 		white-space: nowrap
 		-ms-writing-mode: tb-rl
 		writing-mode: vertical-rl
-		-webkit-text-stroke: 1px #E5E5E5
+		-webkit-text-stroke: 1px #fff
 
 		@media #{$media-sm-plus-up}
 			font-size: 13rem
@@ -910,14 +989,29 @@ input[type='number']
 			color: #fff
 			opacity: 1
 
+
+.logo
+	height: 2.7rem
+	top: 1.6rem
+	left: calc(50% - 60px)
+	z-index: 100
+
+	@media #{$media-sm-plus-up}
+		left: 10.4rem
+
+	@media #{$media-sm-plus-up}
+		height: 3.4rem
+		left: 13.7rem
+
 .logo-wrapper
 	align-items: center
 	background: grey
 	display: none
 	justify-content: center
 	height: 6rem
-	left: 8rem
+	left: 0
 	opacity: .8
+	padding: 0
 	position: fixed
 	top: 0
 	width: 100%
@@ -926,6 +1020,174 @@ input[type='number']
 	@media #{$media-sm-plus-up}
 		background: transparent
 		justify-content: flex-start
+		padding: 1rem 0 0 10rem
+
+	&__link
+		z-index: 10
+
+	// &:hover 
+	// 	background: #fff
+	// 	opacity: 1
+		// ~ .hover-logo
+		// 		display: block
+
+		// & ~ .logo
+		// 	filter: invert(.2)
 
 .logo-visible
-  display: flex
+	display: flex
+
+.hover-logo
+	display: none
+	position: fixed
+	background: #fff
+	transition: display 4s 10s
+	z-index: 50
+	
+	&__left
+		height: 100vh
+		left: 0
+		top: 0
+		width: 6rem
+		z-index: 1
+
+	&__bottom
+		bottom: 0
+		height: 6rem
+		width: 100%
+
+	&__right
+		height: 100%
+		right: 0
+		top: 0
+		width: 6rem
+
+	&__top
+		height: 6rem
+		left: 0
+		top: 0
+		width: 100%
+
+// form validation
+.form-email-error,
+.form-name-error
+	background-color: transparent
+	color: $color_red
+	display: none
+	font-size: 1.6rem
+	opacity: 0.8
+	position: absolute
+	padding: 0
+	right: 2rem
+	top: 0
+	z-index: 1
+
+.form-email-error.form-error_active,
+.form-name-error.form-error_active,
+	padding: 0.3em
+	display: block
+
+.invert
+	filter: invert(1)
+
+.sections-wrapper
+	transform: scale(.75)
+	position: fixed
+	top: 5rem
+	bottom: 5rem
+	left: -5rem
+	right: -5rem
+
+.hiddenContent
+	// opacity: 0
+
+
+//grid sistem
+
+%flex-center
+	display: flex
+	flex-direction: column
+	justify-content: center
+
+.jc-center
+	justify-content: center
+
+.section-content
+	display: flex
+	justify-content: end
+	min-height: 100vh
+	padding: 0
+
+	@media #{$media-sm-plus-up}
+		flex-direction: column
+		justify-content: center
+
+.section-row
+	display: flex
+	flex-direction: column
+	justify-content: center
+	padding: 0
+
+	@media #{$media-sm-plus-up}
+		flex-direction: row
+		padding: 10rem 0
+
+
+.section-row-reverse
+	display: flex
+	justify-content: center
+	flex-direction: column-reverse
+	position: relative
+
+	@media #{$media-sm-plus-up}
+		flex-direction: row
+		padding: 10rem 0
+
+
+.section-col
+	align-items: flex-start
+	flex-basis: 50%
+	display: flex
+	justify-content: flex-start
+
+	@media #{$media-sm-plus-up}
+		align-items: center
+
+	&:nth-child(1)
+		padding: 0
+
+		@media #{$media-sm-plus-up}
+			padding: 0 10% 0 0
+
+	&:nth-child(2)
+		padding: 0 3rem 0 0
+
+		@media #{$media-sm-plus-up}
+			padding: 0 10% 0 0
+
+
+.section-col-reverse
+	align-items: flex-start
+	flex-basis: 50%
+	display: flex
+	justify-content: flex-end
+	padding: 0
+
+	@media #{$media-sm-plus-up}
+		align-items: center
+		padding: 0 0 0 10%
+
+	&:nth-child(2)
+		padding: 0
+
+		@media #{$media-sm-plus-up}
+			padding: 0 0 0 10%
+
+	&:nth-child(1)
+		padding: 0
+
+		@media #{$media-sm-plus-up}
+			padding: 0 0 0 10%
+
+.section-text-wrapper
+	padding-left: 4px

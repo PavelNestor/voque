@@ -9,12 +9,15 @@ html(lang='en')
 		block noscript
 			include noscript
 
+		block mixins
+			include mixins
+
 		block page-content
 
 		block footer
-			include menu
-			include navigation
 			include contact-section
+			include menu
+			include navigation-page
 
 		block modals
 			include modals

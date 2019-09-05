@@ -2,14 +2,9 @@
   align-items: center
   display: flex
   flex-direction: column
-  padding: 10.2rem 0 8.5rem
+  justify-content: center
   overflow: hidden
-
-  @media #{$media-sm-plus-up}
-    padding: 25.3rem 0 18.2rem
-
-  @media #{$media-lg-up}
-    padding: 33.2rem 0 29rem
+  padding: 10rem 0 8rem
 
   &__row
     display: flex
@@ -106,7 +101,8 @@
   left: calc(100% - 24px)
   position: absolute
   text-transform: uppercase
-  bottom: calc(100% - 30rem)
+  transition: transform 40ms
+  bottom: calc(100% - 60rem)
   transform: scale(-1, -1)
   white-space: nowrap
   writing-mode: vertical-rl
@@ -114,7 +110,10 @@
   z-index: 0
 
   @media #{$media-sm-plus-up}
-    font-size: 15rem
+    font-size: 13rem
     left: calc(50% - 2rem)
-    bottom: calc(100% - 30rem)
+    bottom: -45rem
+
+  @media #{$media-sm-plus-up}
+    font-size: 15rem
 

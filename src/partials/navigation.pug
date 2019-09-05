@@ -2,10 +2,19 @@ block vars
 	//- - var navigation = 'home'
 block content
 	.navbar
-		img.navbar__menu-image(id='menu', src='img/menu.svg', alt="Menu")
-		.menu
-			.menu__item.menu__item-active
-			.menu__item
-			.menu__item
-			.menu__item
-			.menu__item
+		img.navbar__menu-image(id='menu-image', src='img/menu.svg', alt="Menu")
+		.lines-menu
+			a.lines-menu__item.lines-menu__item-active(href='index.html#hero', data-link='hero')
+				.pb-1.pt-1
+			a.lines-menu__item(href='index.html#about', data-link='about')
+				.pb-1.pt-1
+			a.lines-menu__item(href='index.html#services', data-link='services')
+				.pb-1.pt-1
+			a.lines-menu__item(href='index.html#development', data-link='development')
+				.pb-1.pt-1
+			a.lines-menu__item(href='index.html#outsource', data-link='outsource')
+				.pb-1.pt-1
+			a.lines-menu__item(href='index.html#outstaffing', data-link='outstaffing')
+				.pb-1.pt-1
+			a.lines-menu__item(href='index.html#contact', data-link='contact')
+				.pb-1.pt-1

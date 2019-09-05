@@ -2,53 +2,43 @@
 // Default navbar
 //----------------------------------
 .navbar
-  padding: 1.7rem .8rem
   position: fixed
-  margin: -.9rem 0
 
   @media #{$media-sm-plus-up}
     display: block
-    height: 100vh
-    padding: 1.7rem 2rem
-    width: fit-content
+    height: 100%
+    left: 0
+    padding: 1rem 0 0 1rem
+    top: 0
+    z-index: 1
 
   &__menu-image
     cursor: pointer
     position: fixed
     top: 1.9rem
+    left: 1.9rem
+    
 
-.menu
+    &:hover 
+      + .hover-logo
+        display: block
+
+.lines-menu
   display: none
 
   @media #{$media-sm-plus-up}
-    display: block
+    display: flex
+    flex-direction: column
+    justify-content: center
     height: 100%
-    padding: 23.3rem 0
-
-  @media #{$media-lg-up}
-    padding: 25rem 0
 
   &__item
     cursor: pointer
-    width: 40%
+    width: 2rem
     height: 1rem
     border-bottom: 1px solid $color_white
     margin-bottom: 4rem
 
   &__item-active
-    width: 73%
+    width: 3rem
     border-bottom: 1px solid $color_red
-
-.logo
-  // display: none
-  height: 2.7rem
-  position: fixed
-  top: 1.6rem
-  left: calc(50% - 60px)
-
-  @media #{$media-sm-plus-up}
-    left: 10.4rem
-
-  @media #{$media-sm-plus-up}
-    height: 3.4rem
-    left: 13.7rem

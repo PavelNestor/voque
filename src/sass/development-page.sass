@@ -1,18 +1,15 @@
 .development-page
   color: #fff
   &__top
-    background: linear-gradient(90deg, rgba(46, 46, 110, 0.4) 0%, rgba(97, 54, 123, 0.4) 100%), 30% no-repeat url('/img/development-page_header.png')
+    background: linear-gradient(90deg, rgba(46, 46, 110, 0.5) 0%, rgba(97, 54, 123, 0.5) 100%), 30% no-repeat url('/img/development-page_header.png')
     height: 45rem
 
     @media #{$media-sm-plus-up}
-      background: linear-gradient(90deg, rgba(46, 46, 110, 0.4) 0%, rgba(97, 54, 123, 0.4) 100%), top left / cover no-repeat url('/img/development-page_header.png')
+      background: linear-gradient(90deg, rgba(46, 46, 110, 0.5) 0%, rgba(97, 54, 123, 0.5) 100%), top left / cover no-repeat url('/img/development-page_header.png')
 
   &__content
     background: linear-gradient(90deg, #443B75 0%, #583E7A 100%)
-    padding: 4.6rem 7.3rem 1rem 0
-
-    @media #{$media-sm-plus-up}
-      padding: 1.3rem 26rem 1rem 0
+    padding: 0 17% 0 0
 
   &__bg-position-one
     position: relative
@@ -41,33 +38,29 @@
       top: -19rem
 
   &__bg-tds
-    background: linear-gradient(90deg, rgba(46, 46, 110, 0.4) 0%, rgba(97, 54, 123, 0.4) 100%),  top / cover no-repeat url("/img/development-page_bg-tds.png")
+    background: linear-gradient(90deg, rgba(46, 46, 110, 0.8) 0%, rgba(97, 54, 123, 0.8) 100%),  top / cover no-repeat url("/img/development-page_bg-tds.png")
 
   &__bg-services
-    background: linear-gradient(90deg, rgba(46, 46, 110, 0.4) 0%, rgba(97, 54, 123, 0.4) 100%),  top / cover no-repeat url("/img/development-page_bg-services.png")
+    background: linear-gradient(90deg, rgba(46, 46, 110, 0.8) 0%, rgba(97, 54, 123, 0.8) 100%),  top / cover no-repeat url("/img/development-page_bg-services.png")
 
   &__bg-solution
-    background: linear-gradient(90deg, rgba(46, 46, 110, 0.4) 0%, rgba(97, 54, 123, 0.4) 100%),  top / cover no-repeat url("/img/development-page_bg-solution.png")
+    background: linear-gradient(90deg, rgba(46, 46, 110, 0.8) 0%, rgba(97, 54, 123, 0.8) 100%),  top / cover no-repeat url("/img/development-page_bg-solution.png")
 
   &__bg-software
-    background: linear-gradient(90deg, rgba(46, 46, 110, 0.4) 0%, rgba(97, 54, 123, 0.4) 100%),  top / cover no-repeat url("/img/development-page_bg-software.png")
+    background: linear-gradient(90deg, rgba(46, 46, 110, 0.8) 0%, rgba(97, 54, 123, 0.8) 100%),  top / cover no-repeat url("/img/development-page_bg-software.png")
 
   &__bg-operation
-    background: linear-gradient(90deg, rgba(46, 46, 110, 0.4) 0%, rgba(97, 54, 123, 0.4) 100%),  top / cover no-repeat url("/img/development-page_bg-operation.png")
+    background: linear-gradient(90deg, rgba(46, 46, 110, 0.8) 0%, rgba(97, 54, 123, 0.8) 100%),  top / cover no-repeat url("/img/development-page_bg-operation.png")
 
   &__title-wrapper
-    max-width: 114rem
-    margin-left: auto
-    margin-right: 0
-    padding: 1rem 1rem 1rem 5rem
+    padding: 1rem 1rem 1rem 10%
 
     @media #{$media-sm-plus-up}
-      padding: 9rem 0 8rem 10rem
+      padding: 9rem 0 8rem 10%
 
   &__gradient-one
     background: linear-gradient(90deg, #3A2453 0%, #21204D 100%)
     padding-bottom: 21rem
-    margin-top: -21rem
 
   &__gradient-two
     background: linear-gradient(90deg, #443B75 0%, #583E7A 100%)
@@ -75,3 +68,13 @@
   &__last-container
     max-width: 80rem
 
+.pb-gradient
+
+  &_one
+    background: linear-gradient(90deg, #3A2453 0%, #21204D 100%)
+
+  &_two
+    background: linear-gradient(90deg, #443B75 0%, #583E7A 100%)
+
+.ds-wrapper
+  display: flex

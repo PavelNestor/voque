@@ -10,49 +10,44 @@ block page-content
 
   .development-page
       .development-page__top
-        .page-block
-          span.page-block__text.text-parallax development
-          .page-block__text-wrapper
-            .page-block__bg
-            span.page-block__text.page-block__text-white.text-parallax development
+        .page-accent
+          span.page-accent__text.text-parallax development
+          .page-accent__text-wrapper
+            .page-accent__bg.box-parallax
+            span.page-accent__text.page-accent__text-white.text-parallax development
 
       .development-page__content.development-page__gradient-one.mt-0
-        .development-page__title-wrapper
-          h2.title.page-title
-            span.title__slash /
-            | development
+        +pageTitle('development')
 
-        .page-block.page-wrapper.mt-54
+        .page-wrapper
           h2.page-big-title Open RTB
 
-        .page-block.mt-22
-          .page-block.page-wrapper
-            p.page-text.page-text-light Open RTB protocol allows to completely automate media buying and selling process. This makes online advertising easier, less time consuming and more efficient for both agencies and publishers in creating, setting up and running an ad campaign. Thus, costs are reduced, thereby improving profitability.
-            p.page-text.page-text-light Experience the power of our Open RTB solutions to fully automate your ad campaigns while optimizing your ad inventory management, yield optimization and geo targeting. The technology innovations in the ad space made digital advertising stronger and more transparent.
-            p.page-text.page-text-light Our RTB platform has been designed to buy and sell traffic in real time with a complex hierarchy of goals and one of a kind fraud protection system with delays of less than 20ms and can handle more than 50,000 QPS either for a server or cloud solution. 
-            p.page-text We have been developing RTB platform solutions for advertising agencies, DSPs/SSPs, software development companies and various clients for more than 5 years.  We have huge experience in dealing with RTB platform development as well as providing DSP/SSP SAS solutions and are able to cater to specific needs even the most sophisticated client.
+        .page-block
+          p.page-text Open RTB protocol allows to completely automate media buying and selling process. This makes online advertising easier, less time consuming and more efficient for both agencies and publishers in creating, setting up and running an ad campaign. Thus, costs are reduced, thereby improving profitability.
+          p.page-text Experience the power of our Open RTB solutions to fully automate your ad campaigns while optimizing your ad inventory management, yield optimization and geo targeting. The technology innovations in the ad space made digital advertising stronger and more transparent.
+          p.page-text Our RTB platform has been designed to buy and sell traffic in real time with a complex hierarchy of goals and one of a kind fraud protection system with delays of less than 20ms and can handle more than 50,000 QPS either for a server or cloud solution. 
+          p.page-text We have been developing RTB platform solutions for advertising agencies, DSPs/SSPs, software development companies and various clients for more than 5 years.  We have huge experience in dealing with RTB platform development as well as providing DSP/SSP SAS solutions and are able to cater to specific needs even the most sophisticated client.
 
 
       .development-page__content.development-page__gradient-two.pt-0
-        .page-image-block.development-page__bg-tds.development-page__bg-position-one
-        .page-block.page-wrapper.development-page__title-tds-position
-            h2.page-big-title TDS
+        .ds-wrapper
+          +pageSubheader('TDS')(class='development-page__bg-tds page-image-block__top')
 
+        .page-block
             p.page-text.mt-52 Traffic distribution system (TDS) is a tool every media buyer/advertiser should have to optimize various offers/campaigns more efficiently.
             p.page-text You can utilize this tool to monitor and control how much of your media traffic is allocated for a certain offer/campaign as well as target the right traffic exactly where you need it to.
             p.page-text TDS allows you to monitor your campaigns/offers in real-time and re-distribute traffic to any landing page, product or your offer for a specific campaign automatically. We can customize and build TDS the way you need it, catering to your product or your client need. 
             h4.page-subtitle.mt-22 TDS is the core of your traffic.
             p.page-text You don’t need to spend hours to get your campaigns up and running while using TDS. All you need to do is to set up rules and split traffic sources and redirect it to a specific campaign or brand. TDS is an essential tool for any marketer or agency that cares about its revenue and wants to increase its ROI to a next level.
-            p.page-text.mb-90 We’ve been developing TDS platforms for various clients around the globe and are able to customize each platform according to your individual need.  If you have any suggestions about how you want your product to be done, just send a quick note and we will draft a proposal for you in no time.
+            p.page-text We’ve been developing TDS platforms for various clients around the globe and are able to customize each platform according to your individual need.  If you have any suggestions about how you want your product to be done, just send a quick note and we will draft a proposal for you in no time.
 
 
 
       .development-page__content.development-page__gradient-one.pt-0
-        .page-image-block.development-page__bg-services
-          .page-block.page-wrapper
-            h2.page-big-title.development-page__title-services-position Custom DSP Development Services
+        .ds-wrapper
+          +pageSubheader('Custom DSP Development Services')(class='development-page__bg-services')
 
-        .page-block.page-wrapper.mt-100
+        .page-block.mt-md-50.mb-md-50
           p.page-text Get rid of commissions paid to 3rd party DSP/SSP companies and safe your time connecting to intermediaries for weeks, gain more control over your data and your media buying/selling process.
 
           .page-dual__row
@@ -90,22 +85,21 @@ block page-content
 
 
       .development-page__content.development-page__gradient-two.pt-0
-        .page-image-block.development-page__bg-solution.development-page__bg-position-one
-        .page-block.page-wrapper.development-page__title-tds-position
-            h2.page-big-title Web Design Solutions
+        .ds-wrapper
+          +pageSubheader('Web Design Solutions')(class='development-page__bg-solution page-image-block__top')
 
-            p.page-text Web design development is a complicated but enjoyable process which requires significant expertise and time.
-            p.page-text You can spend countless hours and waste your investment on partnering with standalone webmasters and other amateurs located in Asia by risking your company’s reputation or you can entrust your project to our professional web designers.
-            p.page-text Our expert team includes: graphic artists, developers, marketers, project managers etc.          p.page-text We have been dealing with developing and designing websites and web applications for clients around the globe for more than 5 years. Our dedicated team has been crafting custom projects for iOS, Android and the web.
-            p.page-text Our key goal is to provide a unique and quality design project to each and every client and this can only be achieved through close collaboration and mutual understanding of a concept.
-            p.page-text.mb-90 Whether you’re in a search for sophisticated, customized design project or a simple business card website our web development team is skilled enough to make it happen.
+        .page-block.mt-md-50
+          p.page-text Web design development is a complicated but enjoyable process which requires significant expertise and time.
+          p.page-text You can spend countless hours and waste your investment on partnering with standalone webmasters and other amateurs located in Asia by risking your company’s reputation or you can entrust your project to our professional web designers.
+          p.page-text Our expert team includes: graphic artists, developers, marketers, project managers etc.          p.page-text We have been dealing with developing and designing websites and web applications for clients around the globe for more than 5 years. Our dedicated team has been crafting custom projects for iOS, Android and the web.
+          p.page-text Our key goal is to provide a unique and quality design project to each and every client and this can only be achieved through close collaboration and mutual understanding of a concept.
+          p.page-text.mb-md-50 Whether you’re in a search for sophisticated, customized design project or a simple business card website our web development team is skilled enough to make it happen.
 
       .development-page__content.development-page__gradient-one.pt-0
-        .page-image-block.development-page__bg-software
-          .page-block.page-wrapper
-            h2.page-big-title.development-page__title-software-position Antifraud & Scoring Software
+        .ds-wrapper
+          +pageSubheader('Antifraud & Scoring Software')(class='development-page__bg-software')
 
-        .page-block.page-wrapper.mt-100
+        .page-block
           p.page-text Our expert development team has been creating ad fraud detection software for different clients around the world.  
           p.page-text Our antifraud tools can detect malicious activity and identify unwanted intrusions at earlier stages so you can better optimize your budget towards top quality inventory. 
           p.page-text These tools aimed at monitoring user behavior and detect potentially harmful and fraudulent actions, transactions etc.
@@ -155,28 +149,28 @@ block page-content
 
 
       .development-page__content.development-page__gradient-two.pt-0
-        .page-image-block.development-page__bg-operation.development-page__bg-position-one
-        .page-block.page-wrapper.development-page__title-tds-position
-            h2.page-big-title Ad operation Services
+        .ds-wrapper
+          +pageSubheader('Ad operation Services')(class='development-page__bg-operation page-image-block__top')
 
-            .development-page__last-container
-              p.page-text For publishers, programmatic operations mean optimizing their yield and gaining more revenue for their inhouse inventory. It’s managing a demand sources, price optimization, managing open and private marketplaces, performance and revenue reports etc.
-              p.page-text The key goal of programmatic ad operations is to monitor the activity of open and private marketplaces and maximize the revenue flows.
-              p.page-text.page-text_bold Our core competencies:
-              .list
-                .list__item - Media Buying/Planning Services;
-                .list__item - Expertise in buying/selling programmatic media;
-                .list__item - Ad trafficking tools;
-                .list__item - Setting up campaigns with brand safety features included;
-                .list__item - Retargeting campaign services;
-                .list__item - Pulling campaign reports, optimization and analysis;
+        .page-block.mt-md-50
+          .development-page__last-container
+            p.page-text For publishers, programmatic operations mean optimizing their yield and gaining more revenue for their inhouse inventory. It’s managing a demand sources, price optimization, managing open and private marketplaces, performance and revenue reports etc.
+            p.page-text The key goal of programmatic ad operations is to monitor the activity of open and private marketplaces and maximize the revenue flows.
+            p.page-text.page-text_bold Our core competencies:
+            .list
+              .list__item - Media Buying/Planning Services;
+              .list__item - Expertise in buying/selling programmatic media;
+              .list__item - Ad trafficking tools;
+              .list__item - Setting up campaigns with brand safety features included;
+              .list__item - Retargeting campaign services;
+              .list__item - Pulling campaign reports, optimization and analysis;
 
-              h4.page-subtitle Optimize your campaign with our in-house experts
-              p.page-text This is vitally important to optimize your ad campaign the right way and gain maximum performance. This can be achieved through tracking your campaign performance at all levels: creative verification and optimization, site optimization, managing and tracking your audience, setting up brand safety tools etc.  We will help you to identify an issue and get things optimized the best possible way.
+            h4.page-subtitle Optimize your campaign with our in-house experts
+            p.page-text This is vitally important to optimize your ad campaign the right way and gain maximum performance. This can be achieved through tracking your campaign performance at all levels: creative verification and optimization, site optimization, managing and tracking your audience, setting up brand safety tools etc.  We will help you to identify an issue and get things optimized the best possible way.
 
-              h4.page-subtitle Manage your inventory discrepancy intelligently
-              p.page-text This Ad serving process often comes with discrepancy issues. This usually happens when multiple ad servers are used within one ad campaign. This can be easily resolved by our dedicated ad ops team with years of experience in creating, managing and optimizing ad campaigns. By using our ad server tools and dedicated approach we will easily handle your impression or click discrepancy in no time.
+            h4.page-subtitle Manage your inventory discrepancy intelligently
+            p.page-text This Ad serving process often comes with discrepancy issues. This usually happens when multiple ad servers are used within one ad campaign. This can be easily resolved by our dedicated ad ops team with years of experience in creating, managing and optimizing ad campaigns. By using our ad server tools and dedicated approach we will easily handle your impression or click discrepancy in no time.
 
-              h4.page-subtitle Day-to-Day Assistance
-              p.page-text This We will assist you in managing your daily routine tasks. Whether it’s a guaranteed, retargeting or display campaign, our ad ops team can cope with any complicated task.
-              p.page-text This Our dedicated ad ops experts are experienced in campaign management and optimization, ad trafficking, buying and selling different types of inventory. We can handle any client request and complete a project quickly and accurately.
+            h4.page-subtitle Day-to-Day Assistance
+            p.page-text This We will assist you in managing your daily routine tasks. Whether it’s a guaranteed, retargeting or display campaign, our ad ops team can cope with any complicated task.
+            p.page-text.mb-md-50 This Our dedicated ad ops experts are experienced in campaign management and optimization, ad trafficking, buying and selling different types of inventory. We can handle any client request and complete a project quickly and accurately.

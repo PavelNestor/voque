@@ -1,29 +1,21 @@
+include mixins
+
 block vars
   - var navigation = 'outsource'
 
 block content
-  section.outsource(data-logo-visibility= 'true', data-logo='img/logo.svg', data-menu='img/menu.svg', data-bg='linear-gradient(90deg, #21204D 0%, #3A2453 100%)')
-    .content
-      .outsource__row
+  section#outsource.outsource.section-content(data-logo-visibility= 'true', data-logo='img/logo.svg', data-menu='img/menu.svg', data-id='outsource')
+      #outsource-content.section-row.hiddenContent
+        .section-col
+          +accentLeftWord('outsource', '/img/outsource-img.png')(class='section-col_outsource')
 
-        .outsource__col
-          .section-block
-            span.section-block__text.section-block__text-transparent.text-parallax outsource
-            .section-block__text-wrapper
-              img.section-block__image(src="/img/outsource-img.png", alt="outsource")
-              span.section-block__text.section-block__text-white.text-parallax outsource
-
-        .outsource__col
+        .section-col
           .section_row
             .section_col
 
-              .section-block-mobile
-                span.section-block-mobile__text.section-block-mobile__text-transparent.bottom--35.text-parallax-mobile outsource
-                .section-block-mobile__text-wrapper
-                  .section-block-mobile__bg
-                  span.section-block-mobile__text.section-block-mobile__text-white.bottom--35.text-parallax-mobile outsource
+            .section_col
+              +accentMobileWord('outsource')
 
-            .section_col.section_col_outsource
               .outsource__wrapper
                 .title-wrapper
                   h2.title
@@ -39,5 +31,5 @@ block content
                   li.list__item Our inhouse experts can handle any sophisticated task since they are skilled and experienced to complete a job perfectly even if it’s complicated or requires more time than expected.
                   li.list__item Confidentiality guaranteed.
 
-              p.text_small.text_bold.outsource_lh-145.outsource_mb-18 Our staff workers work strictly in a secure environment so all the projects are kept confidential and all the data is kept within the company and is not disclosed to any 3rd parties.
+              p.text_small.text_bold.outsource_mb-18 Our staff workers work strictly in a secure environment so all the projects are kept confidential and all the data is kept within the company and is not disclosed to any 3rd parties.
               a.button-outline(href='outsource.html') read more

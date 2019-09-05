@@ -1,28 +1,24 @@
+include mixins
+
 block vars
   - var navigation = 'contact'
 
 block content
-  section.contact(data-logo='img/logo.svg', data-menu='img/menu.svg', data-bg='linear-gradient(90deg, #21204D 0%, #3A2453 100%)', id='contact')
-    .content    
-      .contact__row
-        .contact__col
-          .section-block
-            span.section-block__text.section-block__text-transparent.text-parallax contact us
+  section#contact.contact.section-content(data-logo='img/logo.svg', data-menu='img/menu.svg', data-id='contact')
+      #contact-content.section-row.hiddenContent
+        .section-col.jc-center
+          .section-block.hide-mobile
+            span.section-block__text.section-block__text-contact.section-block__text-transparent.text-parallax contact us
             .section-block__text-wrapper
-              .section-block-contact__bg
-              span.section-block__text.section-block__text-white.text-parallax contact us
+              .section-block-contact__bg.box-parallax
+              span.section-block__text.section-block__text-contact.section-block__text-white.text-parallax contact us
 
-        .contact__col
+        .section-col
           .section_row
               .section_col
 
-                .section-block-mobile.left-0
-                  span.section-block-mobile__text.section-block-mobile__text-transparent.bottom--35.text-parallax-mobile contact us
-                  .section-block-mobile__text-wrapper
-                    .section-block-contact__bg
-                    span.section-block-mobile__text.section-block-mobile__text-white.bottom--35.text-parallax-mobile contact us
-
               .section_col
+                span.accent-text-contact.hide-desktop contact us
                 .contact__title-wrapper
                   .title-wrapper
                       h2.title
@@ -44,12 +40,14 @@ block content
                 form.contact__form(action="")
 
                   .form-group
-                    input.form-group__input(type="email" id="email" placeholder="E-mail" autocomplete="off" required)
+                    input.form-group__input(type="text" id="email" placeholder="E-mail" autocomplete="off" )
+                    span.form-email-error
 
                   .form-group
-                    input.form-group__input(type="text" id="name" placeholder="Name" autocomplete="off" required)
+                    input.form-group__input(type="text" id="name" placeholder="Name" autocomplete="off")
+                    span.form-name-error
 
                   .form-group
                     textarea.form-group__textarea(id="message", placeholder="Message" autocomplete="off" required)
-
+                    span.form-error
                   button.button-outline.transparent(type='submit') Send feedback

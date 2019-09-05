@@ -1,25 +1,32 @@
 #menu-content.menu-content
   img.menu-content__img(id='menu-close', src='img/menu-black.svg', alt="Menu")
-  img.menu-content__logo(src='img/logo-black.svg')
-  .dual__row
-    .dual__cel
-      a.header-wrapper(href='about.html')
-        span.header-wrapper__slash /
-        h2.header-wrapper__header about voqus
-      a.header-wrapper(href='index.html#contact')
-        span.header-wrapper__slash /
-        h2.header-wrapper__header contact us
-      a.header-wrapper(href='advertising.html')
-        span.header-wrapper__slash /
-        h2.header-wrapper__header advertising & consulting
 
-    .dual__cel
+  a.logo-wrapper__link(href="index.html")
+    img.menu-content__logo(src='img/logo-black.svg')
+
+  .dual__row
+    .dual__cel.menu-dual__cel
+      a.header-wrapper(href='about.html')
+        span.header-wrapper__slash.font-size-menu /
+        h2.header-wrapper__header.font-size-menu.menu-content__item about voqus
+      a.header-wrapper(href='index.html#contact')
+        span.header-wrapper__slash.font-size-menu /
+        h2.header-wrapper__header.font-size-menu.menu-content__item contact us
+      a.header-wrapper.text-left.mb-40(href='advertising.html')
+        span.header-wrapper__slash.font-size-menu /
+        h2.header-wrapper__header.font-size-menu.menu-content__item advertising & consulting
+
+    .dual__cel.menu-dual__cel
       a.header-wrapper(href='development.html')
-        span.header-wrapper__slash /
-        h2.header-wrapper__header development
+        span.header-wrapper__slash.font-size-menu /
+        h2.header-wrapper__header.font-size-menu.menu-content__item development
       a.header-wrapper(href='outsource.html')
-        span.header-wrapper__slash /
-        h2.header-wrapper__header outsource
+        span.header-wrapper__slash.font-size-menu /
+        h2.header-wrapper__header.font-size-menu.menu-content__item outsource
       a.header-wrapper(href='outstaffing.html')
-        span.header-wrapper__slash /
-        h2.header-wrapper__header outstaffing
+        span.header-wrapper__slash.font-size-menu /
+        h2.header-wrapper__header.font-size-menu.menu-content__item outstaffing
+
+  .menu-bottom-text-wrapper
+    .menu-bottom-text outsourcing &
+    .menu-bottom-text advertising services
