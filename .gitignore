@@ -1,6 +1,7 @@
 # Project based
 /node_modules
 /dist
+/dest
 /build
 src/img/content/*
 /templates
