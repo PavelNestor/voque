@@ -1,3 +1,5 @@
+include mixins
+
 block vars
   - var navigation = 'services'
 
@@ -5,16 +7,7 @@ block content
   section#services.services.section-content(data-id='services')
       #services-content.section-row.hiddenContent
         .section-col
-          .section-wrapper-text.hide-mobile
-            span.section-block__text.section-block__text-left advertising
-            .section-block.section-col_services
-              span.section-block__text.section-block__text-left.section-block__text-white advertising
-
-          .section-block.hide-desktop
-            span.section-block__text.section-block__text-left.section-block__text-transparent.text-parallax outsource
-            .section-block__text-wrapper
-              img.section-block__image.box-parallax(src="/img/outsource-img.png", alt="outsource")
-              span.section-block__text.section-block__text-left.section-block__text-white.text-parallax outsource
+          +accentLeftWord('advertising', '/img/outsource-img.png')(class='section-col_services')
 
         .section-col
           .section_row
@@ -33,16 +26,18 @@ block content
                   h2.title
                     span.title__slash /
                     | advertising and consulting services
-                p.text_14-16.services_mb-23 We have our in-house ad tech team with proved experience in executing advertising campaigns, providing website optimization and consulting services to various clients. Our advertising services include but not limited to: social media, SEO, PPC advertising, mobile marketing, display advertising etc.
+                
+                .section-text-wrapper
+                  p.text_14-16.services_mb-21.ml-1 We have our in-house ad tech team with proved experience in executing advertising campaigns, providing website optimization and consulting services to various clients. Our advertising services include but not limited to: social media, SEO, PPC advertising, mobile marketing, display advertising etc.
 
-              ul.list.services_mb-20
-                li.list__item.services__text-smaller Search Engine Optimization (SEO) Marketing
-                li.list__item.services__text-smaller Pay-Per-Click (PPC) Marketing
-                li.list__item.services__text-smaller Social Media Marketing
-                li.list__item.services__text-smaller Display Advertising
-                li.list__item.services__text-smaller Mobile Marketing
+                  ul.list.mb-20
+                    li.list__item.services__text-smaller Search Engine Optimization (SEO) Marketing
+                    li.list__item.services__text-smaller Pay-Per-Click (PPC) Marketing
+                    li.list__item.services__text-smaller Social Media Marketing
+                    li.list__item.services__text-smaller Display Advertising
+                    li.list__item.services__text-smaller Mobile Marketing
 
-              .services__subtitle-wrapper
-                p.text.text_bold.services__text-small Our marketing team will eagerly help to adapt your mobile marketing strategy and save your client’s budget. We provide mobile marketing services of any level and kind, depending on your client goals and can build long lasting relationship with them and offer the right solution meeting your sophisticated business needs.
+                  .services__subtitle-wrapper
+                    p.text.text_bold.services__text-small Our marketing team will eagerly help to adapt your mobile marketing strategy and save your client’s budget. We provide mobile marketing services of any level and kind, depending on your client goals and can build long lasting relationship with them and offer the right solution meeting your sophisticated business needs.
 
               a.button-outline(href='advertising.html') read more

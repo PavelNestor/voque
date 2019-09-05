@@ -1,0 +1,23 @@
+mixin accentWord(word, src)
+  .section-wrapper-text.hide-mobile
+    span.section-block__text= word
+    .section-block(class!=attributes.class)
+      span.section-block__text.section-block__text-white= word
+
+  .section-block.hide-desktop
+    span.section-block__text.text-parallax= word
+    .section-block__text-wrapper
+      img.section-block__image.box-parallax(src= src, alt= word)
+      span.section-block__text.section-block__text-white.text-parallax= word
+
+mixin accentLeftWord(word, src)
+  .section-wrapper-text.hide-mobile
+    span.section-block__text.section-block__text-left= word
+    .section-block(class!=attributes.class)
+      span.section-block__text.section-block__text-left.section-block__text-white= word
+
+  .section-block.hide-desktop
+    span.section-block__text.section-block__text-left.text-parallax= word
+    .section-block__text-wrapper
+      img.section-block__image.box-parallax(src= src, alt= word)
+      span.section-block__text.section-block__text-left.section-block__text-white.text-parallax= word

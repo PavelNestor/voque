@@ -1,3 +1,5 @@
+include mixins
+
 block vars
   - var navigation = 'outstaffing'
 
@@ -37,8 +39,4 @@ block content
                   span.section-block-mobile__text-left.section-block-mobile__text-left-white.text-parallax-mobile outstaffing
 
         .section-col-reverse
-          .section-block
-            span.section-block__text.section-block__text-outstaffing.text-parallax outstaffing
-            .section-block__text-wrapper
-              img.section-block__image.box-parallax(src="/img/outstaffing-img.png", alt="outstaffing")
-              span.section-block__text.section-block__text-white.section-block__text-outstaffing.text-parallax outstaffing
+          +accentLeftWord('outstaffing', '/img/outstaffing-img.png')(class='section-col_outstaffing')
