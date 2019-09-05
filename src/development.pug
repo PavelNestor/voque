@@ -10,22 +10,19 @@ block page-content
 
   .development-page
       .development-page__top
-        .page-block
-          span.page-block__text.text-parallax development
-          .page-block__text-wrapper
-            .page-block__bg.box-parallax
-            span.page-block__text.page-block__text-white.text-parallax development
+        .page-accent
+          span.page-accent__text.text-parallax development
+          .page-accent__text-wrapper
+            .page-accent__bg.box-parallax
+            span.page-accent__text.page-accent__text-white.text-parallax development
 
       .development-page__content.development-page__gradient-one.mt-0
-        .development-page__title-wrapper
-          h2.title.page-title
-            span.title__slash /
-            | development
+        +pageTitle('development')
 
-        .page-block.mt-54
+        .page-wrapper
           h2.page-big-title Open RTB
 
-        .page-wrapper.mt-22
+        .page-block
           p.page-text Open RTB protocol allows to completely automate media buying and selling process. This makes online advertising easier, less time consuming and more efficient for both agencies and publishers in creating, setting up and running an ad campaign. Thus, costs are reduced, thereby improving profitability.
           p.page-text Experience the power of our Open RTB solutions to fully automate your ad campaigns while optimizing your ad inventory management, yield optimization and geo targeting. The technology innovations in the ad space made digital advertising stronger and more transparent.
           p.page-text Our RTB platform has been designed to buy and sell traffic in real time with a complex hierarchy of goals and one of a kind fraud protection system with delays of less than 20ms and can handle more than 50,000 QPS either for a server or cloud solution. 
@@ -47,9 +44,10 @@ block page-content
 
 
       .development-page__content.development-page__gradient-one.pt-0
-        +pageSubheader('Custom DSP Development Services')(class='development-page__bg-services')
+        .ds-wrapper
+          +pageSubheader('Custom DSP Development Services')(class='development-page__bg-services')
 
-        .page-block
+        .page-block.mt-md-50.mb-md-50
           p.page-text Get rid of commissions paid to 3rd party DSP/SSP companies and safe your time connecting to intermediaries for weeks, gain more control over your data and your media buying/selling process.
 
           .page-dual__row
@@ -90,15 +88,16 @@ block page-content
         .ds-wrapper
           +pageSubheader('Web Design Solutions')(class='development-page__bg-solution page-image-block__top')
 
-        .page-block
+        .page-block.mt-md-50
           p.page-text Web design development is a complicated but enjoyable process which requires significant expertise and time.
           p.page-text You can spend countless hours and waste your investment on partnering with standalone webmasters and other amateurs located in Asia by risking your company’s reputation or you can entrust your project to our professional web designers.
           p.page-text Our expert team includes: graphic artists, developers, marketers, project managers etc.          p.page-text We have been dealing with developing and designing websites and web applications for clients around the globe for more than 5 years. Our dedicated team has been crafting custom projects for iOS, Android and the web.
           p.page-text Our key goal is to provide a unique and quality design project to each and every client and this can only be achieved through close collaboration and mutual understanding of a concept.
-          p.page-text.mb-90 Whether you’re in a search for sophisticated, customized design project or a simple business card website our web development team is skilled enough to make it happen.
+          p.page-text.mb-md-50 Whether you’re in a search for sophisticated, customized design project or a simple business card website our web development team is skilled enough to make it happen.
 
       .development-page__content.development-page__gradient-one.pt-0
-        +pageSubheader('Antifraud & Scoring Software')(class='development-page__bg-software')
+        .ds-wrapper
+          +pageSubheader('Antifraud & Scoring Software')(class='development-page__bg-software')
 
         .page-block
           p.page-text Our expert development team has been creating ad fraud detection software for different clients around the world.  
@@ -153,7 +152,7 @@ block page-content
         .ds-wrapper
           +pageSubheader('Ad operation Services')(class='development-page__bg-operation page-image-block__top')
 
-        .page-block
+        .page-block.mt-md-50
           .development-page__last-container
             p.page-text For publishers, programmatic operations mean optimizing their yield and gaining more revenue for their inhouse inventory. It’s managing a demand sources, price optimization, managing open and private marketplaces, performance and revenue reports etc.
             p.page-text The key goal of programmatic ad operations is to monitor the activity of open and private marketplaces and maximize the revenue flows.
@@ -174,4 +173,4 @@ block page-content
 
             h4.page-subtitle Day-to-Day Assistance
             p.page-text This We will assist you in managing your daily routine tasks. Whether it’s a guaranteed, retargeting or display campaign, our ad ops team can cope with any complicated task.
-            p.page-text This Our dedicated ad ops experts are experienced in campaign management and optimization, ad trafficking, buying and selling different types of inventory. We can handle any client request and complete a project quickly and accurately.
+            p.page-text.mb-md-50 This Our dedicated ad ops experts are experienced in campaign management and optimization, ad trafficking, buying and selling different types of inventory. We can handle any client request and complete a project quickly and accurately.

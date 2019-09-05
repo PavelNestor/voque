@@ -459,7 +459,10 @@ input[type='number']
 		font-size: 5rem
 
 .page-title-wrapper
-	padding: 5rem 1rem 1rem 0
+	padding: 5rem 1rem 5rem 10%
+
+	@media #{$media-sm-plus-up}
+		padding: 10rem 0 10rem 10%
 
 .page-subtitle
 	font-size: 1.4rem
@@ -503,7 +506,7 @@ input[type='number']
 			top: 4rem
 
 .page-wrapper
-	padding: 0 5rem 0 10%
+	padding: 0 0 0 10%
 
 .page-big-title
 	font-family: 'Montserrat-Bold'
@@ -577,6 +580,10 @@ input[type='number']
 	@media #{$media-sm-plus-down}
 		margin-bottom: 5rem
 
+.mb-md-50
+	@media #{$media-sm-plus-up}
+		margin-bottom: 5rem
+
 .mb-90
 	margin-bottom: 9rem
 
@@ -603,6 +610,10 @@ input[type='number']
 .mt-22
 	margin-top: 2.2rem !important
 
+.mt-sm-20
+	@media #{$media-sm-plus-down}
+		margin-top: 2rem !important
+
 .mt-34
 	margin-top: 3.4rem !important
 
@@ -611,6 +622,10 @@ input[type='number']
 
 .mt-50
 	margin-top: 5rem !important
+
+.mt-md-50
+	@media #{$media-sm-plus-up}
+		margin-top: 5rem !important
 
 .mt-52
 	margin-top: 5.2rem !important
@@ -870,8 +885,11 @@ input[type='number']
 	position: relative
 	width: 27rem
 	z-index: 1
-	
+
 	@media #{$media-sm-plus-up}
+		width: 37rem
+
+	@media #{$media-lg-up}
 		width: 40rem
 
 	&:nth-child(1)
@@ -896,7 +914,7 @@ input[type='number']
 				transform-origin: 0% 0%
 
 	&::before
-		background: linear-gradient(90deg, #443B75 0%, #583E7A 100%)
+		background: linear-gradient(90deg, rgba(68, 59, 117, .3) 0%, rgba(88, 62, 122, .3) 100%)
 		content: ""
 		width: 100%
 		height: 100%
