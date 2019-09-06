@@ -124,38 +124,38 @@ window.addEventListener("scroll", function() {
     invert(menuImg, true);
 
      // ANIMATION
-    if (lastSectionForEffects !== currentSectionForEffects) {
-      let current = sectionOptions.find(
-        sectionOpt => sectionOpt.id === currentSectionForMenu
-      );
+    // if (lastSectionForEffects !== currentSectionForEffects) {
+    //   let current = sectionOptions.find(
+    //     sectionOpt => sectionOpt.id === currentSectionForMenu
+    //   );
 
-      document.getElementById(current.contentId).classList.remove('fadeInDown');
-      document.getElementById(current.contentId).classList.remove('hiddenContent');
+    //   document.getElementById(current.contentId).classList.remove('fadeInDown');
+    //   document.getElementById(current.contentId).classList.remove('hiddenContent');
       
-      if (lastSectionForEffects !== '') {
-        document.getElementById(lastSectionForEffects).classList.add('fadeInDown');
-        // document.getElementById(lastSectionForEffects).classList.add('hiddenContent');
-      }
-    }
+    //   if (lastSectionForEffects !== '') {
+    //     document.getElementById(lastSectionForEffects).classList.add('fadeInDown');
+    //     // document.getElementById(lastSectionForEffects).classList.add('hiddenContent');
+    //   }
+    // }
   } else {
     // DOWN SCROLL
     logoWrapper.style.top = "-6rem";
     invert(menuImg, false);
 
      // ANIMATION
-    if (lastSectionForEffects !== currentSectionForEffects) {
-      let current = sectionOptions.find(
-        sectionOpt => sectionOpt.id === currentSectionForMenu
-      );
+    // if (lastSectionForEffects !== currentSectionForEffects) {
+    //   let current = sectionOptions.find(
+    //     sectionOpt => sectionOpt.id === currentSectionForMenu
+    //   );
 
-      document.getElementById(current.contentId).classList.remove('fadeInUp');
-      document.getElementById(current.contentId).classList.remove('hiddenContent');
+    //   document.getElementById(current.contentId).classList.remove('fadeInUp');
+    //   document.getElementById(current.contentId).classList.remove('hiddenContent');
       
-      if (lastSectionForEffects !== '') {
-        document.getElementById(lastSectionForEffects).classList.add('fadeInUp');
-        // document.getElementById(lastSectionForEffects).classList.add('hiddenContent');
-      }
-    }
+    //   if (lastSectionForEffects !== '') {
+    //     document.getElementById(lastSectionForEffects).classList.add('fadeInUp');
+    //     // document.getElementById(lastSectionForEffects).classList.add('hiddenContent');
+    //   }
+    // }
   }
 
   currentSection = findCurrentSection(pageYOffset, breakpoints);

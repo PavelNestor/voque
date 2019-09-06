@@ -49,6 +49,6 @@ block content
                     span.form-name-error
 
                   .form-group
-                    textarea.form-group__textarea(id="message", placeholder="Message" autocomplete="off" required)
+                    textarea.form-group__textarea(id="message", placeholder="Message" autocomplete="off" required oninvalid="this.setCustomValidity('Message cannot be empty.')" onchange="this.setCustomValidity('')")
                     span.form-error
                   button.button-outline.transparent(type='submit') Send feedback
