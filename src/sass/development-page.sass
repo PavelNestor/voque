@@ -9,7 +9,7 @@
 
   &__content
     background: linear-gradient(90deg, #443B75 0%, #583E7A 100%)
-    padding: 0 17% 0 0
+    padding: 0 18% 0 0
 
   &__bg-position-one
     position: relative
@@ -53,17 +53,24 @@
     background: linear-gradient(90deg, rgba(46, 46, 110, 0.8) 0%, rgba(97, 54, 123, 0.8) 100%),  top / cover no-repeat url("/img/development-page_bg-operation.png")
 
   &__title-wrapper
-    padding: 1rem 1rem 1rem 10%
+    padding: 1rem 1rem 1rem 12%
 
     @media #{$media-sm-plus-up}
-      padding: 9rem 0 8rem 10%
+      padding: 9rem 0 8rem 12%
 
   &__gradient-one
     background: linear-gradient(90deg, #3A2453 0%, #21204D 100%)
-    padding-bottom: 21rem
+    padding-bottom: 24rem
+
+    @media #{$media-sm-plus-up}
+      padding-bottom: 28rem
 
   &__gradient-two
-    background: linear-gradient(90deg, #443B75 0%, #583E7A 100%)
+    background: linear-gradient(90deg, rgba(88, 62, 122, .3) 0%, rgba(68, 59, 117, .3) 100%), linear-gradient(90deg, #3A2453 0%, #21204D 100%)
+    padding-bottom: 5rem
+
+    @media #{$media-sm-plus-up}
+      padding-bottom: 9rem
 
   &__last-container
     max-width: 80rem

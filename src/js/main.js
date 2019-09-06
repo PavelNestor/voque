@@ -54,7 +54,7 @@ const sectionOptions = [
   {
     contentId: "services-content",
     id: "services",
-    logoUrl: "img/logo.svg",
+    logoUrl: "img/logo-black.svg",
     navbarClass: "about",
     scrollClass: "about",
     isLogoVisible: true,
@@ -63,7 +63,7 @@ const sectionOptions = [
   {
     contentId: "development-content",
     id: "development",
-    logoUrl: "img/logo.svg",
+    logoUrl: "img/logo-black.svg",
     navbarClass: "about",
     scrollClass: "about",
     isLogoVisible: true,
@@ -72,7 +72,7 @@ const sectionOptions = [
   {
     contentId: "outsource-content",
     id: "outsource",
-    logoUrl: "img/logo.svg",
+    logoUrl: "img/logo-black.svg",
     navbarClass: "about",
     scrollClass: "about",
     isLogoVisible: true,
@@ -81,7 +81,7 @@ const sectionOptions = [
   {
     contentId: "outstaffing-content",
     id: "outstaffing",
-    logoUrl: "img/logo.svg",
+    logoUrl: "img/logo-black.svg",
     navbarClass: "about",
     scrollClass: "about",
     isLogoVisible: true,
@@ -90,7 +90,7 @@ const sectionOptions = [
   {
     contentId: "contact-content",
     id: "contact",
-    logoUrl: "img/logo.svg",
+    logoUrl: "img/logo-black.svg",
     navbarClass: "about",
     scrollClass: "about",
     isLogoVisible: true,
@@ -120,9 +120,11 @@ window.addEventListener("scroll", function() {
   if (document.body.getBoundingClientRect().top > lastScrollPosition) {
     // UP SCROLL
     logoWrapper.style.top = "0";
+    invert(menuImg, true);
   } else {
     // DOWN SCROLL
     logoWrapper.style.top = "-6rem";
+    invert(menuImg, false);
   }
 
   currentSection = findCurrentSection(pageYOffset, breakpoints);
