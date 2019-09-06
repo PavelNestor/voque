@@ -25,6 +25,7 @@ var linesMenuItems = document.getElementsByClassName("lines-menu__item");
 
 let currentSection = "";
 let currentSectionForMenu = "";
+let currentSectionForEffects = "";
 let lastSection = "";
 let lastSectionForMenu = "";
 let lastSectionForEffects = "";
@@ -121,14 +122,45 @@ window.addEventListener("scroll", function() {
     // UP SCROLL
     logoWrapper.style.top = "0";
     invert(menuImg, true);
+
+     // ANIMATION
+    if (lastSectionForEffects !== currentSectionForEffects) {
+      let current = sectionOptions.find(
+        sectionOpt => sectionOpt.id === currentSectionForMenu
+      );
+
+      document.getElementById(current.contentId).classList.remove('fadeInDown');
+      document.getElementById(current.contentId).classList.remove('hiddenContent');
+      
+      if (lastSectionForEffects !== '') {
+        document.getElementById(lastSectionForEffects).classList.add('fadeInDown');
+        // document.getElementById(lastSectionForEffects).classList.add('hiddenContent');
+      }
+    }
   } else {
     // DOWN SCROLL
     logoWrapper.style.top = "-6rem";
     invert(menuImg, false);
+
+     // ANIMATION
+    if (lastSectionForEffects !== currentSectionForEffects) {
+      let current = sectionOptions.find(
+        sectionOpt => sectionOpt.id === currentSectionForMenu
+      );
+
+      document.getElementById(current.contentId).classList.remove('fadeInUp');
+      document.getElementById(current.contentId).classList.remove('hiddenContent');
+      
+      if (lastSectionForEffects !== '') {
+        document.getElementById(lastSectionForEffects).classList.add('fadeInUp');
+        // document.getElementById(lastSectionForEffects).classList.add('hiddenContent');
+      }
+    }
   }
 
   currentSection = findCurrentSection(pageYOffset, breakpoints);
   currentSectionForMenu = findCurrentSectionForMenu(pageYOffset, breakpoints);
+  currentSectionForEffects = findCurrentSectionForEffects(pageYOffset, breakpoints);
 
   if (lastSection !== currentSection) {
     let current = sectionOptions.find(
@@ -144,7 +176,6 @@ window.addEventListener("scroll", function() {
     } else {
       logoWrapper.classList.remove("logo-visible");
     }
-
   }
 
   if (lastSectionForMenu !== currentSectionForMenu) {
@@ -152,10 +183,13 @@ window.addEventListener("scroll", function() {
       sectionOpt => sectionOpt.id === currentSectionForMenu
     );
 
-    // document.getElementById(current.contentId).classList.remove('hiddenContent');
+
+    // document.getElementById(current.contentId).classList.remove('fadeInUp');
     
     // if (lastSectionForEffects !== '') {
-    //   document.getElementById(lastSectionForEffects).classList.add('hiddenContent');
+    //   console.log('lastSectionForEffects', lastSectionForEffects);
+      
+    //   document.getElementById(lastSectionForEffects).classList.add('fadeInUp');
     // }
 
     invert(linesMenuItems, current.isInvert);
@@ -241,6 +275,18 @@ function findCurrentSectionForMenu(pageYOffset, breakpoints) {
     const breakpoint = breakpoints[index];
     if (
       pageYOffset > breakpoint.breakpointTop - breakpoint.offset &&
+      breakpoints[index + 1] ? pageYOffset < breakpoints[index + 1].breakpointTop - breakpoints[index + 1].offset : true
+    ) {
+      return breakpoint.id;
+    }
+  }
+}
+
+function findCurrentSectionForEffects(pageYOffset, breakpoints) {
+  for (let index = 0; index < breakpoints.length; index++) {
+    const breakpoint = breakpoints[index];
+    if (
+      pageYOffset > breakpoint.breakpointTop + windowHeight &&
       breakpoints[index + 1] ? pageYOffset < breakpoints[index + 1].breakpointTop - breakpoints[index + 1].offset : true
     ) {
       return breakpoint.id;

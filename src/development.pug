@@ -10,13 +10,14 @@ block page-content
 
   .development-page
       .development-page__top
-        .page-accent
-          span.page-accent__text.text-parallax development
-          .page-accent__text-wrapper
-            .page-accent__bg.box-parallax
-            span.page-accent__text.page-accent__text-white.text-parallax development
+        //- .page-accent
+        //-   span.page-accent__text.text-parallax development
+        //-   .page-accent__text-wrapper
+        //-     .page-accent__bg.box-parallax
+        //-     span.page-accent__text.page-accent__text-white.text-parallax development
 
       .development-page__content.development-page__gradient-one.mt-0
+        +pageSideText('development')
         +pageTitle('development')
 
         .page-wrapper.mb-50
@@ -106,12 +107,13 @@ block page-content
 
           .page-card-wrapper
               .page-card
-                .page-card__header Our product features:
-                .page-card__content
-                  .page-card__text Behavioral analysis;
-                  .page-card__text IP analysis;
-                  .page-card__text Geolocation detection;
-                  .page-card__text Connection type detection;
+                .page-card__block
+                  .page-card__header Our product features:
+                  .page-card__content
+                    .page-card__text Behavioral analysis;
+                    .page-card__text IP analysis;
+                    .page-card__text Geolocation detection;
+                    .page-card__text Connection type detection;
         
               .page-card
                 .page-card__header Proxy Detection Tool
