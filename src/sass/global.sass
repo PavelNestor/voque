@@ -1305,6 +1305,41 @@ input[type='number']
 	&__wrapper
 		position: sticky
 
+	&-col
+		width: 18vw
+
+		&:nth-child(1)
+			flex-basis: 82vw
+			padding: 0
+
+		&:nth-child(2)
+			flex-basis: 18vw
+			padding: 0 0 0 7vw
+
+	&-row
+		display: flex
+		flex-direction: row
+
+	&__text-stiky
+		color: transparent
+		font-family: 'Montserrat-Bold'
+		font-size: 9rem
+		font-weight: bold
+		opacity: .5
+		position: sticky
+		text-transform: uppercase
+		top: 0
+		-webkit-text-stroke: 1px #fff
+		transform: scale(-1, -1)
+		white-space: nowrap
+		writing-mode: vertical-rl
+
+		@media #{$media-sm-plus-up}
+			font-size: 9rem
+
+		@media #{$media-sm-plus-up}
+			font-size: 15rem
+
 	&__text
 		color: transparent
 		font-family: 'Montserrat-Bold'
