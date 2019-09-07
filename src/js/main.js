@@ -121,10 +121,10 @@ window.addEventListener("scroll", function() {
   if (document.body.getBoundingClientRect().top > lastScrollPosition) {
     // UP SCROLL
     logoWrapper.style.top = "0";
-    if (currentSectionForMenu === 'about' || currentSectionForMenu === 'hero') {
-      // invert(menuImg, false);
-    } else {
+    if (currentSection === 'about' || currentSection !== 'hero') {
       invert(menuImg, true);
+    } else {
+      invert(menuImg, false);
     }
 
      // ANIMATION
@@ -145,7 +145,7 @@ window.addEventListener("scroll", function() {
     // DOWN SCROLL
     logoWrapper.style.top = "-6rem";
 
-    if (currentSectionForMenu === 'about') {
+    if (currentSection === 'about') {
       invert(menuImg, true);
     } else {
       invert(menuImg, false);
@@ -177,6 +177,7 @@ window.addEventListener("scroll", function() {
     );
 
     setActiveLink(current);
+    
     invert(menuImg, current.isInvert);
 
     if (current.isLogoVisible) {
@@ -282,8 +283,6 @@ function findCurrentSection(pageYOffset, breakpoints) {
 function findCurrentSectionForMenu(pageYOffset, breakpoints) {
   for (let index = 0; index < breakpoints.length; index++) {
     const breakpoint = breakpoints[index];
-    console.log('breakpoint.offset',breakpoint.offset);
-    
     if (
       pageYOffset > breakpoint.breakpointTop &&
       breakpoints[index + 1] ? pageYOffset < breakpoints[index + 1].breakpointTop - breakpoints[index + 1].offset : true
