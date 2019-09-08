@@ -9,15 +9,19 @@ var side = document.getElementById("side");
 var contact = document.getElementById("contact");
 var sideTextBottom = document.getElementById("side-text-bottom");
 
+const sectionOptions = fillOptions(sections);
+
 let currentSection = "";
 let currentSectionForMenu = "";
 let currentSectionForEffects = "";
 let lastSection = "";
 let lastSectionForMenu = "";
 let lastSectionForEffects = "";
+let lastScrollPosition = "";
 let windowHeight = 0;
 let breakpoints = [];
-let lastScrollPosition = 0;
+let isPage = document.getElementById('page') !== null;
+let isMobie = false;
 
 (function(user) {
   var menuClose = document.getElementById("menu-close");
@@ -31,73 +35,23 @@ let lastScrollPosition = 0;
   menuClose.addEventListener("click", onToogleMenu);
 })();
 
-const sectionOptions = [
-  {
-    contentId: "hero-content",
-    id: "hero",
-    logoUrl: "img/logo.svg",
-    navbarClass: "hero",
-    scrollClass: "hero",
-    isInvert: false,
-    isLogoVisible: false,
-  },
-  {
-    contentId: "about-content",
-    id: "about",
-    logoUrl: "img/logo-black.svg",
-    navbarClass: "about",
-    scrollClass: "about",
-    isLogoVisible: true,
-    isInvert: true
-  },
-  {
-    contentId: "services-content",
-    id: "services",
-    logoUrl: "img/logo-black.svg",
-    navbarClass: "about",
-    scrollClass: "about",
-    isLogoVisible: true,
-    isInvert: false
-  },
-  {
-    contentId: "development-content",
-    id: "development",
-    logoUrl: "img/logo-black.svg",
-    navbarClass: "about",
-    scrollClass: "about",
-    isLogoVisible: true,
-    isInvert: false
-  },
-  {
-    contentId: "outsource-content",
-    id: "outsource",
-    logoUrl: "img/logo-black.svg",
-    navbarClass: "about",
-    scrollClass: "about",
-    isLogoVisible: true,
-    isInvert: false
-  },
-  {
-    contentId: "outstaffing-content",
-    id: "outstaffing",
-    logoUrl: "img/logo-black.svg",
-    navbarClass: "about",
-    scrollClass: "about",
-    isLogoVisible: true,
-    isInvert: false
-  },
-  {
-    contentId: "contact-content",
-    id: "contact",
-    logoUrl: "img/logo-black.svg",
-    navbarClass: "about",
-    scrollClass: "about",
-    isLogoVisible: true,
-    isInvert: false
-  }
-];
+function fillOptions(items) {
+  let result = [];
+  items.map(section => {
+    result.push({
+      contentId: `${section.id}-content`,
+      id: section.id,
+      logoUrl: section.id === 'about' ? '/img/logo-black.svg' : '/img/logo.svg',
+      isLogoVisible: section.id !== 'hero',
+      isInvert: section.id === 'about',
+    })
+  });
+  
+  return result;
+}
 
 function onResize() {
+  isMobie = document.documentElement.clientWidth < 1024;
   breakpoints = [];
   windowHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
   const offset = Math.ceil(windowHeight / 2);
@@ -129,12 +83,16 @@ window.addEventListener("scroll", function() {
   const scrollPosition = document.body.getBoundingClientRect().top;
   const isScrollToBottom = scrollPosition > lastScrollPosition;
 
-  sideTextMove();
-
+  if (isPage) {
+    sideTextMove();
+  }
+  
   if (isScrollToBottom) {
     // UP SCROLL
-    logoWrapper.style.top = "0";
-    invert(menuImg, (currentSection === 'about' || currentSection !== 'hero'));
+    if (isMobie) {
+      logoWrapper.style.top = "0";
+      invert(menuImg, (currentSection === 'about' || currentSection !== 'hero'));
+    }
 
      // ANIMATION
     // if (lastSectionForEffects !== currentSectionForEffects) {
@@ -182,7 +140,7 @@ window.addEventListener("scroll", function() {
     );
 
     setActiveLink(current);
-
+    
     invert(menuImg, current.isInvert);
 
     if (current.isLogoVisible) {
@@ -218,29 +176,27 @@ window.addEventListener("scroll", function() {
 });
 
 function setActiveLink(current) {
-  linesMenuItems.forEach(linesMenuItem => {
+  for (let index = 0; index < linesMenuItems.length; index++) {
+    const linesMenuItem = linesMenuItems[index];
     const linkId = linesMenuItem.dataset.link;
-    const action = (linkId === current.id) ? 'add' : 'remove';
-    linesMenuItem.classList.[action]('lines-menu__item-active');
-  });
+    if (linkId === current.id) {
+      linesMenuItem.classList.add("lines-menu__item-active");
+    } else {
+      linesMenuItem.classList.remove("lines-menu__item-active");
+    }
+  }
 }
 
 function findCurrentSection(pageYOffset, breakpoints) {
-  let result;
-
-  breakpoints.forEach(breakpoint => {
-    if (result) {
-      return;
-    }
-
+  for (let index = 0; index < breakpoints.length; index++) {
+    const breakpoint = breakpoints[index];
     if (
       pageYOffset > breakpoint.breakpointTop &&
-        breakpoints[index + 1] ? pageYOffset < breakpoints[index + 1].breakpointTop : true
+      breakpoints[index + 1] ? pageYOffset < breakpoints[index + 1].breakpointTop : true
     ) {
-      result = breakpoint.id;
+      return breakpoint.id;
     }
-  });
-  return result;
+  }
 }
 
 function findCurrentSectionForMenu(pageYOffset, breakpoints) {
@@ -271,7 +227,7 @@ function invert(items, isInvert) {
   const action = isInvert ? 'add' : 'remove';
   items = Array.isArray(items) ? items : [items];
 
-  items.forEach(item => item.classList.[action]('invert'));
+  items.forEach(item => item.classList[action]('invert'));
 }
 
 function calculateTranslateTop(pageYOffset, index) {
