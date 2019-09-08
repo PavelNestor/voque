@@ -4,15 +4,17 @@ const handlerToogleMenu = function(user) {
   var menuImg = document.getElementById("menu-image");
   var menuClose = document.getElementById("menu-close");
   var menuContent = document.getElementById("menu-content");
+  var mainContent = document.getElementById("main-content");
 
   const onToogleMenu = () => {
     menuContent.classList.toggle("menu-show");
+    // mainContent.classList.toggle("p-fixed");
+    // mainContent.style = `top: ${ -lastScrollPosition}px`
   };
 
   menuImg.addEventListener("click", onToogleMenu);
   menuImg.addEventListener("touch", onToogleMenu);
   menuClose.addEventListener("click", onToogleMenu);
-  // menu.removeEventListener("click", onToogleMenu)
 };
 
 handlerToogleMenu();
@@ -132,7 +134,7 @@ window.addEventListener("resize", onResize);
 
 window.addEventListener("scroll", function() {
 
-  sideTextMove();
+  // sideTextMove();
 
   if (document.body.getBoundingClientRect().top > lastScrollPosition) {
     // UP SCROLL
