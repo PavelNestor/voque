@@ -166,6 +166,8 @@ function onScroll() {
     scrollWatcher.onScroll(-scrollPosition);
   });
 
+  console.log('isPage',isPage);
+  
   if (isPage) {
     sideTextMove();
   }
