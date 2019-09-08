@@ -117,12 +117,14 @@ function fillOptions(items) {
     result.push({
       contentId: `${section.id}-content`,
       id: section.id,
-      logoUrl: section.id === 'about' ? '/img/logo-black.svg' : '/img/logo.svg',
+      logoUrl: section.id === 'about' || section.id === 'page' ? '/img/logo-black.svg' : '/img/logo.svg',
       isLogoVisible: section.id !== 'hero',
       isInvert: section.id === 'about',
     })
   });
 
+  console.log('result',result);
+  
   return result;
 }
 
@@ -171,14 +173,17 @@ function onScroll() {
   }
 
   if (isScrollDirectionBackwards) {
+    
     // UP SCROLL
+    console.log('mobile', isMobie);
     if (isMobie) {
       logoWrapper.style.top = "0";
-      invert(menuImg, currentSection === 'about');
+      invert(menuImg, true);
     }
   } else {
     // DOWN SCROLL
     logoWrapper.style.top = "-6rem";
+    invert(menuImg, sections.id === 'page');
   }
 
   currentSection = findCurrentSection(pageYOffset, breakpoints);
