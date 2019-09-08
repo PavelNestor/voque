@@ -165,8 +165,6 @@ function onScroll() {
   scrollWatchers.forEach(scrollWatcher => {
     scrollWatcher.onScroll(-scrollPosition);
   });
-
-  console.log('isPage',isPage);
   
   if (isPage) {
     sideTextMove();
@@ -176,13 +174,11 @@ function onScroll() {
     // UP SCROLL
     if (isMobie) {
       logoWrapper.style.top = "0";
-      invert(menuImg, (currentSection === 'about' || currentSection !== 'hero'));
+      invert(menuImg, currentSection === 'about');
     }
   } else {
     // DOWN SCROLL
     logoWrapper.style.top = "-6rem";
-
-    invert(menuImg, currentSection === 'about');
   }
 
   currentSection = findCurrentSection(pageYOffset, breakpoints);
