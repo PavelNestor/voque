@@ -18,10 +18,13 @@ let lastSection = "";
 let lastSectionForMenu = "";
 let lastSectionForEffects = "";
 let lastScrollPosition = "";
+let lastBlock;
 let windowHeight = 0;
 let breakpoints = [];
 let isPage = document.getElementById('page') !== null;
 let isMobie = false;
+
+const scrollWatchers = [];
 
 (function(user) {
   var menuClose = document.getElementById("menu-close");
@@ -35,6 +38,79 @@ let isMobie = false;
   menuClose.addEventListener("click", onToogleMenu);
 })();
 
+class SectionChangeWatcher {
+  constructor(options) {
+    const DEFAULT_OPTIONS = {
+      breakpoints: [],
+      currentSection: null,
+      name: null,
+      offsetBottom: 0,
+      offsetTop: 0,
+      onChange: () => {},
+      scrollTrigger: true,
+    }
+    options = Object.assign({}, DEFAULT_OPTIONS, options);
+    Object.assign(this, options);
+  }
+
+  _init() {
+    if (this.scrollTrigger) {
+      const scrollPosition = document.body.getBoundingClientRect().top;
+      window.addEventListener('scroll', () => this.onScroll(scrollPosition));
+    }
+  }
+
+  setBreakpoints(array) {
+    if (!Array.isArray(array)) {
+      console.warn('"breakpoints" should be an array.')
+    }
+    this.breakpoints = array;
+  }
+
+  setOffsets(top, bottom) {
+    this.offsetTop = top || this.offsetTop;
+    this.offsetBottom = bottom || top;
+  }
+
+  findCurrentSection(breakpoints, scrollPosition, isScrollDirectionBackwards) {
+    if (isScrollDirectionBackwards) {
+      scrollPosition += this.offsetTop;
+      for (let i = breakpoints.length - 1; i >= 0; i--) {
+        if ( breakpoints[i].breakpointTop < scrollPosition ) {
+          return breakpoints[i];
+        }
+      }
+    } else {
+      scrollPosition += this.offsetTop;
+      for (let i = 0; i < breakpoints.length; i++) {
+        if ( breakpoints[i].breakpointTop > scrollPosition ) {
+          return breakpoints[i - 1];
+        }
+      }
+    }
+
+    return isScrollDirectionBackwards ?
+      breakpoints[0] :
+      breakpoints[breakpoints.length - 1];
+  }
+
+  onScroll(scrollPosition) {
+    const currentSection = this.findCurrentSection(
+      this.breakpoints,
+      scrollPosition,
+      this.scrollPosition < scrollPosition
+    );
+
+    this.scrollPosition = scrollPosition;
+    if (this.currentSection === currentSection) {
+      return;
+    }
+
+    this.currentSection = currentSection;
+    this.onChange(currentSection);
+  }
+}
+
 function fillOptions(items) {
   let result = [];
   items.map(section => {
@@ -46,7 +122,7 @@ function fillOptions(items) {
       isInvert: section.id === 'about',
     })
   });
-  
+
   return result;
 }
 
@@ -63,13 +139,16 @@ function onResize() {
       offset
     });
   });
-}
 
-onResize();
+  scrollWatchers.forEach(scrollWatcher => {
+    scrollWatcher.setBreakpoints(breakpoints);
+    scrollWatcher.setOffsets( offset );
+  });
+}
 
 function sideTextMove() {
   side.style.transform = `scale(-1, -1) translateY(${document.body.getBoundingClientRect().top}px)`;
-  
+
   if (contact.getBoundingClientRect().top < windowHeight) {
     sideTextBottom.style.transform = `scale(-1, -1) translateY(${windowHeight - contact.getBoundingClientRect().top}px)`;
   } else {
@@ -77,57 +156,31 @@ function sideTextMove() {
   }
 }
 
-window.addEventListener("resize", onResize);
-
-window.addEventListener("scroll", function() {
+function onScroll() {
   const scrollPosition = document.body.getBoundingClientRect().top;
-  const isScrollToBottom = scrollPosition > lastScrollPosition;
+  const isScrollDirectionBackwards = scrollPosition > lastScrollPosition;
+  let currentSection;
+  let currentBlock = findCurrentBlock(breakpoints, -scrollPosition, isScrollDirectionBackwards);
+
+  scrollWatchers.forEach(scrollWatcher => {
+    scrollWatcher.onScroll(-scrollPosition);
+  });
 
   if (isPage) {
     sideTextMove();
   }
-  
-  if (isScrollToBottom) {
+
+  if (isScrollDirectionBackwards) {
     // UP SCROLL
     if (isMobie) {
       logoWrapper.style.top = "0";
       invert(menuImg, (currentSection === 'about' || currentSection !== 'hero'));
     }
-
-     // ANIMATION
-    // if (lastSectionForEffects !== currentSectionForEffects) {
-    //   let current = sectionOptions.find(
-    //     sectionOpt => sectionOpt.id === currentSectionForMenu
-    //   );
-
-    //   document.getElementById(current.contentId).classList.remove('fadeInDown');
-    //   document.getElementById(current.contentId).classList.remove('hiddenContent');
-      
-    //   if (lastSectionForEffects !== '') {
-    //     document.getElementById(lastSectionForEffects).classList.add('fadeInDown');
-    //     // document.getElementById(lastSectionForEffects).classList.add('hiddenContent');
-    //   }
-    // }
   } else {
     // DOWN SCROLL
     logoWrapper.style.top = "-6rem";
 
     invert(menuImg, currentSection === 'about');
-
-     // ANIMATION
-    // if (lastSectionForEffects !== currentSectionForEffects) {
-    //   let current = sectionOptions.find(
-    //     sectionOpt => sectionOpt.id === currentSectionForMenu
-    //   );
-
-    //   document.getElementById(current.contentId).classList.remove('fadeInUp');
-    //   document.getElementById(current.contentId).classList.remove('hiddenContent');
-      
-    //   if (lastSectionForEffects !== '') {
-    //     document.getElementById(lastSectionForEffects).classList.add('fadeInUp');
-    //     // document.getElementById(lastSectionForEffects).classList.add('hiddenContent');
-    //   }
-    // }
   }
 
   currentSection = findCurrentSection(pageYOffset, breakpoints);
@@ -140,7 +193,7 @@ window.addEventListener("scroll", function() {
     );
 
     setActiveLink(current);
-    
+
     invert(menuImg, current.isInvert);
 
     if (current.isLogoVisible) {
@@ -158,10 +211,10 @@ window.addEventListener("scroll", function() {
 
 
     // document.getElementById(current.contentId).classList.remove('fadeInUp');
-    
+
     // if (lastSectionForEffects !== '') {
     //   console.log('lastSectionForEffects', lastSectionForEffects);
-      
+
     //   document.getElementById(lastSectionForEffects).classList.add('fadeInUp');
     // }
 
@@ -169,11 +222,16 @@ window.addEventListener("scroll", function() {
     lastSectionForEffects = current.contentId;
   }
 
-  lastSection = currentSection;
+
   lastSectionForMenu = currentSectionForMenu;
   lastScrollPosition = scrollPosition;
+  lastSection = currentSection;
+  lastBlock = currentBlock;
+}
 
-});
+window.addEventListener('resize', onResize);
+
+window.addEventListener('scroll', onScroll);
 
 function setActiveLink(current) {
   for (let index = 0; index < linesMenuItems.length; index++) {
@@ -194,7 +252,7 @@ function findCurrentSection(pageYOffset, breakpoints) {
       pageYOffset > breakpoint.breakpointTop &&
       breakpoints[index + 1] ? pageYOffset < breakpoints[index + 1].breakpointTop : true
     ) {
-      return breakpoint.id;
+      return breakpoint && breakpoint.id;
     }
   }
 }
@@ -390,5 +448,62 @@ ready(() => {
     });
   });
 
+  scrollWatchers.push( new SectionChangeWatcher({
+    name: 'animations',
+    onChange: data => {
+      setActiveSection(data.id, sections);
+    },
+    scrollTrigger: false,
+  }));
+
+  onResize();
+  onScroll();
 });
+
+function findCurrentBlock(breakpoints, scrollPosition, isScrollDirectionBackwards, offset) {
+  if (!Array.isArray(offset)) {
+    offset = [0, 0];
+  }
+
+  if (isScrollDirectionBackwards) {
+    for (let i = breakpoints.length - 1; i >= 0; i--) {
+      if ( breakpoints[i].breakpointTop < scrollPosition ) {
+        return breakpoints[i];
+      }
+    }
+  } else {
+    for (let i = 0; i < breakpoints.length; i++) {
+      if ( breakpoints[i].breakpointTop > scrollPosition ) {
+        return breakpoints[i - 1];
+      }
+    }
+  }
+
+  return isScrollDirectionBackwards ?
+    breakpoints[0] :
+    breakpoints[breakpoints.length - 1];
+}
+
+function setActiveSection(id, sections) {
+  let isActiveSet;
+
+  sections.forEach(section => {
+    const STATE_CLASSES = ['section_active', 'section_higher', 'section_lower'];
+    let currentState;
+
+    if (section.id === id) {
+      currentState = 0;
+      isActiveSet = true;
+    } else if (isActiveSet) {
+      currentState = 2;
+    } else {
+      currentState = 1;
+    }
+
+    STATE_CLASSES.map((className, i, array) => {
+      const action = i === currentState ? 'add' : 'remove';
+      section.classList[action](className);
+    });
+  })
+}
 
