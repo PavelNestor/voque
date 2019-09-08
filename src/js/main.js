@@ -471,7 +471,7 @@ ready(() => {
   const links = Array.from( document.querySelectorAll('a') );
   links.forEach(link => {
     const href = link.getAttribute('href');
-    const ifNoReload = new RegExp('#|mailto|tel').test(href);
+    const ifNoReload = new RegExp('^#|mailto|tel').test(href);
 
     if (!href || ifNoReload) {
       return;
