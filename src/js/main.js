@@ -1,27 +1,10 @@
-const handlerToogleMenu = function(user) {
-  "use strict";
-
-  var menuImg = document.getElementById("menu-image");
-  var menuClose = document.getElementById("menu-close");
-  var menuContent = document.getElementById("menu-content");
-
-  const onToogleMenu = () => {
-    menuContent.classList.toggle("menu-show");
-  };
-
-  menuImg.addEventListener("click", onToogleMenu);
-  menuImg.addEventListener("touch", onToogleMenu);
-  menuClose.addEventListener("click", onToogleMenu);
-  // menu.removeEventListener("click", onToogleMenu)
-};
-
-handlerToogleMenu();
+"use strict";
 
 var logo = document.getElementById("logo");
 var logoWrapper = document.getElementById("logo-wrapper");
 var menuImg = document.getElementById("menu-image");
 var sections = Array.from(document.getElementsByTagName("section"));
-var linesMenuItems = document.getElementsByClassName("lines-menu__item");
+var linesMenuItems = Array.from(document.getElementsByClassName("lines-menu__item"));
 
 let currentSection = "";
 let currentSectionForMenu = "";
@@ -32,6 +15,18 @@ let lastSectionForEffects = "";
 let windowHeight = 0;
 let breakpoints = [];
 let lastScrollPosition = 0;
+
+(function(user) {
+  var menuClose = document.getElementById("menu-close");
+  var menuContent = document.getElementById("menu-content");
+
+  const onToogleMenu = () => {
+    menuContent.classList.toggle("menu-show");
+  };
+
+  menuImg.addEventListener("click", onToogleMenu);
+  menuClose.addEventListener("click", onToogleMenu);
+})();
 
 const sectionOptions = [
   {
@@ -118,14 +113,13 @@ onResize();
 window.addEventListener("resize", onResize);
 
 window.addEventListener("scroll", function() {
-  if (document.body.getBoundingClientRect().top > lastScrollPosition) {
+  const scrollPosition = document.body.getBoundingClientRect().top;
+  const isScrollToBottom = scrollPosition > lastScrollPosition;
+
+  if (scrollPosition) {
     // UP SCROLL
     logoWrapper.style.top = "0";
-    if (currentSection === 'about' || currentSection !== 'hero') {
-      invert(menuImg, true);
-    } else {
-      invert(menuImg, false);
-    }
+    invert(menuImg, (currentSection === 'about' || currentSection !== 'hero'));
 
      // ANIMATION
     // if (lastSectionForEffects !== currentSectionForEffects) {
@@ -145,11 +139,7 @@ window.addEventListener("scroll", function() {
     // DOWN SCROLL
     logoWrapper.style.top = "-6rem";
 
-    if (currentSection === 'about') {
-      invert(menuImg, true);
-    } else {
-      invert(menuImg, false);
-    }
+    invert(menuImg, currentSection === 'about');
 
      // ANIMATION
     // if (lastSectionForEffects !== currentSectionForEffects) {
@@ -177,7 +167,7 @@ window.addEventListener("scroll", function() {
     );
 
     setActiveLink(current);
-    
+
     invert(menuImg, current.isInvert);
 
     if (current.isLogoVisible) {
@@ -208,76 +198,34 @@ window.addEventListener("scroll", function() {
 
   lastSection = currentSection;
   lastSectionForMenu = currentSectionForMenu;
-  lastScrollPosition = document.body.getBoundingClientRect().top;
+  lastScrollPosition = scrollPosition;
 
-  // //parallax
-  // var textParallax = document.getElementsByClassName("text-parallax");
-  // var boxParallax = document.getElementsByClassName("box-parallax");
-  // for (let index = 0; index < boxParallax.length; index++) {
-  //   const box = boxParallax[index];
-  //   const top = box.getBoundingClientRect().top;
-
-  //   if (top < 200 && top > -900) {
-  //     for (let index = 0; index < textParallax.length; index++) {
-  //       const text = textParallax[index];
-  //       if (
-  //         index == 0 ||
-  //         index == 1 ||
-  //         index == 4 ||
-  //         index == 5 ||
-  //         index == 8 ||
-  //         index == 9
-  //       ) {
-  //         text.style.transform =
-  //           "scale(-1, -1) translate3d(0, " + pageYOffset * 0.1 + "px, 0)";
-  //       } else {
-  //         text.style.transform =
-  //           "scale(-1, -1) translate3d(0, " + pageYOffset * -0.1 + "px, 0)";
-  //       }
-  //     }
-  //   }
-  // }
-
-  // //parallax mobile
-  // var textParallaxMobile = document.getElementsByClassName(
-  //   "text-parallax-mobile"
-  // );
-
-  // for (let index = 0; index < textParallaxMobile.length; index++) {
-  //   const text = textParallaxMobile[index];
-
-  //   if (index == 2 || index == 3 || index == 6 || index == 7) {
-  //     text.style.transform =
-  //       "scale(-1, -1) translate3d(0, " + calculateTranslateTop(pageYOffset, index) + "px, 0)";
-  //   } else {
-  //     text.style.transform =
-  //       "scale(-1, -1) translate3d(0, " + calculateTranslateBottom(pageYOffset, index) + "px, 0)";
-  //   }
-  // }
 });
 
 function setActiveLink(current) {
-  for (let index = 0; index < linesMenuItems.length; index++) {
-    const linesMenuItem = linesMenuItems[index];
+  linesMenuItems.forEach(linesMenuItem => {
     const linkId = linesMenuItem.dataset.link;
-    if (linkId === current.id) {
-      linesMenuItem.classList.add("lines-menu__item-active");
-    } else {
-      linesMenuItem.classList.remove("lines-menu__item-active");
-    }
-  }
+    const action = (linkId === current.id) ? 'add' : 'remove';
+    linesMenuItem.classList.[action]('lines-menu__item-active');
+  });
 }
 
 function findCurrentSection(pageYOffset, breakpoints) {
-  for (let index = 0; index < breakpoints.length; index++) {
-    const breakpoint = breakpoints[index];
+  let result;
+
+  breakpoints.forEach(breakpoint => {
+    if (result) {
+      return;
+    }
+
     if (
       pageYOffset > breakpoint.breakpointTop &&
-      breakpoints[index + 1] ? pageYOffset < breakpoints[index + 1].breakpointTop : true
+        breakpoints[index + 1] ? pageYOffset < breakpoints[index + 1].breakpointTop : true
     ) {
-      return breakpoint.id;
+      result = breakpoint.id;
     }
-  }
+  });
+  return result;
 }
 
 function findCurrentSectionForMenu(pageYOffset, breakpoints) {
@@ -305,26 +253,10 @@ function findCurrentSectionForEffects(pageYOffset, breakpoints) {
 }
 
 function invert(items, isInvert) {
-  if (isInvert) {
-    if (items.length) {
-      for (let index = 0; index < items.length; index++) {
-        const item = items[index];
-        item.classList.add("invert");
-      }
-    } else {
-      items.classList.add("invert");
-    }
-  } else {
-    if (items.length) {
-      for (let index = 0; index < items.length; index++) {
-        const item = items[index];
-        item.classList.remove("invert");
-      }
-    } else {
-      items.classList.remove("invert");
-    }
-  }
-  return;
+  const action = isInvert ? 'add' : 'remove';
+  items = Array.isArray(items) ? items : [items];
+
+  items.forEach(item => item.classList.[action]('invert'));
 }
 
 function calculateTranslateTop(pageYOffset, index) {
