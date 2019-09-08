@@ -84,3 +84,51 @@
 
   @media #{$media-lg-up}
     font-size: 5rem
+
+.animation-section
+
+.animation-row .animation-col-single,
+.animation-row .animation-col-reverse,
+.animation-row .animation-col
+  opacity: 0
+  transition: all 800ms
+
+.section_active .animation-col-single,
+.section_active .animation-col-reverse,
+.section_active .animation-col
+  opacity: 1
+
+.section_higher .animation-col-single
+  transform: translate(0, 6rem)
+
+.section_lower .animation-col-single
+  transform: translate(0, -6rem)
+
+.section_higher .animation-col
+  &:nth-of-type(1)
+    transform: translate(-1rem, -6rem)
+
+  &:nth-of-type(2)
+    transform: translate(1rem, -6rem)
+
+.section_lower .animation-col
+  &:nth-of-type(1)
+    transform: translate(-1rem, 6rem)
+
+  &:nth-of-type(2)
+    transform: translate(1rem, 6rem)
+
+.section_higher .animation-col-reverse
+  &:nth-of-type(1)
+    transform: translate(-1rem, -6rem)
+
+  &:nth-of-type(2)
+    transform: translate(1rem, -6rem)
+
+.section_lower .animation-col-reverse
+  &:nth-of-type(1)
+    transform: translate(-1rem, 6rem)
+
+  &:nth-of-type(2)
+    transform: translate(1rem, 6rem)
+
