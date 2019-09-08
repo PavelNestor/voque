@@ -4,10 +4,10 @@ block vars
   - var navigation = 'development'
 
 block content
-  section#development.development.section-content(data-id='development')
-      #development-content.section-row-reverse.hiddenContent
+  section#development.development.section-content.animation-section(data-id='development')
+      #development-content.section-row-reverse.hiddenContent.animation-row
         +accentMobileLeftWord('development')
-        .section-col-reverse
+        .section-col-reverse.animation-col
           .section_row
             .section_col-left
               
@@ -34,7 +34,7 @@ block content
             .section_col-left
               
 
-        .section-col-reverse
+        .section-col-reverse.animation-col
           
           +accentTestLeftWord('development', '/img/development_img.png')
           //- +accentLeftWord('development', '/img/development_img.png')(class='section-col_development')
