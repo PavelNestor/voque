@@ -10,15 +10,12 @@ block page-content
 
   .advertising-page
     .advertising-page__top
-      //- .page-accent
-      //-   span.page-accent__text.page-accent__text-transparent.text-parallax Advertising
-      //-   .page-accent__text-wrapper
-      //-     .page-accent__bg.box-parallax
-      //-     span.page-accent__text.page-accent__text-white.text-parallax Advertising
-
+      .top-cont
+        span#side.page-accent__text.page-accent__text-white.text-parallax.transition-0 Advertising
 
     .development-page__content.advertising-page__gradient-one.mt-0
-      +pageSideText('Advertising')
+      #side-text-bottom.span.page-accent__text.text-parallax.pos-fix.transition-0 Advertising
+      //- +pageSideText('Advertising')
       +pageTitle('advertising and consulting services')
 
       .page-block.page-wrapper

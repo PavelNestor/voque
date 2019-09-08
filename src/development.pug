@@ -10,14 +10,12 @@ block page-content
 
   .development-page
       .development-page__top
-        //- .page-accent
-        //-   span.page-accent__text.text-parallax development
-        //-   .page-accent__text-wrapper
-        //-     .page-accent__bg.box-parallax
-        //-     span.page-accent__text.page-accent__text-white.text-parallax development
+        .top-cont
+          span#side.page-accent__text.page-accent__text-white.text-parallax.transition-0 development
 
       .development-page__content.development-page__gradient-one.mt-0
-        +pageSideText('development')
+        #side-text-bottom.span.page-accent__text.text-parallax.pos-fix.transition-0 development
+        //- +pageSideText('development')
         +pageTitle('development')
 
         .page-wrapper.mb-50

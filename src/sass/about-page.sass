@@ -5,6 +5,8 @@
   &__top
     background: linear-gradient(90deg, rgba(46, 46, 110, 0.4) 0%, rgba(97, 54, 123, 0.4) 100%), top left / cover no-repeat url('/img/about-page_header.png')
     height: 45rem
+    z-index: 1
+    position: relative
 
   &__content
     background: linear-gradient(90deg, #583E7A 0%, #443B75 100%)
@@ -20,3 +22,23 @@
 
     @media #{$media-lg-up}
       padding: 10rem 1rem 8.8rem 9vw
+
+.abs
+  position: absolute
+  left: 0
+  right: 0
+  top: 0
+
+.top-cont
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  overflow: hidden
+  height: 45rem
+
+.pos-fix
+  position: fixed
+
+.transition-0 
+  transition: none
