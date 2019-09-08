@@ -16,9 +16,12 @@
   &__menu-image
     cursor: pointer
     position: fixed
-    top: 3px
+    top: .7rem
     left: 0
-    padding: 1.5rem
+    padding: 1.5rem 0.6rem
+
+    @media #{$media-sm-plus-up}
+      padding: 1.5rem
 
     &:hover 
       + .hover-logo
