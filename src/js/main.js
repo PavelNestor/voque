@@ -117,7 +117,8 @@ function fillOptions(items) {
     result.push({
       contentId: `${section.id}-content`,
       id: section.id,
-      logoUrl: section.id === 'about' || section.id === 'page' ? '/img/logo-black.svg' : '/img/logo.svg',
+      logoUrl: section.id === 'about' ? '/img/logo-black.svg' : '/img/logo.svg',
+      logoMobileUrl: '/img/logo-black.svg',
       isLogoVisible: section.id !== 'hero',
       isInvert: section.id === 'about',
     })
@@ -172,23 +173,23 @@ function onScroll() {
     sideTextMove();
   }
 
+  currentSection = findCurrentSection(pageYOffset, breakpoints);
+  currentSectionForMenu = findCurrentSectionForMenu(pageYOffset, breakpoints);
+  currentSectionForEffects = findCurrentSectionForEffects(pageYOffset, breakpoints);
+
   if (isScrollDirectionBackwards) {
-    
     // UP SCROLL
-    console.log('mobile', isMobie);
     if (isMobie) {
       logoWrapper.style.top = "0";
-      invert(menuImg, true);
+      invert(menuImg, currentSection !== 'hero');
+    } else {
+      invert(menuImg, currentSection === 'about');
     }
   } else {
     // DOWN SCROLL
     logoWrapper.style.top = "-6rem";
-    invert(menuImg, sections.id === 'page');
+    invert(menuImg, currentSection === 'about');
   }
-
-  currentSection = findCurrentSection(pageYOffset, breakpoints);
-  currentSectionForMenu = findCurrentSectionForMenu(pageYOffset, breakpoints);
-  currentSectionForEffects = findCurrentSectionForEffects(pageYOffset, breakpoints);
 
   if (lastSection !== currentSection) {
     let current = sectionOptions.find(
@@ -197,10 +198,8 @@ function onScroll() {
 
     setActiveLink(current);
 
-    invert(menuImg, current.isInvert);
-
     if (current.isLogoVisible) {
-      logo.src = current.logoUrl;
+      logo.src = isMobie ? current.logoMobileUrl : current.logoUrl
       logoWrapper.classList.add("logo-visible");
     } else {
       logoWrapper.classList.remove("logo-visible");
@@ -211,15 +210,6 @@ function onScroll() {
     let current = sectionOptions.find(
       sectionOpt => sectionOpt.id === currentSectionForMenu
     );
-
-
-    // document.getElementById(current.contentId).classList.remove('fadeInUp');
-
-    // if (lastSectionForEffects !== '') {
-    //   console.log('lastSectionForEffects', lastSectionForEffects);
-
-    //   document.getElementById(lastSectionForEffects).classList.add('fadeInUp');
-    // }
 
     invert(linesMenuItems, current.isInvert);
     lastSectionForEffects = current.contentId;
