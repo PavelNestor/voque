@@ -22,6 +22,9 @@ var logoWrapper = document.getElementById("logo-wrapper");
 var menuImg = document.getElementById("menu-image");
 var sections = Array.from(document.getElementsByTagName("section"));
 var linesMenuItems = document.getElementsByClassName("lines-menu__item");
+var side = document.getElementById("side");
+var contact = document.getElementById("contact");
+var sideTextBottom = document.getElementById("side-text-bottom");
 
 let currentSection = "";
 let currentSectionForMenu = "";
@@ -115,9 +118,22 @@ function onResize() {
 
 onResize();
 
+function sideTextMove() {
+  side.style.transform = `scale(-1, -1) translateY(${document.body.getBoundingClientRect().top}px)`;
+  
+  if (contact.getBoundingClientRect().top < windowHeight) {
+    sideTextBottom.style.transform = `scale(-1, -1) translateY(${windowHeight - contact.getBoundingClientRect().top}px)`;
+  } else {
+    sideTextBottom.style.transform = `scale(-1, -1)`;
+  }
+}
+
 window.addEventListener("resize", onResize);
 
 window.addEventListener("scroll", function() {
+
+  sideTextMove();
+
   if (document.body.getBoundingClientRect().top > lastScrollPosition) {
     // UP SCROLL
     logoWrapper.style.top = "0";
