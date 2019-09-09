@@ -2,13 +2,13 @@ block vars
   - var navigation = 'about'
 
 block content
-  section#about.about.section-content(data-logo-visibility= 'true', data-id='about', data-invert='true')
+  section#about.about.section-content.animation-section(data-logo-visibility= 'true', data-id='about', data-invert='true')
     #about-content.content.hiddenContent
       .side-text-wrapper.box-parallax
         .side-text-about.text-parallax about voqus
         .side-text-about.text-parallax about voqus
-      .about__row
-        .about__col
+      .about__row.animation-row
+        .about__col.animation-col
           .title-wrapper
             h2.title
               span.title__slash /
@@ -16,9 +16,9 @@ block content
               span.title__accent q
               | us
           p.text_bigger.about_mb-18 Voqus.net is an innovative software development and advertising company build on mutual trust and exceptional experience of our team members. 
-          a.button-outline.hide-sm(href='/') read more
+          a.button-outline.hide-sm(href='about.html') read more
 
-        .about__col
+        .about__col.animation-col
           p.text_14-18.about_mb-20-24 The entrepreneurial skills and technology-driven atmosphere of our company makes it possible to bring the most challenging and crazy ideas to life. 
           p.text_14-18.about_mb-18 All this unites into powerful knowledge engine capable of producing unique solutions when it comes to web design, development or digital advertising.
 

@@ -1,27 +1,15 @@
-const handlerToogleMenu = function(user) {
-  "use strict";
-
-  var menuImg = document.getElementById("menu-image");
-  var menuClose = document.getElementById("menu-close");
-  var menuContent = document.getElementById("menu-content");
-
-  const onToogleMenu = () => {
-    menuContent.classList.toggle("menu-show");
-  };
-
-  menuImg.addEventListener("click", onToogleMenu);
-  menuImg.addEventListener("touch", onToogleMenu);
-  menuClose.addEventListener("click", onToogleMenu);
-  // menu.removeEventListener("click", onToogleMenu)
-};
-
-handlerToogleMenu();
+"use strict";
 
 var logo = document.getElementById("logo");
 var logoWrapper = document.getElementById("logo-wrapper");
 var menuImg = document.getElementById("menu-image");
 var sections = Array.from(document.getElementsByTagName("section"));
-var linesMenuItems = document.getElementsByClassName("lines-menu__item");
+var linesMenuItems = Array.from(document.getElementsByClassName("lines-menu__item"));
+var side = document.getElementById("side");
+var contact = document.getElementById("contact");
+var sideTextBottom = document.getElementById("side-text-bottom");
+
+const sectionOptions = fillOptions(sections);
 
 let currentSection = "";
 let currentSectionForMenu = "";
@@ -29,77 +17,127 @@ let currentSectionForEffects = "";
 let lastSection = "";
 let lastSectionForMenu = "";
 let lastSectionForEffects = "";
+let lastScrollPosition = "";
+let lastBlock;
 let windowHeight = 0;
 let breakpoints = [];
-let lastScrollPosition = 0;
+let isPage = document.getElementById('page') !== null;
+let isMobie = false;
 
-const sectionOptions = [
-  {
-    contentId: "hero-content",
-    id: "hero",
-    logoUrl: "img/logo.svg",
-    navbarClass: "hero",
-    scrollClass: "hero",
-    isInvert: false,
-    isLogoVisible: false,
-  },
-  {
-    contentId: "about-content",
-    id: "about",
-    logoUrl: "img/logo-black.svg",
-    navbarClass: "about",
-    scrollClass: "about",
-    isLogoVisible: true,
-    isInvert: true
-  },
-  {
-    contentId: "services-content",
-    id: "services",
-    logoUrl: "img/logo-black.svg",
-    navbarClass: "about",
-    scrollClass: "about",
-    isLogoVisible: true,
-    isInvert: false
-  },
-  {
-    contentId: "development-content",
-    id: "development",
-    logoUrl: "img/logo-black.svg",
-    navbarClass: "about",
-    scrollClass: "about",
-    isLogoVisible: true,
-    isInvert: false
-  },
-  {
-    contentId: "outsource-content",
-    id: "outsource",
-    logoUrl: "img/logo-black.svg",
-    navbarClass: "about",
-    scrollClass: "about",
-    isLogoVisible: true,
-    isInvert: false
-  },
-  {
-    contentId: "outstaffing-content",
-    id: "outstaffing",
-    logoUrl: "img/logo-black.svg",
-    navbarClass: "about",
-    scrollClass: "about",
-    isLogoVisible: true,
-    isInvert: false
-  },
-  {
-    contentId: "contact-content",
-    id: "contact",
-    logoUrl: "img/logo-black.svg",
-    navbarClass: "about",
-    scrollClass: "about",
-    isLogoVisible: true,
-    isInvert: false
+const scrollWatchers = [];
+
+(function() {
+  const parent = document.body;
+  const menuClose = document.getElementById("menu-close");
+  const menuContent = document.getElementById("menu-content");
+
+  const onToogleMenu = () => {
+    menuContent.classList.toggle("menu-show");
+  };
+
+  menuImg.addEventListener("click", onToogleMenu);
+  menuClose.addEventListener("click", onToogleMenu);
+
+  menuImg.addEventListener('mouseover', () => {
+    parent.classList.add('navbar-trigger_active');
+  });
+
+  menuImg.addEventListener('mouseout', () => {
+    parent.classList.remove('navbar-trigger_active');
+  });
+})();
+
+class SectionChangeWatcher {
+  constructor(options) {
+    const DEFAULT_OPTIONS = {
+      breakpoints: [],
+      currentSection: null,
+      name: null,
+      offsetBottom: 0,
+      offsetTop: 0,
+      onChange: () => {},
+      scrollTrigger: true,
+    }
+    options = Object.assign({}, DEFAULT_OPTIONS, options);
+    Object.assign(this, options);
   }
-];
+
+  _init() {
+    if (this.scrollTrigger) {
+      const scrollPosition = document.body.getBoundingClientRect().top;
+      window.addEventListener('scroll', () => this.onScroll(scrollPosition));
+    }
+  }
+
+  setBreakpoints(array) {
+    if (!Array.isArray(array)) {
+      console.warn('"breakpoints" should be an array.')
+    }
+    this.breakpoints = array;
+  }
+
+  setOffsets(top, bottom) {
+    this.offsetTop = top || this.offsetTop;
+    this.offsetBottom = bottom || top;
+  }
+
+  findCurrentSection(breakpoints, scrollPosition, isScrollDirectionBackwards) {
+    if (isScrollDirectionBackwards) {
+      scrollPosition += this.offsetTop;
+      for (let i = breakpoints.length - 1; i >= 0; i--) {
+        if ( breakpoints[i].breakpointTop < scrollPosition ) {
+          return breakpoints[i];
+        }
+      }
+    } else {
+      scrollPosition += this.offsetTop;
+      for (let i = 0; i < breakpoints.length; i++) {
+        if ( breakpoints[i].breakpointTop > scrollPosition ) {
+          return breakpoints[i - 1];
+        }
+      }
+    }
+
+    return isScrollDirectionBackwards ?
+      breakpoints[0] :
+      breakpoints[breakpoints.length - 1];
+  }
+
+  onScroll(scrollPosition) {
+    const currentSection = this.findCurrentSection(
+      this.breakpoints,
+      scrollPosition,
+      this.scrollPosition < scrollPosition
+    );
+
+    this.scrollPosition = scrollPosition;
+    if (this.currentSection === currentSection) {
+      return;
+    }
+
+    this.currentSection = currentSection;
+    this.onChange(currentSection);
+  }
+}
+
+function fillOptions(items) {
+  let result = [];
+  items.map(section => {
+    result.push({
+      contentId: `${section.id}-content`,
+      id: section.id,
+      logoUrl: section.id === 'about' ? '/img/logo-black.svg' : '/img/logo.svg',
+      logoMobileUrl: '/img/logo-black.svg',
+      isLogoVisible: section.id !== 'hero',
+      isInvert: section.id === 'about',
+    })
+  });
+
+  return result;
+}
 
 function onResize() {
+  isMobie = document.documentElement.clientWidth < 1024;
   breakpoints = [];
   windowHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
   const offset = Math.ceil(windowHeight / 2);
@@ -111,56 +149,54 @@ function onResize() {
       offset
     });
   });
+
+  scrollWatchers.forEach(scrollWatcher => {
+    scrollWatcher.setBreakpoints(breakpoints);
+    scrollWatcher.setOffsets( offset );
+  });
 }
 
-onResize();
+function sideTextMove() {
+  side.style.transform = `scale(-1, -1) translateY(${document.body.getBoundingClientRect().top}px)`;
 
-window.addEventListener("resize", onResize);
-
-window.addEventListener("scroll", function() {
-  if (document.body.getBoundingClientRect().top > lastScrollPosition) {
-    // UP SCROLL
-    logoWrapper.style.top = "0";
-    invert(menuImg, true);
-
-     // ANIMATION
-    if (lastSectionForEffects !== currentSectionForEffects) {
-      let current = sectionOptions.find(
-        sectionOpt => sectionOpt.id === currentSectionForMenu
-      );
-
-      document.getElementById(current.contentId).classList.remove('fadeInDown');
-      document.getElementById(current.contentId).classList.remove('hiddenContent');
-      
-      if (lastSectionForEffects !== '') {
-        document.getElementById(lastSectionForEffects).classList.add('fadeInDown');
-        // document.getElementById(lastSectionForEffects).classList.add('hiddenContent');
-      }
-    }
+  if (contact.getBoundingClientRect().top < windowHeight) {
+    sideTextBottom.style.transform = `scale(-1, -1) translateY(${windowHeight - contact.getBoundingClientRect().top}px)`;
   } else {
-    // DOWN SCROLL
-    logoWrapper.style.top = "-6rem";
-    invert(menuImg, false);
+    sideTextBottom.style.transform = `scale(-1, -1)`;
+  }
+}
 
-     // ANIMATION
-    if (lastSectionForEffects !== currentSectionForEffects) {
-      let current = sectionOptions.find(
-        sectionOpt => sectionOpt.id === currentSectionForMenu
-      );
+function onScroll() {
+  const scrollPosition = document.body.getBoundingClientRect().top;
+  const isScrollDirectionBackwards = scrollPosition > lastScrollPosition;
+  let currentSection;
+  let currentBlock = findCurrentBlock(breakpoints, -scrollPosition, isScrollDirectionBackwards);
 
-      document.getElementById(current.contentId).classList.remove('fadeInUp');
-      document.getElementById(current.contentId).classList.remove('hiddenContent');
-      
-      if (lastSectionForEffects !== '') {
-        document.getElementById(lastSectionForEffects).classList.add('fadeInUp');
-        // document.getElementById(lastSectionForEffects).classList.add('hiddenContent');
-      }
-    }
+  scrollWatchers.forEach(scrollWatcher => {
+    scrollWatcher.onScroll(-scrollPosition);
+  });
+  
+  if (isPage) {
+    sideTextMove();
   }
 
   currentSection = findCurrentSection(pageYOffset, breakpoints);
   currentSectionForMenu = findCurrentSectionForMenu(pageYOffset, breakpoints);
   currentSectionForEffects = findCurrentSectionForEffects(pageYOffset, breakpoints);
+
+  if (isScrollDirectionBackwards) {
+    // UP SCROLL
+    if (isMobie) {
+      logoWrapper.style.top = "0";
+      invert(menuImg, currentSection !== 'hero');
+    } else {
+      invert(menuImg, currentSection === 'about');
+    }
+  } else {
+    // DOWN SCROLL
+    logoWrapper.style.top = "-6rem";
+    invert(menuImg, currentSection === 'about');
+  }
 
   if (lastSection !== currentSection) {
     let current = sectionOptions.find(
@@ -168,10 +204,9 @@ window.addEventListener("scroll", function() {
     );
 
     setActiveLink(current);
-    invert(menuImg, current.isInvert);
 
     if (current.isLogoVisible) {
-      logo.src = current.logoUrl;
+      logo.src = isMobie ? current.logoMobileUrl : current.logoUrl
       logoWrapper.classList.add("logo-visible");
     } else {
       logoWrapper.classList.remove("logo-visible");
@@ -183,68 +218,20 @@ window.addEventListener("scroll", function() {
       sectionOpt => sectionOpt.id === currentSectionForMenu
     );
 
-
-    // document.getElementById(current.contentId).classList.remove('fadeInUp');
-    
-    // if (lastSectionForEffects !== '') {
-    //   console.log('lastSectionForEffects', lastSectionForEffects);
-      
-    //   document.getElementById(lastSectionForEffects).classList.add('fadeInUp');
-    // }
-
     invert(linesMenuItems, current.isInvert);
     lastSectionForEffects = current.contentId;
   }
 
-  lastSection = currentSection;
+
   lastSectionForMenu = currentSectionForMenu;
-  lastScrollPosition = document.body.getBoundingClientRect().top;
+  lastScrollPosition = scrollPosition;
+  lastSection = currentSection;
+  lastBlock = currentBlock;
+}
 
-  // //parallax
-  // var textParallax = document.getElementsByClassName("text-parallax");
-  // var boxParallax = document.getElementsByClassName("box-parallax");
-  // for (let index = 0; index < boxParallax.length; index++) {
-  //   const box = boxParallax[index];
-  //   const top = box.getBoundingClientRect().top;
+window.addEventListener('resize', onResize);
 
-  //   if (top < 200 && top > -900) {
-  //     for (let index = 0; index < textParallax.length; index++) {
-  //       const text = textParallax[index];
-  //       if (
-  //         index == 0 ||
-  //         index == 1 ||
-  //         index == 4 ||
-  //         index == 5 ||
-  //         index == 8 ||
-  //         index == 9
-  //       ) {
-  //         text.style.transform =
-  //           "scale(-1, -1) translate3d(0, " + pageYOffset * 0.1 + "px, 0)";
-  //       } else {
-  //         text.style.transform =
-  //           "scale(-1, -1) translate3d(0, " + pageYOffset * -0.1 + "px, 0)";
-  //       }
-  //     }
-  //   }
-  // }
-
-  // //parallax mobile
-  // var textParallaxMobile = document.getElementsByClassName(
-  //   "text-parallax-mobile"
-  // );
-
-  // for (let index = 0; index < textParallaxMobile.length; index++) {
-  //   const text = textParallaxMobile[index];
-
-  //   if (index == 2 || index == 3 || index == 6 || index == 7) {
-  //     text.style.transform =
-  //       "scale(-1, -1) translate3d(0, " + calculateTranslateTop(pageYOffset, index) + "px, 0)";
-  //   } else {
-  //     text.style.transform =
-  //       "scale(-1, -1) translate3d(0, " + calculateTranslateBottom(pageYOffset, index) + "px, 0)";
-  //   }
-  // }
-});
+window.addEventListener('scroll', onScroll);
 
 function setActiveLink(current) {
   for (let index = 0; index < linesMenuItems.length; index++) {
@@ -265,7 +252,7 @@ function findCurrentSection(pageYOffset, breakpoints) {
       pageYOffset > breakpoint.breakpointTop &&
       breakpoints[index + 1] ? pageYOffset < breakpoints[index + 1].breakpointTop : true
     ) {
-      return breakpoint.id;
+      return breakpoint && breakpoint.id;
     }
   }
 }
@@ -274,7 +261,7 @@ function findCurrentSectionForMenu(pageYOffset, breakpoints) {
   for (let index = 0; index < breakpoints.length; index++) {
     const breakpoint = breakpoints[index];
     if (
-      pageYOffset > breakpoint.breakpointTop - breakpoint.offset &&
+      pageYOffset > breakpoint.breakpointTop &&
       breakpoints[index + 1] ? pageYOffset < breakpoints[index + 1].breakpointTop - breakpoints[index + 1].offset : true
     ) {
       return breakpoint.id;
@@ -295,26 +282,10 @@ function findCurrentSectionForEffects(pageYOffset, breakpoints) {
 }
 
 function invert(items, isInvert) {
-  if (isInvert) {
-    if (items.length) {
-      for (let index = 0; index < items.length; index++) {
-        const item = items[index];
-        item.classList.add("invert");
-      }
-    } else {
-      items.classList.add("invert");
-    }
-  } else {
-    if (items.length) {
-      for (let index = 0; index < items.length; index++) {
-        const item = items[index];
-        item.classList.remove("invert");
-      }
-    } else {
-      items.classList.remove("invert");
-    }
-  }
-  return;
+  const action = isInvert ? 'add' : 'remove';
+  items = Array.isArray(items) ? items : [items];
+
+  items.forEach(item => item.classList[action]('invert'));
 }
 
 function calculateTranslateTop(pageYOffset, index) {
@@ -384,3 +355,169 @@ form.addEventListener(
   },
   false
 );
+
+// loading status
+const loading = {
+  avgTime: 3000,
+  finished: false,
+  preloader: document.querySelector('.preloader'),
+  preloaderBar: document.querySelector('.preloader > .preloaderBar'),
+  state: 0,
+  trg: 1,
+
+  loaded: function (force) {
+    if(++loading.state === loading.trg || force === true) {
+      loading.status(1);
+      setTimeout(loading.done, 500);
+    } else {
+      loading.status(loading.state / loading.trg / 1.1);
+    }
+  },
+
+  status: function (mult) {
+    if (loading.finished) {
+      return;
+    }
+    const value = Math.ceil(mult * 100);
+    loading.preloaderBar.style.width = `${value}%`;
+  },
+
+  restart: function () {
+    loading.status(0);
+    loading.preloader.classList.remove('preloader_loaded');
+  },
+
+  done: function () {
+    if (loading.finished) {
+      return;
+    }
+
+    // hide preloader
+    loading.preloader.classList.add('preloader_loaded');
+    loading.status(0);
+    loading.finished = true;
+
+  }
+};
+
+// force loading status
+setTimeout(function () {
+  loading.loaded(true);
+}, 10000);
+
+// on load
+window.onload = function() {
+  loading.loaded(true);
+};
+
+// on ready
+function ready(fn) {
+  if (document.readyState != 'loading'){
+    fn();
+  } else {
+    document.addEventListener('DOMContentLoaded', fn);
+  }
+}
+
+ready(() => {
+  const images = Array.from( document.querySelectorAll('img') );
+  images.forEach(image => {
+    if (image.complete) {
+      return;
+    }
+    loading.trg++;
+    image.addEventListener('load', loading.loaded);
+  });
+
+  const links = Array.from( document.querySelectorAll('a') );
+  links.forEach(link => {
+    const href = link.getAttribute('href');
+    const ifNoReload = new RegExp('^#|mailto|tel').test(href);
+
+    if (!href || ifNoReload) {
+      return;
+    }
+
+    link.addEventListener('click', e => {
+      loading.restart();
+      e.preventDefault();
+
+      setTimeout(() => {
+        document.location.href = href;
+      }, 400);
+    });
+  });
+
+  scrollWatchers.push( new SectionChangeWatcher({
+    name: 'animations',
+    onChange: data => {
+      setActiveSection(data.id, sections);
+    },
+    scrollTrigger: false,
+  }));
+
+  onResize();
+  onScroll();
+});
+
+function findCurrentBlock(breakpoints, scrollPosition, isScrollDirectionBackwards, offset) {
+  if (!Array.isArray(offset)) {
+    offset = [0, 0];
+  }
+
+  if (isScrollDirectionBackwards) {
+    for (let i = breakpoints.length - 1; i >= 0; i--) {
+      if ( breakpoints[i].breakpointTop < scrollPosition ) {
+        return breakpoints[i];
+      }
+    }
+  } else {
+    for (let i = 0; i < breakpoints.length; i++) {
+      if ( breakpoints[i].breakpointTop > scrollPosition ) {
+        return breakpoints[i - 1];
+      }
+    }
+  }
+
+  return isScrollDirectionBackwards ?
+    breakpoints[0] :
+    breakpoints[breakpoints.length - 1];
+}
+
+function setActiveSection(id, sections) {
+  let isActiveSet;
+
+  sections.forEach(section => {
+    const STATE_CLASSES = ['section_active', 'section_higher', 'section_lower'];
+    let currentState;
+
+    if (section.id === id) {
+      currentState = 0;
+      isActiveSet = true;
+    } else if (isActiveSet) {
+      currentState = 2;
+    } else {
+      currentState = 1;
+    }
+
+    STATE_CLASSES.map((className, i, array) => {
+      const action = i === currentState ? 'add' : 'remove';
+      section.classList[action](className);
+    });
+  })
+}
+
+(function () {
+  const trigger = document.querySelector('.navbar-trigger');
+  const parent = document.body;
+
+  trigger.addEventListener('mouseover', () => {
+    parent.classList.add('navbar-trigger_active');
+  });
+
+  trigger.addEventListener('mouseout', () => {
+    parent.classList.remove('navbar-trigger_active');
+  });
+
+})();
+

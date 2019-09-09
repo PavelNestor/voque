@@ -6,14 +6,25 @@
   position: fixed
   transition: .5s
   width: 100%
-  z-index: 10
+  z-index: -100
+  text-align: center
+
+  @media #{$media-sm-plus-up}
+    text-align: left
 
   &__img
     cursor: pointer
     z-index: 20
+    position: absolute
+    top: .8rem
+    left: 0
+    padding: 1.5rem 0.6rem
+
+    @media #{$media-sm-plus-up}
+      padding: 1.5rem
 
   &__logo
-    padding-left: 8rem
+    padding-left: calc(9vw - 4rem)
     z-index: 20
 
   &__item
@@ -23,13 +34,17 @@
 .menu-show
   height: 100%
   top: 0
+  z-index: 101
 
 .menu-bottom-text-wrapper
   position: absolute
-  bottom: -3rem
+  bottom: -4vw
+  left: 0
+  right: 0
+  z-index: -10
 
 .menu-bottom-text
-  font-size: 9vh
+  font-size: 11vw
   line-height: .8em
   color: transparent
   font-family: 'Montserrat-Bold'
@@ -69,3 +84,58 @@
 
   @media #{$media-lg-up}
     font-size: 5rem
+
+.animation-section
+
+.animation-row .animation-col-single,
+.animation-row .animation-col-reverse,
+.animation-row .animation-col
+  opacity: 0
+  transition: all 600ms
+
+.animation-row .animation-col-reverse,
+.animation-row .animation-col
+  &:nth-of-type(1)
+    transition-delay: none
+    @media #{$media-sm-plus-up}
+      transition-delay: .2s
+
+.section_active .animation-col-single,
+.section_active .animation-col-reverse,
+.section_active .animation-col
+  opacity: 1
+
+.section_higher .animation-col-single
+  transform: translate(0, 6rem)
+
+.section_lower .animation-col-single
+  transform: translate(0, -6rem)
+
+.section_higher .animation-col
+  &:nth-of-type(1)
+    transform: translate(0, -6rem)
+
+  &:nth-of-type(2)
+    transform: translate(0, -6rem)
+
+.section_lower .animation-col
+  &:nth-of-type(1)
+    transform: translate(0, 6rem)
+
+  &:nth-of-type(2)
+    transform: translate(0, 6rem)
+
+.section_higher .animation-col-reverse
+  &:nth-of-type(1)
+    transform: translate(0, -6rem)
+
+  &:nth-of-type(2)
+    transform: translate(0, -6rem)
+
+.section_lower .animation-col-reverse
+  &:nth-of-type(1)
+    transform: translate(0, 6rem)
+
+  &:nth-of-type(2)
+    transform: translate(0, 6rem)
+
