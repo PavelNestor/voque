@@ -5,6 +5,8 @@
 /build
 src/img/content/*
 /templates
+/original-img
+
 
 # System Files
 *.zip
