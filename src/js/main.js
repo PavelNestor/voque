@@ -8,6 +8,7 @@ var linesMenuItems = Array.from(document.getElementsByClassName("lines-menu__ite
 var side = document.getElementById("side");
 var contact = document.getElementById("contact");
 var sideTextBottom = document.getElementById("side-text-bottom");
+var contactLink = document.getElementById("contact-link");
 
 const sectionOptions = fillOptions(sections);
 
@@ -30,6 +31,8 @@ const scrollWatchers = [];
   const parent = document.body;
   const menuClose = document.getElementById("menu-close");
   const menuContent = document.getElementById("menu-content");
+
+  contactLink.addEventListener('click', () => menuContent.classList.toggle("menu-show"));
 
   const onToogleMenu = () => {
     menuContent.classList.toggle("menu-show");
