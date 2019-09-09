@@ -19,7 +19,7 @@
 //----------------------------------
 
 .preloader
-  background: center no-repeat url('/img/logo.svg'), linear-gradient(90deg, #21204D 0%, #3A2453 100%)
+  background: inear-gradient(90deg, #21204D 0%, #3A2453 100%)
   bottom: 0
   left: 0
   position: fixed
@@ -28,14 +28,27 @@
   z-index: 9999
   transition: transform 400ms
 
+  &::before
+    background: center no-repeat url('/img/logo.svg')
+    content: ''
+    position: absolute
+    right: 0
+    top: 0
+    bottom: 0
+    left: 0
+    z-index: 99999
+
   &_loaded
     transform: translateX(100%)
     pointer-events: none
 
   .preloaderBar
-    background: #56CCF2
-    height: .2rem
+    background: #3A2453
+    // height: .2rem
     left: 0
     position: absolute
     right: 0
     top: 0
+    bottom: 0
+
+    
