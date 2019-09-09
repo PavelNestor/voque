@@ -27,8 +27,9 @@ let isMobie = false;
 const scrollWatchers = [];
 
 (function() {
-  var menuClose = document.getElementById("menu-close");
-  var menuContent = document.getElementById("menu-content");
+  const parent = document.body;
+  const menuClose = document.getElementById("menu-close");
+  const menuContent = document.getElementById("menu-content");
 
   const onToogleMenu = () => {
     menuContent.classList.toggle("menu-show");
@@ -36,6 +37,14 @@ const scrollWatchers = [];
 
   menuImg.addEventListener("click", onToogleMenu);
   menuClose.addEventListener("click", onToogleMenu);
+
+  menuImg.addEventListener('mouseover', () => {
+    parent.classList.add('navbar-trigger_active');
+  });
+
+  menuImg.addEventListener('mouseout', () => {
+    parent.classList.remove('navbar-trigger_active');
+  });
 })();
 
 class SectionChangeWatcher {
@@ -124,8 +133,6 @@ function fillOptions(items) {
     })
   });
 
-  console.log('result',result);
-  
   return result;
 }
 

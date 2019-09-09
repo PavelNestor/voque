@@ -47,7 +47,7 @@
       content: ''
       pointer-events: none
       position: fixed
-      transition: transform 200ms
+      transition: transform 400ms ease-out
 
   &:before
     bottom: 0
@@ -91,13 +91,15 @@
 
     & > *
       transform: translateY(-200%)
-      transition: transform 400ms
+      transition: transform 600ms ease-out
 
+  &_active &,
   &:hover
     &:before,
     &:after
       transform: scaleX(1)
 
+  &_active &__content,
   &:hover &__content
     &:before,
     &:after
