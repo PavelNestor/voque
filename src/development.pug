@@ -4,10 +4,6 @@ block vars
   - var title = 'Development'
 
 block page-content
-  span#logo-wrapper.logo-wrapper.logo-visible
-      a(href="index.html")
-        img(src='img/logo.svg', id='logo')
-
   section#page.development-page.animation-col-single
       .development-page__top
         .top-cont
@@ -144,8 +140,6 @@ block page-content
                     .list__item Bot behavior data accumulation from multiple websites
                     .list__item False-positive prevention 
 
-
-
       .development-page__content.development-page__gradient-two.pt-0
         .ds-wrapper
           +pageSubheader('Ad operation Services')(class='development-page__bg-operation page-image-block__top')
@@ -172,3 +166,7 @@ block page-content
             h4.page-subtitle Day-to-Day Assistance
             p.page-text This We will assist you in managing your daily routine tasks. Whether it’s a guaranteed, retargeting or display campaign, our ad ops team can cope with any complicated task.
             p.page-text.mb-md-50 This Our dedicated ad ops experts are experienced in campaign management and optimization, ad trafficking, buying and selling different types of inventory. We can handle any client request and complete a project quickly and accurately.
+
+  span#logo-wrapper.logo-wrapper.logo-visible
+      a(href="index.html")
+        img(src='img/logo.svg', id='logo')
