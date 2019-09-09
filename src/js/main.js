@@ -505,3 +505,17 @@ function setActiveSection(id, sections) {
   })
 }
 
+(function () {
+  const trigger = document.querySelector('.navbar-trigger');
+  const parent = document.body;
+
+  trigger.addEventListener('mouseover', () => {
+    parent.classList.add('navbar-trigger_active');
+  });
+
+  trigger.addEventListener('mouseout', () => {
+    parent.classList.remove('navbar-trigger_active');
+  });
+
+})();
+
