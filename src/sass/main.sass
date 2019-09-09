@@ -28,28 +28,27 @@
   z-index: 9999
   transition: transform 400ms
 
+  &::after
+    background: center no-repeat url('/img/logo.svg')
+    content: ''
+    position: absolute
+    right: 0
+    top: 0
+    bottom: 0
+    left: 0
+    z-index: 99999
+
   &_loaded
     transform: translateX(100%)
     pointer-events: none
 
   .preloaderBar
     background: #3A2453
-    // height: .2rem
     left: 0
     position: absolute
     right: 0
     top: 0
     bottom: 0
-
-    &::after
-      background: center no-repeat url('/img/logo.svg')
-      content: ''
-      position: absolute
-      right: 0
-      top: 0
-      bottom: 0
-      left: 0
-      // z-index: 99999
 
 .cache-images
   position: absolute
