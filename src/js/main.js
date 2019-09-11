@@ -119,6 +119,7 @@ class SectionChangeWatcher {
     }
 
     this.currentSection = currentSection;
+    
     this.onChange(currentSection);
   }
 }
@@ -145,13 +146,15 @@ function onResize() {
   windowHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
   const offset = Math.ceil(windowHeight / 2);
 
-  sections.forEach(section => {
-    breakpoints.push({
-      id: section.id,
-      breakpointTop: section.offsetTop,
-      offset
+  setTimeout(() => {
+    sections.forEach(section => {
+      breakpoints.push({
+        id: section.id,
+        breakpointTop: section.offsetTop,
+        offset
+      });
     });
-  });
+  }, 1000);
 
   scrollWatchers.forEach(scrollWatcher => {
     scrollWatcher.setBreakpoints(breakpoints);
@@ -205,6 +208,9 @@ function onScroll() {
     let current = sectionOptions.find(
       sectionOpt => sectionOpt.id === currentSection
     );
+
+    console.log('current', current);
+    
 
     setActiveLink(current);
 
@@ -523,4 +529,3 @@ function setActiveSection(id, sections) {
   });
 
 })();
-
