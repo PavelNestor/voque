@@ -10,17 +10,17 @@ mixin accentWord(word, src)
       img.section-block__image.box-parallax(src= src, alt= word)
       span.section-block__text.section-block__text-white.text-parallax= word
 
-mixin accentLeftWord(word, src)
-  .section-wrapper-text.hide-mobile
-    span.section-block__text.section-block__text-left= word
-    .section-block(class!=attributes.class)
-      span.section-block__text.section-block__text-left.section-block__text-white= word
+//- mixin accentLeftWord(word, src)
+//-   .section-wrapper-text.hide-mobile
+//-     span.section-block__text.section-block__text-left= word
+//-     .section-block(class!=attributes.class)
+//-       span.section-block__text.section-block__text-left.section-block__text-white= word
 
-  .section-block.hide-desktop
-    span.section-block__text.section-block__text-left.text-parallax= word
-    .section-block__text-wrapper
-      img.section-block__image.box-parallax(src= src, alt= word)
-      span.section-block__text.section-block__text-left.section-block__text-white.text-parallax= word
+//-   .section-block.hide-desktop
+//-     span.section-block__text.section-block__text-left.text-parallax= word
+//-     .section-block__text-wrapper
+//-       img.section-block__image.box-parallax(src= src, alt= word)
+//-       span.section-block__text.section-block__text-left.section-block__text-white.text-parallax= word
     
 
 mixin accentMobileWord(word)
@@ -42,13 +42,13 @@ mixin accentTestWord(word, src)
   .section-wrapper-text.hide-mobile
     span.section-block__text.section-block__text-left= word
     .section-block-test-wrapper
-      img.section-block-test(src= src, alt= word)
+      +picture(src, word, 'cover')(class='section-block-test')
       span.section-block__text.section-block__text-left.section-block__text-white= word
     
   .section-block.hide-desktop
     span.section-block__text.section-block__text-left.text-parallax= word
     .section-block__text-wrapper
-      img.section-block__image.box-parallax(src= src, alt= word)
+      +picture(src, word, 'cover')(class='section-block__image box-parallax')
       span.section-block__text.section-block__text-left.section-block__text-white.text-parallax= word
 
 
@@ -56,13 +56,14 @@ mixin accentTestLeftWord(word, src)
   .section-wrapper-text.hide-mobile
     span.section-block__text= word
     .section-block-test-wrapper
-      img.section-block-test(src= src, alt= word)
+      +picture(src, word, 'cover')(class='section-block-test')
       span.section-block__text.section-block__text-white= word
     
   .section-block.hide-desktop
     span.section-block__text.text-parallax= word
     .section-block__text-wrapper
-      img.section-block__image.box-parallax(src= src, alt= word)
+      +picture(src, word, 'cover')(class='section-block__image box-parallax')
+      //- img.section-block__image.box-parallax(src= src, alt= word)
       span.section-block__text.section-block__text-white.text-parallax= word
 
 
@@ -83,3 +84,10 @@ mixin pageSideText(text)
   .pst
     .pst__wrapper
       span.pst__text= text
+
+
+mixin picture(path, alt='', style='cover')
+  picture.picture(id!=attributes.id)&attributes(attributes)
+    source(srcset=`${path}.webp` type="image/webp")
+    source(srcset=`${path}.jpg` type="image/jpeg")
+    img.wh-100(srcset=`${path}.jpg`  style=`object-fit: ${style};`)
