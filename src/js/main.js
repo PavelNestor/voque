@@ -207,9 +207,6 @@ function onScroll() {
       sectionOpt => sectionOpt.id === currentSection
     );
 
-    console.log('current', current);
-    
-
     setActiveLink(current);
 
     if (current.isLogoVisible) {
