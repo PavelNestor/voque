@@ -30,7 +30,11 @@
     "type": "git",
     "url": "https://github.com/PavelNestor/voque"
   },
-  "keywords": ["HTML", "CSS", "JavaScript"],
+  "keywords": [
+    "HTML",
+    "CSS",
+    "JavaScript"
+  ],
   "author": "PavelNestor",
   "license": "ISC",
   "bugs": {
